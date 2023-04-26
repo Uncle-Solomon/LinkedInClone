@@ -106,7 +106,7 @@ const Navigation = () => {
           </span>
           For Business
         </div>
-        <a href="#">
+        <a href="#" className=" underline text-[#b0a113]">
           <p>Get Hired Faster.</p> <p>Try Premium Free</p>
         </a>
       </div>
