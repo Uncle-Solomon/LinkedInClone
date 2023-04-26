@@ -13,7 +13,7 @@ const Feed = () => {
         <div className=" col-span-3">
           <SideNavLeft />
         </div>
-        <div className=" col-span-6">
+        <div className=" col-span-6 px-2">
           <StartPost />
           <Post />
         </div>

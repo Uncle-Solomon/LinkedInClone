@@ -1,6 +1,8 @@
 import React from "react";
 import profilepicture from "../assets/profilepic.jpeg";
 import { HiOutlinePhotograph } from "react-icons/hi";
+import { BsFillPlayBtnFill, BsFillCalendarDateFill } from "react-icons/bs";
+import { MdArticle } from "react-icons/md";
 
 const StartPost = () => {
   return (
@@ -10,21 +12,25 @@ const StartPost = () => {
         <input
           type="text"
           placeholder="Start a post"
-          className="h-10 w-[80%] rounded-3xl border border-gray-800 px-3 text-sm"
+          className="h-10 w-[80%] rounded-3xl outline-none border border-gray-800 px-3 text-sm"
         />
       </div>
-      <div className="flex gap-2 justify-between mt-4">
+      <div className="flex gap-2 justify-between mt-4 text-sm">
         <span>
-          <HiOutlinePhotograph className="inline-block h-6 w-6 mr-2" /> Photo
+          <HiOutlinePhotograph className="inline-block h-6 w-8 mr-1 text-blue-600" />{" "}
+          Photo
         </span>
         <span>
-          <HiOutlinePhotograph className="inline-block h-6 w-6 mr-2" /> Photo
+          <BsFillPlayBtnFill className="inline-block h-4 w-6 mr-1 text-green-800" />{" "}
+          Video
         </span>
         <span>
-          <HiOutlinePhotograph className="inline-block h-6 w-6 mr-2" /> Photo
+          <BsFillCalendarDateFill className="inline-block h-4 w-4 mr-1 text-amber-600 " />{" "}
+          Event
         </span>
         <span>
-          <HiOutlinePhotograph className="inline-block h-6 w-6 mr-2" /> Photo
+          <MdArticle className="inline-block h-4 w-4 mr-1 text-orange-700" />{" "}
+          Write Article
         </span>
       </div>
     </div>
