@@ -33,11 +33,11 @@ const SideNavLeft = () => {
 
           <hr className="w-[95%] my-5 " />
 
-          <h3 className="text-md text-gray-600 font-semibold mb-4 ">
+          <h3 className="text-md text-gray-500 font-semibold mb-4 ">
             <BsPersonHearts className="inline mr-3" />
             Groups
           </h3>
-          <h3 className="text-md text-gray-600 font-semibold mb-4 ">
+          <h3 className="text-md text-gray-500 font-semibold mb-4 ">
             <BsFillCalendarDateFill className="inline mr-3" />
             Events
           </h3>

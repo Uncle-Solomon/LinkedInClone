@@ -15,7 +15,7 @@ const StartPost = () => {
           className="h-10 w-[80%] rounded-3xl outline-none border border-gray-800 px-3 text-sm"
         />
       </div>
-      <div className="flex gap-2 justify-between mt-4 text-sm">
+      <div className="flex gap-2 justify-between mt-4 text-sm mr-2">
         <span>
           <HiOutlinePhotograph className="inline-block h-6 w-8 mr-1 text-blue-600" />{" "}
           Photo
