@@ -6,7 +6,7 @@ import { MdArticle } from "react-icons/md";
 
 const StartPost = () => {
   return (
-    <div className="border rounded-md p-2 mb-4">
+    <div className="border rounded-md p-2 mb-4 bg-white">
       <div className="flex gap-2">
         <img src={profilepicture} className="w-10 h-10 rounded-full" />
         <input
