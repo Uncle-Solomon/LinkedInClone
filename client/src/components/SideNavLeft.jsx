@@ -1,6 +1,11 @@
 import React from "react";
 import profilepicture from "../assets/profilepic.jpeg";
 import background from "../assets/background.png";
+import {
+  BsPersonHearts,
+  BsFillCalendarDateFill,
+  BsSlashSquareFill,
+} from "react-icons/bs";
 
 const SideNavLeft = () => {
   return (
@@ -24,6 +29,25 @@ const SideNavLeft = () => {
           <p className="text-xs font-thin">
             <span className="font-semibold mr-0.5 text-sm">30</span> post
             impressions
+          </p>
+
+          <hr className="w-[95%] my-5 " />
+
+          <h3 className="text-md text-gray-600 font-semibold mb-4 ">
+            <BsPersonHearts className="inline mr-3" />
+            Groups
+          </h3>
+          <h3 className="text-md text-gray-600 font-semibold mb-4 ">
+            <BsFillCalendarDateFill className="inline mr-3" />
+            Events
+          </h3>
+        </div>
+        <hr className="w-full my-5 " />
+        <div className="pl-3 ">
+          <p className="text-sm font-thin">Access exclusive tools & Insights</p>
+          <p className="text-sm mt-2 font-bold">
+            <BsSlashSquareFill className="inline mr-1 w-4 h-4 text-amber-500" />
+            Try Premium for free
           </p>
         </div>
       </div>

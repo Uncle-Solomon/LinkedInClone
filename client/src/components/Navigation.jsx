@@ -26,7 +26,7 @@ const Navigation = () => {
         <img src={logo} className="h-8 w-8" />
         <div className="w-auto">
           <span>
-            <BsSearch className="w-4 h-4 text-gray-500 hover:text-black active:border-b-2 mx-auto" />
+            <BsSearch className="w-4 h-4  hover:text-black active:border-b-2 mx-auto" />
           </span>
           Search
         </div>
@@ -35,8 +35,10 @@ const Navigation = () => {
       <div className=" border-r-2 border-gray-100 pr-2">
         <ul className="flex gap-5 items-center">
           <li
-            className={`w-auto text-gray-500 hover:text-black cursor-pointer ${
-              clicked === 0 ? "border-b-2 border-black text-black" : ""
+            className={`w-auto  hover:text-black cursor-pointer ${
+              clicked === 0
+                ? "border-b-2 border-black text-black"
+                : "text-gray-500"
             } `}
             onClick={() => handleClick(0)}
           >
@@ -46,8 +48,10 @@ const Navigation = () => {
             Home
           </li>
           <li
-            className={`w-auto text-gray-500 hover:text-black cursor-pointer ${
-              clicked === 1 ? "border-b-2 border-black text-black" : ""
+            className={`w-auto  hover:text-black cursor-pointer ${
+              clicked === 1
+                ? "border-b-2 border-black text-black"
+                : "text-gray-500"
             } `}
             onClick={() => handleClick(1)}
           >
@@ -57,8 +61,10 @@ const Navigation = () => {
             My Network
           </li>
           <li
-            className={`w-auto text-gray-500 hover:text-black cursor-pointer ${
-              clicked === 2 ? "border-b-2 border-black text-black" : ""
+            className={`w-auto  hover:text-black cursor-pointer ${
+              clicked === 2
+                ? "border-b-2 border-black text-black"
+                : "text-gray-500"
             } `}
             onClick={() => handleClick(2)}
           >
@@ -68,8 +74,10 @@ const Navigation = () => {
             Jobs
           </li>
           <li
-            className={`w-auto text-gray-500 hover:text-black cursor-pointer ${
-              clicked === 3 ? "border-b-2 border-black text-black" : ""
+            className={`w-auto  hover:text-black cursor-pointer ${
+              clicked === 3
+                ? "border-b-2 border-black text-black"
+                : "text-gray-500"
             } `}
             onClick={() => handleClick(3)}
           >
@@ -79,8 +87,10 @@ const Navigation = () => {
             Messaging
           </li>
           <li
-            className={`w-auto text-gray-500 hover:text-black cursor-pointer ${
-              clicked === 4 ? "border-b-2 border-black text-black" : ""
+            className={`w-auto  hover:text-black cursor-pointer ${
+              clicked === 4
+                ? "border-b-2 border-black text-black"
+                : "text-gray-500"
             } `}
             onClick={() => handleClick(4)}
           >
