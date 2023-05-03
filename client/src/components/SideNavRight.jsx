@@ -5,6 +5,7 @@ import { RiChatSmile3Fill } from "react-icons/ri";
 
 import ebuka from "../assets/ebuka.jpeg";
 import ad from "../assets/ad.png";
+import RandomFooter from "./RandomFooter";
 
 const SideNavRight = () => {
   return (
@@ -79,32 +80,7 @@ const SideNavRight = () => {
       </div>
       <div className="rounded-md pb-2 w-[90%] mx-auto mt-2">
         <img src={ad} className=" w-full cursor-pointer" />
-        <div className="text-xs text-gray-400">
-          <ul className="flex justify-center gap-1  my-2 px-2">
-            <li>About </li>
-            <li>Accessibility</li>
-            <li>Help Center </li>
-          </ul>
-          <ul className="flex justify-center gap-1 my-2 px-2">
-            <li>Privacy & Terms </li>
-            <li>Ad Choices </li>
-            <li>Advertising </li>
-          </ul>
-          <ul
-            className="
-            flex
-            justify-center
-            gap-1 my-2 px-2
-          "
-          >
-            <li>Business Services </li>
-            <li>Get the LinkedIn app </li>
-            <li>More</li>
-          </ul>
-        </div>
-        <p className="text-xs mt-4 text-gray-400 font-bold flex gap-2">
-          Built by Ameh Solomon Onyeke A.S.O <RiChatSmile3Fill />
-        </p>
+        <RandomFooter />
       </div>
     </div>
   );
