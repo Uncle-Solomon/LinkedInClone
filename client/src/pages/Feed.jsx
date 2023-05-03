@@ -9,7 +9,7 @@ const Feed = () => {
   return (
     <div className=" bg-gray-100 min-h-[100vh]">
       <Navigation />
-      <div className=" grid grid-cols-12 mt-5 px-20 ">
+      <div className=" grid grid-cols-12 mt-5 px-5 md:px-10 lg:px-20 ">
         <div className=" col-span-4 lg:col-span-3">
           <SideNavLeft />
         </div>

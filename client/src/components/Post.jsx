@@ -1,7 +1,12 @@
 import React from "react";
 import ajanaku from "../assets/ajanaku.jpeg";
-import { BsThreeDots } from "react-icons/bs";
-import { BiWorld } from "react-icons/bi";
+import dataPicture from "../assets/data.jpg";
+import { BsThreeDots, BsFillChatHeartFill } from "react-icons/bs";
+import { BiWorld, BiRepost } from "react-icons/bi";
+import { AiFillLike } from "react-icons/ai";
+import { FiThumbsUp } from "react-icons/fi";
+import { MdComment } from "react-icons/md";
+import { RiSendPlaneFill } from "react-icons/ri";
 
 const Post = () => {
   return (
@@ -27,6 +32,59 @@ const Post = () => {
           </p>
           <p className="gap-2 inline text-xs text-gray-800">1w .</p>
           <BiWorld className="inline w-4 h-4" />
+        </div>
+      </div>
+
+      <div>
+        <div>
+          <h1 className="text-sm font-semibold leading-8">
+            Data is very Important
+          </h1>
+          <p className="text-xs text-gray-400">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero
+            quibusdam alias, quisquam minus sequi, ipsam excepturi officia
+            explicabo magni exercitationem, distinctio magnam laboriosam odit
+            ullam inventore sunt beatae recusandae fugit? Lorem ipsum, dolor sit
+            amet consectetur adipisicing elit. Nihil, exercitationem?
+            Consectetur facere numquam voluptatibus obcaecati eius rerum? Fuga
+            rem veritatis magnam saepe et esse! Aliquam, incidunt porro! Odit,
+            ipsum quia?
+          </p>
+          <div>
+            <img src={dataPicture} className="max-h-[2000px]" />
+          </div>
+          <div>
+            <span className="flex">
+              <AiFillLike className="text-blue-800 -mr-1.5" />
+              <BsFillChatHeartFill className="text-red-700" />
+
+              <span className="ml-1 text-xs font-thin">
+                Anjolaoluwa Olutomilayo{" "}
+                <span>
+                  and <span>7 others.</span>
+                </span>
+              </span>
+            </span>
+          </div>
+          <div className="flex gap-16 w-[90%] mx-auto">
+            <span>
+              <FiThumbsUp />
+              Like
+            </span>
+            <span>
+              {" "}
+              <MdComment />
+              Comment
+            </span>
+            <span>
+              <BiRepost />
+              Repost
+            </span>
+            <span>
+              <RiSendPlaneFill />
+              Send
+            </span>
+          </div>
         </div>
       </div>
     </div>
