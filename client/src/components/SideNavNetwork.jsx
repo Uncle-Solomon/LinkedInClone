@@ -24,7 +24,7 @@ const SideNavNetwork = () => {
     <div>
       <div className="rounded-md w-[90%] mx-auto shadow-md bg-white text-gray-500 font-light text-md hover:cursor-pointer">
         <div className="flex mb-2">
-          <h1 className="text-black text-base font-normal pl-6 pt-2">
+          <h1 className="text-black text-sm font-normal pl-6 pt-2">
             Manage my Network
           </h1>
         </div>
