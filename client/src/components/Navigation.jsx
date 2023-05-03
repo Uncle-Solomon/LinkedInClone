@@ -49,7 +49,7 @@ const Navigation = () => {
             <span>
               <MdHome className={`w-4 h-4  mx-auto`} />
             </span>
-            Home
+            <span className="hidden md:block">Home</span>
           </li>
           <li
             className={`w-auto  hover:text-black cursor-pointer ${
@@ -62,7 +62,7 @@ const Navigation = () => {
             <span>
               <BsPersonPlusFill className="w-4 h-4 active:border-b-2 mx-auto" />
             </span>
-            My Network
+            <span className="hidden md:block">My Network</span>
           </li>
           <li
             className={`w-auto  hover:text-black cursor-pointer ${
@@ -75,7 +75,7 @@ const Navigation = () => {
             <span>
               <BsBriefcaseFill className="w-4 h-4  active:border-b-2 mx-auto" />
             </span>
-            Jobs
+            <span className="hidden md:block">Jobs</span>
           </li>
           <li
             className={`w-auto  hover:text-black cursor-pointer ${
@@ -88,7 +88,7 @@ const Navigation = () => {
             <span>
               <BsFillChatRightDotsFill className="w-4 h-4 rounded-lg  active:border-b-2 mx-auto" />
             </span>
-            Messaging
+            <span className="hidden md:block">Messaging</span>
           </li>
           <li
             className={`w-auto  hover:text-black cursor-pointer ${
@@ -101,7 +101,7 @@ const Navigation = () => {
             <span>
               <IoIosNotifications className="w-4 h-4  active:border-b-2 mx-auto" />
             </span>
-            Notifications
+            <span className="hidden md:block">Notifications</span>
           </li>
           <li className={`w-auto cursor-pointer`}>
             <img
@@ -109,7 +109,7 @@ const Navigation = () => {
               className="w-5 h-5 rounded-full"
               alt="A profile picture"
             />
-            Me
+            <span className="hidden md:block">Me</span>
           </li>
         </ul>
       </div>

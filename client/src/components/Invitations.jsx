@@ -83,13 +83,13 @@ const Invitations = () => {
         <div>
           <button
             type="button"
-            className="mx-2 hover:bg-gray-200 py-1 px-3 font-bold font-bold"
+            className="mx-2 hover:bg-gray-200 py-1 px-3 font-bold"
           >
             Ignore
           </button>
           <button
             type="button"
-            className="mx-2 hover:bg-gray-200 rounded-2xl py-1 px-3 border border-blue-600 text-blue-600 font-bold font-bold"
+            className="mx-2 hover:bg-gray-200 rounded-2xl py-1 px-3 border border-blue-600 text-blue-600 font-bold "
           >
             Accept
           </button>
