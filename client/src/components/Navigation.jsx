@@ -13,12 +13,16 @@ import {
 } from "react-icons/bs";
 import { IoIosNotifications, IoIosNotificationsOutline } from "react-icons/io";
 import { CgMenuGridR } from "react-icons/cg";
+import { useNavigate } from "react-router-dom";
 
 const Navigation = () => {
   const [clicked, setClicked] = useState(0);
 
-  const handleClick = (param) => {
-    setClicked(param);
+  const navigate = useNavigate();
+
+  const handleClick = (state, addr) => {
+    setClicked(state);
+    navigate(addr);
   };
   return (
     <nav className=" sticky top-0 flex p-2 items-center bg-white shadow-sm gap-12 justify-start lg:justify-between w-full text-xs h-12 mx-auto my-0 min-h-[100%] ">
@@ -40,7 +44,7 @@ const Navigation = () => {
                 ? "border-b-2 border-black text-black"
                 : "text-gray-500"
             } `}
-            onClick={() => handleClick(0)}
+            onClick={() => handleClick(0, "/")}
           >
             <span>
               <MdHome className={`w-4 h-4  mx-auto`} />
@@ -53,10 +57,10 @@ const Navigation = () => {
                 ? "border-b-2 border-black text-black"
                 : "text-gray-500"
             } `}
-            onClick={() => handleClick(1)}
+            onClick={() => handleClick(1, "/mynetwork")}
           >
             <span>
-              <BsPersonPlusFill className="w-4 h-4  active:border-b-2 mx-auto" />
+              <BsPersonPlusFill className="w-4 h-4 active:border-b-2 mx-auto" />
             </span>
             My Network
           </li>
