@@ -10,7 +10,7 @@ import { RiSendPlaneFill } from "react-icons/ri";
 
 const Post = () => {
   return (
-    <div className="bg-white p-2">
+    <div className="bg-white p-2 mt-2">
       <div className="flex justify-between">
         <div className="flex gap-1">
           <img src={ajanaku} className="w-5 h-5 rounded-full" />
@@ -66,24 +66,29 @@ const Post = () => {
               </span>
             </span>
           </div>
-          <div className="flex gap-16 w-[90%] mx-auto">
-            <span>
-              <FiThumbsUp />
-              Like
-            </span>
-            <span>
-              {" "}
-              <MdComment />
-              Comment
-            </span>
-            <span>
-              <BiRepost />
-              Repost
-            </span>
-            <span>
-              <RiSendPlaneFill />
-              Send
-            </span>
+
+          <hr className="my-2 " />
+
+          <div className="w-[100%] p-2">
+            <div className="flex mx-auto justify-between w-[80%] gap-6 text-sm text-gray-600 font-light">
+              <span className="flex gap-2">
+                <FiThumbsUp className="h-5 w-5" />
+                Like
+              </span>
+              <span className="flex gap-2">
+                {" "}
+                <MdComment className="h-5 w-5" />
+                Comment
+              </span>
+              <span className="flex gap-2">
+                <BiRepost className="h-5 w-5" />
+                Repost
+              </span>
+              <span className="flex gap-2">
+                <RiSendPlaneFill className="h-5 w-5" />
+                Send
+              </span>
+            </div>
           </div>
         </div>
       </div>

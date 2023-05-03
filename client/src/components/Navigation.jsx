@@ -21,7 +21,7 @@ const Navigation = () => {
     setClicked(param);
   };
   return (
-    <nav className=" sticky top-0 flex p-2 items-center bg-white shadow-sm justify-between w-full text-xs h-12 mx-auto my-0 min-h-[100%] ">
+    <nav className=" sticky top-0 flex p-2 items-center bg-white shadow-sm gap-10 justify-start w-full text-xs h-12 mx-auto my-0 min-h-[100%] ">
       <div className="flex justify-between gap-5 items-center">
         <img src={logo} className="h-8 w-8" />
         <div className="w-auto">
@@ -109,8 +109,8 @@ const Navigation = () => {
           </li>
         </ul>
       </div>
-      <div className="flex gap-5 items-center ">
-        <div className={`w-auto cursor-pointer`}>
+      <div className="flex gap-5 items-center">
+        <div className={`cursor-pointer`}>
           <span>
             <CgMenuGridR className="w-4 h-4 mx-auto" />
           </span>
