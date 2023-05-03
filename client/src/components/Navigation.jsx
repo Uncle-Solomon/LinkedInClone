@@ -21,7 +21,7 @@ const Navigation = () => {
     setClicked(param);
   };
   return (
-    <nav className=" sticky top-0 flex p-2 items-center bg-white shadow-sm gap-10 justify-start w-full text-xs h-12 mx-auto my-0 min-h-[100%] ">
+    <nav className=" sticky top-0 flex p-2 items-center bg-white shadow-sm gap-12 justify-start lg:justify-between w-full text-xs h-12 mx-auto my-0 min-h-[100%] ">
       <div className="flex justify-between gap-5 items-center">
         <img src={logo} className="h-8 w-8" />
         <div className="w-auto">
@@ -32,8 +32,8 @@ const Navigation = () => {
         </div>
       </div>
 
-      <div className=" border-r-2 border-gray-100 pr-2">
-        <ul className="flex gap-5 items-center">
+      <div className=" border-r-2  border-gray-100 pr-2">
+        <ul className="flex gap-4 md:gap-8 items-center">
           <li
             className={`w-auto  hover:text-black cursor-pointer ${
               clicked === 0

@@ -9,7 +9,7 @@ import {
 
 const SideNavLeft = () => {
   return (
-    <div className="rounded-md pb-2 w-[90%] mx-auto shadow-md bg-white">
+    <div className="rounded-md pb-2 w-[95%] mx-auto shadow-md bg-white">
       <div>
         <div className="h-28 relative">
           <img src={background} className="w-full h-[50%] rounded-t-md" />

@@ -69,8 +69,8 @@ const Post = () => {
 
           <hr className="my-2 " />
 
-          <div className="w-[100%] p-2">
-            <div className="flex mx-auto justify-between w-[80%] gap-6 text-sm text-gray-600 font-light">
+          <div className=" px-2">
+            <div className="flex mx-auto px-0.5 justify-between w-[80%] md:gap-6 text-sm text-gray-600 font-light">
               <span className="flex gap-2">
                 <FiThumbsUp className="h-5 w-5" />
                 Like
