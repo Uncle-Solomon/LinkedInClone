@@ -4,6 +4,8 @@ import SideJobNavLeft from "../components/jobComponents/SideJobNavLeft";
 import RecentJobSearch from "../components/jobComponents/RecentJobSearch";
 import OpentoWork from "../components/jobComponents/OpentoWork";
 import JobSeekerGuid from "../components/jobComponents/JobSeekerGuid";
+import RandomFooter from "../components/RandomFooter";
+import RecommendedforYou from "../components/jobComponents/RecommendedforYou";
 
 const Jobs = () => {
   return (
@@ -15,10 +17,12 @@ const Jobs = () => {
         </div>
         <div className=" col-span-12 md:col-span-5 lg:col-span-6 px-2 ">
           <RecentJobSearch />
+          <RecommendedforYou />
         </div>
         <div className=" col-span-12 md:col-span-4 lg:col-span-3 ">
           <OpentoWork />
           <JobSeekerGuid />
+          <RandomFooter />
         </div>
       </div>
     </div>

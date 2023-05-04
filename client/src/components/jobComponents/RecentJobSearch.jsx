@@ -4,7 +4,7 @@ const RecentJobSearch = () => {
   return (
     <div className="bg-white w-full text-sm">
       <div className="flex justify-between px-4 pt-4 pb-2 border-b mb-2">
-        <p>Recent job searches</p>
+        <p className="font-semibold">Recent job searches</p>
         <p>Clear</p>
       </div>
       <div className="flex justify-between items-center px-4 py-1 border-b ">

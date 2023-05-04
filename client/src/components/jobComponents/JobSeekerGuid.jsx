@@ -1,6 +1,6 @@
 import React from "react";
 import { FiArrowRight } from "react-icons/fi";
-import profilepicture from "../../assets/profilepic.jpeg";
+import resumePic from "../../assets/resumePic.gif";
 
 const JobSeekerGuid = () => {
   return (
@@ -8,22 +8,23 @@ const JobSeekerGuid = () => {
       <div>
         <div className="pl-3 pt-6 pr-3 mt-[-0.5rem]">
           <h1 className="font-bold text-sm leading-5 w-[80%] mb-2">
-            Open to work
+            Job Seeker Guidance
           </h1>
           <p className="text-xs font-thin mt-2">
             Software Backend Developer | Machine Learning and AI ...
           </p>
           <div className="text-xs font-semibold flex gap-4 items-center mt-4 mb-4">
-            <p>Show recruiters you're open to new job opportunities</p>
-            <img src={profilepicture} className="w-12 h-12 rounded-full " />
+            <p>I want to improve my resume</p>
+            <img src={resumePic} className="w-16 h-16" />
           </div>
           <p className="text-xs font-thin mt-2">
-            Increase your chances of getting a job sooner when you are
-            #OpenToWork - you control who sees this.
+            Explore our curated guide of expert-led courses, such as how to
+            improve your resume and grow your network, to help you land your
+            next opportunity.
           </p>
 
           <button className="flex gap-1 mt-4 text-sm items-center hover:text-blue-600 hover:underline text-semibold">
-            Get Started <FiArrowRight />{" "}
+            Show more <FiArrowRight />{" "}
           </button>
         </div>
       </div>
