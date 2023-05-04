@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import ProfilePage from "./pages/ProfilePage";
 import Feed from "./pages/Feed";
 import Network from "./pages/Network";
+import Jobs from "./pages/Jobs";
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
       <Routes>
         <Route name="feed" path="/" element={<Feed />} />
         <Route name="my network" path="/mynetwork" element={<Network />} />
+        <Route path="/jobs" element={<Jobs />} />
         <Route path="/profile" element={<ProfilePage />} />
       </Routes>
     </Router>

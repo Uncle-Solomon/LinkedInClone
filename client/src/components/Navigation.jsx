@@ -20,7 +20,7 @@ const Navigation = () => {
 
   const navigate = useNavigate();
 
-  const handleClick = (state, addr) => {
+  const handleClick = (state, addr, e) => {
     navigate(addr);
     setClicked(state);
   };
@@ -70,7 +70,7 @@ const Navigation = () => {
                 ? "border-b-2 border-black text-black"
                 : "text-gray-500"
             } `}
-            onClick={() => handleClick(3)}
+            onClick={() => handleClick(3, "/jobs")}
           >
             <span>
               <BsBriefcaseFill className="w-4 h-4  active:border-b-2 mx-auto" />
