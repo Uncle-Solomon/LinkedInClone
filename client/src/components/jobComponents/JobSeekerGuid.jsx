@@ -1,14 +1,10 @@
 import React from "react";
-import profilepicture from "../../assets/profilepic.jpeg";
-import background from "../../assets/background.png";
-
-import { FaUserPlus } from "react-icons/fa";
 import { FiArrowRight } from "react-icons/fi";
-import { AiOutlineClose } from "react-icons/ai";
+import profilepicture from "../../assets/profilepic.jpeg";
 
-const OpentoWork = () => {
+const JobSeekerGuid = () => {
   return (
-    <div className="rounded-md pb-2 bg-white mx-2 my-2">
+    <div className="rounded-md pb-2 bg-white mx-2 my-4">
       <div>
         <div className="pl-3 pt-6 pr-3 mt-[-0.5rem]">
           <h1 className="font-bold text-sm leading-5 w-[80%] mb-2">
@@ -35,4 +31,4 @@ const OpentoWork = () => {
   );
 };
 
-export default OpentoWork;
+export default JobSeekerGuid;

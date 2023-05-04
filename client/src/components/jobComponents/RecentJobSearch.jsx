@@ -1,7 +1,5 @@
 import React from "react";
 
-import ebuka from "../assets/ebuka.jpeg";
-
 const RecentJobSearch = () => {
   return (
     <div className="bg-white w-full text-sm">
