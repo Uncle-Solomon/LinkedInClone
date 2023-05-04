@@ -21,8 +21,8 @@ const Navigation = () => {
   const navigate = useNavigate();
 
   const handleClick = (state, addr) => {
-    setClicked(state);
     navigate(addr);
+    setClicked(state);
   };
   return (
     <nav className=" sticky top-0 flex p-2 items-center bg-white shadow-sm gap-12 justify-start lg:justify-between w-full text-xs h-12 mx-auto my-0 min-h-[100%] ">
@@ -40,11 +40,11 @@ const Navigation = () => {
         <ul className="flex gap-4 md:gap-8 items-center">
           <li
             className={`w-auto  hover:text-black cursor-pointer ${
-              clicked === 0
+              clicked === 1
                 ? "border-b-2 border-black text-black"
                 : "text-gray-500"
             } `}
-            onClick={() => handleClick(0, "/")}
+            onClick={() => handleClick(1, "/")}
           >
             <span>
               <MdHome className={`w-4 h-4  mx-auto`} />
@@ -53,29 +53,16 @@ const Navigation = () => {
           </li>
           <li
             className={`w-auto  hover:text-black cursor-pointer ${
-              clicked === 1
+              clicked === 2
                 ? "border-b-2 border-black text-black"
                 : "text-gray-500"
             } `}
-            onClick={() => handleClick(1, "/mynetwork")}
+            onClick={() => handleClick(2, "/mynetwork")}
           >
             <span>
               <BsPersonPlusFill className="w-4 h-4 active:border-b-2 mx-auto" />
             </span>
             <span className="hidden md:block">My Network</span>
-          </li>
-          <li
-            className={`w-auto  hover:text-black cursor-pointer ${
-              clicked === 2
-                ? "border-b-2 border-black text-black"
-                : "text-gray-500"
-            } `}
-            onClick={() => handleClick(2)}
-          >
-            <span>
-              <BsBriefcaseFill className="w-4 h-4  active:border-b-2 mx-auto" />
-            </span>
-            <span className="hidden md:block">Jobs</span>
           </li>
           <li
             className={`w-auto  hover:text-black cursor-pointer ${
@@ -86,9 +73,9 @@ const Navigation = () => {
             onClick={() => handleClick(3)}
           >
             <span>
-              <BsFillChatRightDotsFill className="w-4 h-4 rounded-lg  active:border-b-2 mx-auto" />
+              <BsBriefcaseFill className="w-4 h-4  active:border-b-2 mx-auto" />
             </span>
-            <span className="hidden md:block">Messaging</span>
+            <span className="hidden md:block">Jobs</span>
           </li>
           <li
             className={`w-auto  hover:text-black cursor-pointer ${
@@ -97,6 +84,19 @@ const Navigation = () => {
                 : "text-gray-500"
             } `}
             onClick={() => handleClick(4)}
+          >
+            <span>
+              <BsFillChatRightDotsFill className="w-4 h-4 rounded-lg  active:border-b-2 mx-auto" />
+            </span>
+            <span className="hidden md:block">Messaging</span>
+          </li>
+          <li
+            className={`w-auto  hover:text-black cursor-pointer ${
+              clicked === 5
+                ? "border-b-2 border-black text-black"
+                : "text-gray-500"
+            } `}
+            onClick={() => handleClick(5)}
           >
             <span>
               <IoIosNotifications className="w-4 h-4  active:border-b-2 mx-auto" />
