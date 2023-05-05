@@ -13,7 +13,7 @@ const JobSeekerGuid = () => {
           <p className="text-xs font-thin mt-2">
             Software Backend Developer | Machine Learning and AI ...
           </p>
-          <div className="text-xs font-semibold flex gap-4 items-center mt-4 mb-4">
+          <div className="text-xs font-semibold flex justify-between gap-4 items-center mt-4 mb-4">
             <p>I want to improve my resume</p>
             <img src={resumePic} className="w-16 h-16" />
           </div>

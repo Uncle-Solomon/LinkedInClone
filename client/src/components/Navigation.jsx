@@ -96,7 +96,7 @@ const Navigation = () => {
                 ? "border-b-2 border-black text-black"
                 : "text-gray-500"
             } `}
-            onClick={() => handleClick(5)}
+            onClick={() => handleClick(5, "/notifications")}
           >
             <span>
               <IoIosNotifications className="w-4 h-4  active:border-b-2 mx-auto" />

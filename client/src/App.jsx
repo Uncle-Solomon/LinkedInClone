@@ -3,6 +3,7 @@ import ProfilePage from "./pages/ProfilePage";
 import Feed from "./pages/Feed";
 import Network from "./pages/Network";
 import Jobs from "./pages/Jobs";
+import Notifications from "./pages/Notifications";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <Route name="feed" path="/" element={<Feed />} />
         <Route name="my network" path="/mynetwork" element={<Network />} />
         <Route path="/jobs" element={<Jobs />} />
+        <Route path="/notifications" element={<Notifications />} />
         <Route path="/profile" element={<ProfilePage />} />
       </Routes>
     </Router>
