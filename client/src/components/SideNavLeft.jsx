@@ -11,11 +11,11 @@ const SideNavLeft = () => {
   return (
     <div className="rounded-md pb-2 w-[95%] mx-auto shadow-md bg-white">
       <div>
-        <div className="h-28 relative">
+        <div className="h-28 ">
           <img src={background} className="w-full h-[50%] rounded-t-md" />
           <img
             src={profilepicture}
-            className="w-16 h-16 rounded-full border border-white absolute top-6 left-4"
+            className="w-16 h-16 rounded-full border border-white absolute top-24 left-10"
           />
         </div>
         <div className="pl-3 mt-[-0.5rem]">

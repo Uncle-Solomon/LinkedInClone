@@ -11,13 +11,13 @@ import {
 
 const ProfileHeader = () => {
   return (
-    <div className="rounded-md pb-2 w-[95%] mx-auto shadow-md z-0 bg-white ">
+    <div className="rounded-md pb-2 w-[95%] mx-auto shadow-md  z-0 bg-white ">
       <div>
-        <div className="h-64 relative z-0">
+        <div className="h-64  z-0">
           <img src={background} className="w-full h-[50%] z-0 rounded-t-md" />
           <img
             src={profilepicture}
-            className="w-24 h-24 rounded-full border-4 border-white absolute top-20 left-4"
+            className="w-24 h-24 rounded-full border-4 border-white absolute top-36 left-32"
           />
           <BsPencil className="absolute bottom-20 right-4" />
         </div>
