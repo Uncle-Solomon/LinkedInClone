@@ -11,10 +11,10 @@ import {
 
 const ProfileHeader = () => {
   return (
-    <div className="rounded-md pb-2 w-[95%] mx-auto shadow-md bg-white">
+    <div className="rounded-md pb-2 w-[95%] mx-auto shadow-md z-0 bg-white ">
       <div>
-        <div className="h-64 relative">
-          <img src={background} className="w-full h-[50%] rounded-t-md" />
+        <div className="h-64 relative z-0">
+          <img src={background} className="w-full h-[50%] z-0 rounded-t-md" />
           <img
             src={profilepicture}
             className="w-24 h-24 rounded-full border-4 border-white absolute top-20 left-4"
@@ -49,7 +49,7 @@ const ProfileHeader = () => {
             <button className="mx-2 py-1 px-2 border border-blue-600 text-blue-600 rounded-2xl font-semibold text-sm  hover:bg-blue-100">
               Add profile section
             </button>
-            <button className="mx-2 py-1 px-2 border border-blue-600 text-blue-600 rounded-2xl font-semibold text-sm hover:bg-blue-100 ">
+            <button className="mx-2 py-1 px-2 border border-blue-600 text-blue-600 rounded-3xl font-semibold text-sm hover:bg-blue-100 ">
               <BsThreeDots />
             </button>
           </div>

@@ -122,10 +122,10 @@ const Navigation = () => {
                 className={
                   dropdown
                     ? `hidden`
-                    : `block bg-white p-2 w-[250px]  absolute top-6 right-4 border rounded-lg`
+                    : `block bg-white p-2 w-[250px]  absolute z-10 top-6 right-4 border rounded-lg`
                 }
               >
-                <div className="border-b border-1 pb-0">
+                <div className="border-b border-1 pb-0 z-10">
                   <div className="flex gap-2 items-center">
                     <img
                       src={profilepicture}
