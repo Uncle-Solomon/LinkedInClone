@@ -5,6 +5,8 @@ import {
   BsPersonHearts,
   BsFillCalendarDateFill,
   BsSlashSquareFill,
+  BsPencil,
+  BsThreeDots,
 } from "react-icons/bs";
 
 const ProfileHeader = () => {
@@ -15,40 +17,47 @@ const ProfileHeader = () => {
           <img src={background} className="w-full h-[50%] rounded-t-md" />
           <img
             src={profilepicture}
-            className="w-16 h-16 rounded-full border border-white absolute top-6 left-4"
+            className="w-24 h-24 rounded-full border-4 border-white absolute top-20 left-4"
           />
+          <BsPencil className="absolute bottom-20 right-4" />
         </div>
-        <div className="pl-3 mt-[-0.5rem]">
-          <h1 className="font-bold text-lg leading-5 w-[80%] mb-4">
+        <div className="pl-3 mt-[-3rem]">
+          <h1 className="font-bold text-xl leading-none w-[80%] mb-4">
             Ameh Solomon Onyeke
           </h1>
-          <p className="text-xs font-thin">
-            <span className="font-semibold mr-0.5 text-sm">30</span> profile
-            Views
+          <p className="text-sm font-normal pr-3">
+            Software Backend Developer | Machine Learning and AI Enthusiast |
+            Technical Writer
           </p>
-          <p className="text-xs font-thin">
-            <span className="font-semibold mr-0.5 text-sm">30</span> post
-            impressions
+          <p className="text-xs font-thin my-3">
+            <span>Inspired Technologies Ltd.</span>{" "}
+            <span>Covenant University</span>
           </p>
-
-          <hr className="w-[95%] my-5 " />
-
-          <h3 className="text-md text-gray-500 font-semibold mb-4 ">
-            <BsPersonHearts className="inline mr-3" />
-            Groups
-          </h3>
-          <h3 className="text-md text-gray-500 font-semibold mb-4 ">
-            <BsFillCalendarDateFill className="inline mr-3" />
-            Events
-          </h3>
-        </div>
-        <hr className="w-full my-5 " />
-        <div className="pl-3 ">
-          <p className="text-sm font-thin">Access exclusive tools & Insights</p>
-          <p className="text-sm mt-2 font-bold">
-            <BsSlashSquareFill className="inline mr-1 w-4 h-4 text-amber-500" />
-            Try Premium for free
+          <p className="text-xs font-thin my-2">
+            <span>Abuja, Federal Capital Territory, Nigeria</span>{" "}
+            <span className=" text-blue-600 hover:underline font-semibold cursor-pointer">
+              Contact Info
+            </span>
           </p>
+          <p className="text-xs my-4 text-blue-600 hover:underline font-semibold cursor-pointer">
+            <span>390</span> connections
+          </p>
+          <div className="space-x-3 my-2">
+            <button className="mx-2 py-1 px-2 border border-blue-600 text-white rounded-2xl font-semibold text-sm bg-blue-600 hover:bg-blue-900">
+              Open to
+            </button>
+            <button className="mx-2 py-1 px-2 border border-blue-600 text-blue-600 rounded-2xl font-semibold text-sm  hover:bg-blue-100">
+              Add profile section
+            </button>
+            <button className="mx-2 py-1 px-2 border border-blue-600 text-blue-600 rounded-2xl font-semibold text-sm hover:bg-blue-100 ">
+              <BsThreeDots />
+            </button>
+          </div>
+          <div className="p-2 text-xs font-semibold bg-blue-100 w-[80%] my-4 rounded-lg">
+            <p className="my-1">Providing Services</p>
+            <p className="font-normal">Web Development and Technical Writing</p>
+            <p className="my-1 text-blue-600 hover:underline">Show Details</p>
+          </div>
         </div>
       </div>
     </div>
