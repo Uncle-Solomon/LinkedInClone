@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import logo from "../assets/Logo.png";
 import profilepicture from "../assets/profilepic.jpeg";
 import { MdHome, MdRssFeed } from "react-icons/md";
@@ -16,6 +16,7 @@ import { useNavigate } from "react-router-dom";
 
 const Navigation = () => {
   const [clicked, setClicked] = useState(0);
+
   const [dropdown, setDropdown] = useState(false);
 
   const navigate = useNavigate();
@@ -124,7 +125,7 @@ const Navigation = () => {
                 }
               >
                 <div className="border-b border-1 pb-0">
-                  <div className="flex gap-2">
+                  <div className="flex gap-2 items-center">
                     <img
                       src={profilepicture}
                       className="rounded-full h-12 w-12"
@@ -142,7 +143,10 @@ const Navigation = () => {
                       </p>
                     </div>
                   </div>
-                  <button className="w-[90%] text-blue-600 mt-1 mb-2 font-bold mx-auto p-1 border border-blue-600 rounded-xl">
+                  <button
+                    onClick={() => navigate("/profile")}
+                    className="w-[90%] text-blue-600 mt-1 mb-2 font-bold mx-auto p-1 border border-blue-600 rounded-xl"
+                  >
                     View Profile
                   </button>
                 </div>
