@@ -17,7 +17,7 @@ import { useNavigate } from "react-router-dom";
 const Navigation = () => {
   const [clicked, setClicked] = useState(0);
 
-  const [dropdown, setDropdown] = useState(false);
+  const [dropdown, setDropdown] = useState(true);
 
   const navigate = useNavigate();
 
@@ -28,6 +28,7 @@ const Navigation = () => {
   const toggleDropDown = () => {
     setDropdown((prevdropdown) => !prevdropdown);
   };
+
   return (
     <nav className=" sticky top-0 flex p-2 items-center bg-white shadow-sm gap-12 justify-start lg:justify-between w-full text-xs h-12 mx-auto my-0 min-h-[100%] ">
       <div className="flex justify-between gap-5 items-center">
@@ -144,7 +145,10 @@ const Navigation = () => {
                     </div>
                   </div>
                   <button
-                    onClick={() => navigate("/profile")}
+                    onClick={() => {
+                      toggleDropDown;
+                      navigate("/profile");
+                    }}
                     className="w-[90%] text-blue-600 mt-1 mb-2 font-bold mx-auto p-1 border border-blue-600 rounded-xl"
                   >
                     View Profile
