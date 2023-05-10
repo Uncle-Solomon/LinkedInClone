@@ -11,17 +11,19 @@ import {
 
 const ProfileHeader = () => {
   return (
-    <div className="rounded-md pb-2 w-[95%] mx-auto shadow-md  z-0 bg-white my-2 ">
+    <div className="rounded-md pb-2 w-[95%] mx-auto shadow-md z-0 bg-white my-2 ">
       <div>
-        <div className="h-64  z-0">
+        <div className="h-64 z-0">
           <img src={background} className="w-full h-[50%] z-0 rounded-t-md" />
-          <img
-            src={profilepicture}
-            className="w-24 h-24 rounded-full border-4 border-white absolute top-36 left-32"
-          />
-          <BsPencil className="absolute bottom-20 right-4" />
+          <div className="relative">
+            <img
+              src={profilepicture}
+              className="w-24 h-24 rounded-full border-4 border-white absolute -top-12 left-4"
+            />
+            <BsPencil className="absolute -bottom-8 right-4" />
+          </div>
         </div>
-        <div className="pl-3 mt-[-5rem]">
+        <div className="pl-3 mt-[-4rem]">
           <h1 className="font-bold text-xl leading-none w-[80%] mb-4">
             Ameh Solomon Onyeke
           </h1>
