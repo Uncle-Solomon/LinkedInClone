@@ -8,7 +8,7 @@ import Activity from "../components/profileComponents/Activity";
 import Experience from "../components/profileComponents/Experience";
 import Education from "../components/profileComponents/Education";
 import Skills from "../components/profileComponents/Skills";
-import Interest from "../components/profileComponents/Interest";
+import Footer from "../components/profileComponents/Footer";
 
 const ProfilePage = () => {
   return (
@@ -16,7 +16,7 @@ const ProfilePage = () => {
       <Navigation />
       <div className=" grid grid-cols-12 mt-5 px-2 md:px-5 lg:px-12 ">
         <div className=" hidden md:block md:col-span-1 lg:col-span-3"></div>
-        <div className=" col-span-7 md:col-span-6 lg:col-span-6 px-2">
+        <div className=" col-span-12 md:col-span-6 lg:col-span-6 px-2">
           {" "}
           <ProfileHeader />
           <Analytics />
@@ -26,10 +26,10 @@ const ProfilePage = () => {
           <Experience />
           <Education />
           <Skills />
-          <Interest />
         </div>
-        <div className=" col-span-4 md:col-span-5 lg:col-span-3"></div>
+        <div className=" col-span-12 md:col-span-5 lg:col-span-3"></div>
       </div>
+      <Footer />
     </div>
   );
 };

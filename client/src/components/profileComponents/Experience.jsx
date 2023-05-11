@@ -15,7 +15,7 @@ const Experience = () => {
           <BsPencil />
         </div>
       </div>
-      <div className="flex justify-between gap-3 border-b text-xs mt-2">
+      <div className="flex  gap-3 border-b text-xs mt-2">
         <img src={background} className="rounded-full w-12 h-12" />
         <div>
           <p className="text-sm font-semibold mb-2">
@@ -37,7 +37,7 @@ const Experience = () => {
           </p>
         </div>
       </div>
-      <div className="flex justify-between gap-3 border-b text-xs mt-2">
+      <div className="flex gap-3 border-b text-xs mt-2">
         <img src={sec} className="rounded-full w-12 h-12" />
         <div>
           <p className="text-sm font-semibold mb-2">

@@ -14,7 +14,7 @@ const Education = () => {
           <BsPencil />
         </div>
       </div>
-      <div className="flex justify-between gap-3 border-b text-xs mt-2">
+      <div className="flex  gap-3 border-b text-xs mt-2">
         <img src={cu} className="rounded-full w-12 h-12" />
         <div>
           <p className="text-sm font-semibold mb-2">Covenant University</p>
