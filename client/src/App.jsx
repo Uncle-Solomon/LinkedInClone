@@ -5,17 +5,32 @@ import Network from "./pages/Network";
 import Jobs from "./pages/Jobs";
 import Notifications from "./pages/Notifications";
 
+import { useEffect, useState } from "react";
+import Loader from "./pages/Loader";
+
 function App() {
+  const [loader, setLoader] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => setLoader(false), 7000);
+  }, []);
+
   return (
-    <Router>
-      <Routes>
-        <Route name="feed" path="/" element={<Feed />} />
-        <Route name="my network" path="/mynetwork" element={<Network />} />
-        <Route path="/jobs" element={<Jobs />} />
-        <Route path="/notifications" element={<Notifications />} />
-        <Route path="/profile" element={<ProfilePage />} />
-      </Routes>
-    </Router>
+    <div>
+      {loader ? (
+        <Loader />
+      ) : (
+        <Router>
+          <Routes>
+            <Route name="feed" path="/" element={<Feed />} />
+            <Route name="my network" path="/mynetwork" element={<Network />} />
+            <Route path="/jobs" element={<Jobs />} />
+            <Route path="/notifications" element={<Notifications />} />
+            <Route path="/profile" element={<ProfilePage />} />
+          </Routes>
+        </Router>
+      )}
+    </div>
   );
 }
 
