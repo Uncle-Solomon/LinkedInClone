@@ -174,7 +174,7 @@ const Navigation = () => {
           </li>
         </ul>
       </div>
-      <div className="hidden md:flex md:gap-5 md:items-center">
+      <div className="hidden lg:flex md:gap-5 md:items-center">
         <div className={`cursor-pointer text-center`}>
           <span>
             <CgMenuGridR className="w-4 h-4 mx-auto " />

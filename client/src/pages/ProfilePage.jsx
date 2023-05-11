@@ -10,6 +10,7 @@ import Education from "../components/profileComponents/Education";
 import Skills from "../components/profileComponents/Skills";
 import Footer from "../components/profileComponents/Footer";
 import ProfileEdit from "../components/profileComponents/ProfileEdit";
+import PeopleAlsoViewed from "../components/profileComponents/PeopleAlsoViewed";
 
 const ProfilePage = () => {
   return (
@@ -30,6 +31,7 @@ const ProfilePage = () => {
         </div>
         <div className=" col-span-12 md:col-span-5 lg:col-span-3">
           <ProfileEdit />
+          <PeopleAlsoViewed />
         </div>
       </div>
       <Footer />
