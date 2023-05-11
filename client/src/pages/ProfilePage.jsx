@@ -9,6 +9,7 @@ import Experience from "../components/profileComponents/Experience";
 import Education from "../components/profileComponents/Education";
 import Skills from "../components/profileComponents/Skills";
 import Footer from "../components/profileComponents/Footer";
+import ProfileEdit from "../components/profileComponents/ProfileEdit";
 
 const ProfilePage = () => {
   return (
@@ -27,7 +28,9 @@ const ProfilePage = () => {
           <Education />
           <Skills />
         </div>
-        <div className=" col-span-12 md:col-span-5 lg:col-span-3"></div>
+        <div className=" col-span-12 md:col-span-5 lg:col-span-3">
+          <ProfileEdit />
+        </div>
       </div>
       <Footer />
     </div>
