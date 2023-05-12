@@ -3,10 +3,10 @@ import LoginNavigation from "../components/LoginNavigation";
 
 const LandingPage = () => {
   return (
-    <div>
+    <div className="ml-0 mr-0 lg:pl-56 lg:pr-12 ">
       <LoginNavigation />
-      <div className="grid grid-cols-10 w-full my-8">
-        <div className="col-span-10 md:col-span-5 p-1">
+      <div className="grid grid-cols-10 space-x-12 w-full my-8">
+        <div className="col-span-10 md:col-span-5 lg:col-span-4 p-1">
           <h1 className=" text-amber-800 text-5xl font-extralight my-10 leading-11">
             Welcome to your professional community
           </h1>
@@ -50,9 +50,78 @@ const LandingPage = () => {
           </form>
         </div>
         <img
-          className="col-span-10 md:col-span-5 my-24 w-[95%]"
+          className="col-span-10 md:col-span-5 lg:col-span-6 my-24 w-[80%]"
           src="https://static.licdn.com/aero-v1/sc/h/dxf91zhqd2z6b0bwg85ktm5s4"
         />
+      </div>
+      <div className="grid grid-cols-10 space-x-12 w-full my-8">
+        <div className="col-span-10 md:col-span-10 lg:col-span-4 p-1">
+          <h1 className=" text-black text-5xl font-extralight w-[90%] my-10 leading-11">
+            Find the right job or internship for you
+          </h1>
+        </div>
+        <div className="col-span-10 md:col-span-10 lg:col-span-4 p-1 space-x-2">
+          <button
+            className="mt-2 border border-black hover:bg-gray-100 rounded-3xl py-3 px-4  gap-1 text-sm text-black font-semibold"
+            type="button"
+          >
+            Engineering
+          </button>
+          <button
+            className="mt-2 border border-black hover:bg-gray-100 rounded-3xl py-3 px-4  gap-1 text-sm text-black font-semibold"
+            type="button"
+          >
+            Business Development
+          </button>
+          <button
+            className="mt-2 border border-black hover:bg-gray-100 rounded-3xl py-3 px-4  gap-1 text-sm text-black font-semibold"
+            type="button"
+          >
+            Finance
+          </button>
+          <button
+            className="mt-2 border border-black hover:bg-gray-100 rounded-3xl py-3 px-4  gap-1 text-sm text-black font-semibold"
+            type="button"
+          >
+            Administrative Assistant
+          </button>
+          <button
+            className="mt-2 border border-black hover:bg-gray-100 rounded-3xl py-3 px-4  gap-1 text-sm text-black font-semibold"
+            type="button"
+          >
+            Retail Associate{" "}
+          </button>
+          <button
+            className="mt-2 border border-black hover:bg-gray-100 rounded-3xl py-3 px-4  gap-1 text-sm text-black font-semibold"
+            type="button"
+          >
+            Operations{" "}
+          </button>
+          <button
+            className="mt-2 border border-black hover:bg-gray-100 rounded-3xl py-3 px-4  gap-1 text-sm text-black font-semibold"
+            type="button"
+          >
+            Marketing
+          </button>
+          <button
+            className="mt-2 border border-black hover:bg-gray-100 rounded-3xl py-3 px-4  gap-1 text-sm text-black font-semibold"
+            type="button"
+          >
+            Information Technology
+          </button>
+          <button
+            className="mt-2 border border-black hover:bg-gray-100 rounded-3xl py-3 px-4  gap-1 text-sm text-black font-semibold"
+            type="button"
+          >
+            Human Resources
+          </button>
+          <button
+            className="mt-2 border border-black hover:bg-gray-100 rounded-3xl py-3 px-4  gap-1 text-sm text-black font-semibold"
+            type="button"
+          >
+            Research
+          </button>
+        </div>
       </div>
     </div>
   );

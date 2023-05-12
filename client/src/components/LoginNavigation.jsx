@@ -28,7 +28,7 @@ const LoginNavigation = () => {
       </div>
 
       <div className=" border-r-2 w-[57%] border-gray-100 pr-2">
-        <ul className=" justify-end  hidden lg:flex md:gap-8 items-center cursor-pointer">
+        <ul className=" justify-end  hidden lg:flex gap-8 items-center cursor-pointer">
           <li>
             <span>
               <MdOutlineExplore className={`w-5 h-5 text-gray-500  mx-auto`} />
@@ -57,7 +57,7 @@ const LoginNavigation = () => {
           </li>
         </ul>
       </div>
-      <div className="flex justify-between gap-2">
+      <div className="flex justify-end gap-2 w-full md:w-auto lg:justify-start">
         <button
           className="mt-2 hover:bg-gray-100 rounded-2xl py-3 px-4 flex gap-1 text-sm text-black font-semibold"
           type="button"
