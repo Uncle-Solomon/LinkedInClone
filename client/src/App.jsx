@@ -7,6 +7,7 @@ import Notifications from "./pages/Notifications";
 
 import { useEffect, useState } from "react";
 import Loader from "./pages/Loader";
+import Login from "./pages/Login";
 
 function App() {
   const [loader, setLoader] = useState(true);
@@ -17,7 +18,7 @@ function App() {
 
   return (
     <div>
-      {loader ? (
+      {/* {loader ? (
         <Loader />
       ) : (
         <Router>
@@ -29,7 +30,8 @@ function App() {
             <Route path="/profile" element={<ProfilePage />} />
           </Routes>
         </Router>
-      )}
+      )} */}
+      <Login />
     </div>
   );
 }
