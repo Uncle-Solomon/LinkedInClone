@@ -7,7 +7,7 @@ import Notifications from "./pages/Notifications";
 
 import { useEffect, useState } from "react";
 import Loader from "./pages/Loader";
-import Login from "./pages/Login";
+import LandingPage from "./pages/LandingPage";
 
 function App() {
   const [loader, setLoader] = useState(true);
@@ -31,7 +31,7 @@ function App() {
           </Routes>
         </Router>
       )} */}
-      <Login />
+      <LandingPage />
     </div>
   );
 }

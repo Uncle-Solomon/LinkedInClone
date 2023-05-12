@@ -11,29 +11,33 @@ import {
 } from "react-icons/bs";
 import { IoIosNotifications, IoIosNotificationsOutline } from "react-icons/io";
 import { CgMenuGridR } from "react-icons/cg";
-import { RiArrowDownSFill } from "react-icons/ri";
+import {
+  MdOutlineExplore,
+  MdPeopleAlt,
+  MdOutlineEventNote,
+} from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 import { BsLinkedin } from "react-icons/bs";
 
 const LoginNavigation = () => {
   return (
-    <nav className=" sticky top-0 z-50 flex my-2 p-2 items-center bg-white shadow-sm gap-8 justify-start lg:justify-between w-full text-sm md:text-xs h-12 mx-auto min-h-[100%] ">
+    <nav className=" sticky top-0 z-50 flex my-2 p-2 items-center bg-white shadow-sm gap-2 justify-start lg:justify-between w-full text-sm md:text-xs h-12 mx-auto min-h-[100%] ">
       <div className="flex gap-0.5 items-center text-blue-600">
         <p className="text-3xl font-bold ">Linked</p>
         <BsLinkedin className="h-8 w-8" />
       </div>
 
       <div className=" border-r-2 w-[57%] border-gray-100 pr-2">
-        <ul className="flex justify-end md:gap-8 items-center">
+        <ul className=" justify-end  hidden lg:flex md:gap-8 items-center cursor-pointer">
           <li>
             <span>
-              <MdHome className={`w-4 h-4  mx-auto`} />
+              <MdOutlineExplore className={`w-5 h-5 text-gray-500  mx-auto`} />
             </span>
             <span className="hidden md:block">Discover</span>
           </li>
           <li>
             <span>
-              <BsPersonPlusFill className="w-4 h-4 active:border-b-2 mx-auto" />
+              <MdPeopleAlt className="w-5 h-5 text-gray-500 active:border-b-2 mx-auto" />
             </span>
             <span className="hidden md:block text-center md:leading-none">
               People
@@ -41,13 +45,13 @@ const LoginNavigation = () => {
           </li>
           <li>
             <span>
-              <BsFillChatRightDotsFill className="w-4 h-4 rounded-lg  active:border-b-2 mx-auto" />
+              <MdOutlineEventNote className="w-5 h-5 text-gray-500 rounded-lg  active:border-b-2 mx-auto" />
             </span>
             <span className="hidden md:block">Learning</span>
           </li>
           <li>
             <span>
-              <BsBriefcaseFill className="w-4 h-4  active:border-b-2 mx-auto" />
+              <BsBriefcaseFill className="w-5 h-5 text-gray-500  active:border-b-2 mx-auto" />
             </span>
             <span className="hidden md:block">Jobs</span>
           </li>
