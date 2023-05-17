@@ -10,7 +10,7 @@ const PostJob = () => {
       </div>
       <div className="col-span-10 md:col-span-10 lg:col-span-4 p-1 space-x-2">
         <button
-          className="mt-2 border border-blue-600 hover:bg-gray-200 rounded-3xl py-3 px-4  gap-1 text-sm text-blue-600 font-semibold"
+          className="my-10 border border-blue-600 hover:bg-gray-200 rounded-3xl py-3 px-4  gap-1 text-sm text-blue-600 font-semibold"
           type="button"
         >
           Post a job

@@ -5,8 +5,8 @@ export default {
     extend: {
       keyframes: {
         slide: {
-          "0%": { left: "100%", padding: "0rem 0 0 14rem" },
-          "100%": { left: "0px", padding: "0rem 0 0 14rem" },
+          "0%": { left: "100%" },
+          "100%": { left: "0px" },
         },
       },
       animation: {

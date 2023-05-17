@@ -18,7 +18,7 @@ import { BsLinkedin } from "react-icons/bs";
 
 const LoginNavigation = () => {
   return (
-    <nav className=" sticky top-0 z-50 flex my-2 p-2 items-center bg-white shadow-sm gap-2 justify-start lg:justify-between w-full text-sm md:text-xs h-12 mx-auto min-h-[100%] ">
+    <nav className=" z-50 flex my-2 p-2 items-center bg-white shadow-sm gap-2 justify-start lg:justify-between w-full text-sm md:text-xs h-12 mx-auto min-h-[100%] ">
       <div className="flex gap-0.5 items-center text-blue-600">
         <p className="text-3xl font-bold ">Linked</p>
         <BsLinkedin className="h-8 w-8" />
