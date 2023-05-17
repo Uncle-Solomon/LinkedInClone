@@ -2,7 +2,7 @@ import React from "react";
 
 const Explore = () => {
   return (
-    <div className="grid grid-cols-10 space-x-12 w-full py-8 md:py-16 lg:py-20 lg:pl-56 lg:pr-12 lg:mr-12 my-8 bg-gray-100">
+    <div className="grid grid-cols-10 pl-2 space-x-12 w-full py-8 md:py-16 lg:py-20 lg:pl-56 lg:pr-12 lg:mr-12 my-8 bg-gray-100">
       <div className="col-span-10 md:col-span-10 lg:col-span-3 p-1">
         <h1 className=" text-black text-5xl font-extralight w-[90%] my-10 leading-11">
           Explore collaborative articles

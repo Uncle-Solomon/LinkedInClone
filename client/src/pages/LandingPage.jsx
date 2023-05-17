@@ -11,7 +11,7 @@ const LandingPage = () => {
     <div>
       <div className="ml-0 mr-0 lg:pl-56 lg:pr-12 lg:mr-12">
         <LoginNavigation />
-        <div className="grid grid-cols-10 space-x-12 w-full my-8">
+        <div className="grid grid-cols-10 pl-2 space-x-12 w-full my-8">
           <div className="col-span-10 md:col-span-5 lg:col-span-4 p-1">
             <h1 className=" text-amber-800 text-5xl font-extralight my-10 leading-11">
               Welcome to your professional community
