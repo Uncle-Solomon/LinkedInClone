@@ -49,7 +49,7 @@ const Navigation = () => {
                 ? "border-b-2 border-black text-black"
                 : "text-gray-500"
             } `}
-            onClick={() => handleClick(1, "/")}
+            onClick={() => handleClick(1, "/feed")}
           >
             <span>
               <MdHome className={`w-4 h-4  mx-auto`} />
