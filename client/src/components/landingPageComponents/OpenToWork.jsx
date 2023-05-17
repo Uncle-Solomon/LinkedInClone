@@ -19,7 +19,7 @@ const OpenToWork = () => {
     }
   };
   return (
-    <div className=" h-[54vh] lg:h-[75vh] relative pt-8 md:pt-16 lg:pt-32 w-full lg:pl-56 lg:pr-12 lg:mr-12  bg-gray-100">
+    <div className=" h-[54vh] md:h-[68vh] lg:h-[75vh] relative pt-8 md:pt-16 lg:pt-32 w-full lg:pl-56 lg:pr-12 lg:mr-12  bg-gray-100">
       <div className="pl-64">
         {carousel == 0 && (
           <div className="grid grid-cols-10 absolute lg:pl-56 animate-slide w-full space-x-16  ">

@@ -8,12 +8,13 @@ import Notifications from "./pages/Notifications";
 import { useEffect, useState } from "react";
 import Loader from "./pages/Loader";
 import LandingPage from "./pages/LandingPage";
+import SignUp from "./pages/SignUp";
 
 function App() {
   const [loader, setLoader] = useState(true);
 
   useEffect(() => {
-    setTimeout(() => setLoader(false), 7000);
+    setTimeout(() => setLoader(false), 6000);
   }, []);
 
   return (
@@ -29,6 +30,7 @@ function App() {
             <Route path="/jobs" element={<Jobs />} />
             <Route path="/notifications" element={<Notifications />} />
             <Route path="/profile" element={<ProfilePage />} />
+            <Route path="/signup" element={<SignUp />} />
           </Routes>
         </Router>
       )}

@@ -3,7 +3,7 @@ import { BsLinkedin } from "react-icons/bs";
 
 const Footer = () => {
   return (
-    <div className="grid md:grid-cols-10 grid-cols-12 pl-2 lg:pl-56 lg:pr-12 lg:mr-12">
+    <div className="grid md:grid-cols-10 grid-cols-12 mb-12 pl-2 lg:pl-56 lg:pr-12 lg:mr-12">
       <div className="md:col-span-2 mt-8 col-span-4 flex gap-1 items-start text-xl text-blue-600 ">
         Linked <BsLinkedin className="h-6 w-6 " />
       </div>

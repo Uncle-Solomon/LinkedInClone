@@ -17,6 +17,7 @@ import { useNavigate } from "react-router-dom";
 import { BsLinkedin } from "react-icons/bs";
 
 const LoginNavigation = () => {
+  const navigate = useNavigate();
   return (
     <nav className=" z-50 flex my-2 p-2 items-center bg-white shadow-sm gap-2 justify-start lg:justify-between w-full text-sm md:text-xs h-12 mx-auto min-h-[100%] ">
       <div className="flex gap-0.5 items-center text-blue-600">
@@ -56,13 +57,16 @@ const LoginNavigation = () => {
       </div>
       <div className="flex justify-end gap-2 w-full md:w-auto lg:justify-start">
         <button
-          className="mt-2 hover:bg-gray-100 rounded-2xl py-3 px-4 flex gap-1 text-sm text-black font-semibold"
+          className="mt-2  w-[6rem] hover:bg-gray-100 rounded-2xl py-3 px-4 flex gap-1 text-sm text-black font-semibold"
           type="button"
+          onClick={() => {
+            navigate("/signup");
+          }}
         >
           Join now
         </button>
         <button
-          className="mt-2 hover:bg-gray-100 border border-blue-600 rounded-3xl py-3 px-4 flex gap-1 text-sm text-blue-600 font-semibold"
+          className="mt-2 w-[5rem] hover:bg-gray-100 border border-blue-600 rounded-3xl py-3 px-4 flex gap-1 text-sm text-blue-600 font-semibold"
           type="button"
         >
           Sign In
