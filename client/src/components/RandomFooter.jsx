@@ -28,7 +28,7 @@ const RandomFooter = () => {
           <li>More</li>
         </ul>
       </div>
-      <p className="text-xs mt-4 text-gray-400 font-bold flex gap-2">
+      <p className="text-xs mt-4 text-gray-400 pl-2 font-bold flex gap-2">
         <span>Built by Ameh Solomon Onyeke A.S.O 2023</span>{" "}
         <RiChatSmile3Fill />
       </p>

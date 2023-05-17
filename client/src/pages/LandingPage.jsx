@@ -5,6 +5,7 @@ import FindJob from "../components/landingPageComponents/FindJob";
 import PostJob from "../components/landingPageComponents/PostJob";
 import OpenToWork from "../components/landingPageComponents/OpenToWork";
 import Footer from "../components/landingPageComponents/Footer";
+import RandomFooter from "../components/RandomFooter";
 
 const LandingPage = () => {
   return (
@@ -66,6 +67,7 @@ const LandingPage = () => {
       <PostJob />
       <OpenToWork />
       <Footer />
+      <RandomFooter />
     </div>
   );
 };
