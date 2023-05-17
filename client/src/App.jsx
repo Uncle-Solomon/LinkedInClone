@@ -18,20 +18,20 @@ function App() {
 
   return (
     <div>
-      {/* {loader ? (
+      {loader ? (
         <Loader />
       ) : (
         <Router>
           <Routes>
-            <Route name="feed" path="/" element={<Feed />} />
+            <Route name="landing page" path="/" element={<LandingPage />} />
+            <Route name="feed" path="/feed" element={<Feed />} />
             <Route name="my network" path="/mynetwork" element={<Network />} />
             <Route path="/jobs" element={<Jobs />} />
             <Route path="/notifications" element={<Notifications />} />
             <Route path="/profile" element={<ProfilePage />} />
           </Routes>
         </Router>
-      )} */}
-      <LandingPage />
+      )}
     </div>
   );
 }
