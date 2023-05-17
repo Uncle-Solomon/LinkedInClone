@@ -1,7 +1,4 @@
 import React, { useEffect, useState } from "react";
-import logo from "../assets/Logo.png";
-import profilepicture from "../assets/profilepic.jpeg";
-import { MdHome, MdRssFeed } from "react-icons/md";
 import {
   BsPersonPlusFill,
   BsSearch,
