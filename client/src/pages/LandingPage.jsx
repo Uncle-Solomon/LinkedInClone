@@ -4,6 +4,7 @@ import Explore from "../components/landingPageComponents/Explore";
 import FindJob from "../components/landingPageComponents/FindJob";
 import PostJob from "../components/landingPageComponents/PostJob";
 import OpenToWork from "../components/landingPageComponents/OpenToWork";
+import Footer from "../components/landingPageComponents/Footer";
 
 const LandingPage = () => {
   return (
@@ -64,6 +65,7 @@ const LandingPage = () => {
       <FindJob />
       <PostJob />
       <OpenToWork />
+      <Footer />
     </div>
   );
 };
