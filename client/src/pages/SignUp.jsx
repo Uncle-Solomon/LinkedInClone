@@ -1,5 +1,6 @@
 import React from "react";
 import { BsLinkedin } from "react-icons/bs";
+import { FcGoogle } from "react-icons/fc";
 import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
@@ -38,14 +39,14 @@ const SignUp = () => {
             Agree & Join
           </button>
 
-          <div className="grid grid-cols-12 my-6 w-full">
+          <div className="grid grid-cols-12 mt-4 mb-6 w-full">
             <span className="col-span-5 bg-gray-400 mt-3 h-[0.0125rem]"></span>
             <span className="col-span-2 text-center  h-1">or</span>
             <span className="col-span-5 bg-gray-400 mt-3 h-[0.0125rem]"></span>
           </div>
 
-          <button className="p-2.5 w-full border border-black text-black font-light rounded-full my-2 hover:bg-gray-100 text-sm">
-            Continue with Google
+          <button className="p-1.5 w-full border border-black text-black font-light rounded-full my-2 hover:bg-gray-100 text-sm flex gap-1 items-center justify-center">
+            <FcGoogle className="h-6 w-6 " /> Continue with Google
           </button>
 
           <p className="text-xs text-center text-gray-500 mt-4 font-semibold mb-8">
