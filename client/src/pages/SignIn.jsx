@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BsLinkedin } from "react-icons/bs";
 import { FcGoogle } from "react-icons/fc";
 
@@ -6,6 +6,36 @@ import { useNavigate } from "react-router-dom";
 
 const SignIn = () => {
   const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const [err, setErr] = useState("");
+
+  const signinUser = async (e) => {
+    e.preventDefault();
+    const response = await fetch("http://localhost:8000/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email,
+        password,
+      }),
+    });
+
+    const data = await response.json();
+    console.log(data);
+
+    if (data.errors) {
+      console.log(data.errors);
+      const errorString = JSON.stringify(data.errors);
+      setErr(errorString);
+    }
+    if (data.success === true) {
+      navigate("/feed");
+    }
+  };
 
   return (
     <div className="bg-gray-50 pb-1">
@@ -13,13 +43,25 @@ const SignIn = () => {
         Linked <BsLinkedin className="h-7 w-7 " />
       </h1>
 
-      <form className="w-[24rem] border border-gray-300 rounded-md shadow-lg mx-auto mt-8 lg:mt-20 px-8 py-4">
+      <form
+        onSubmit={signinUser}
+        className="w-[24rem] border border-gray-300 rounded-md shadow-lg mx-auto mt-8 lg:mt-20 px-8 py-4"
+      >
         <h1 className="text-3xl my-3 ">Sign in</h1>
         <p className="text-xs font-bold my-2">Email or phone number</p>
         <input
           type="email"
           className="w-full p-2 rounded-md  border cursor-pointer hover:bg-gray-200 hover:outline-2"
+          required
+          onChange={(e) => {
+            setEmail(e.target.value);
+          }}
         />
+        <p>
+          {err && (
+            <p className="text-xs font-bold my-1 text-red-900">Error: {err}</p>
+          )}
+        </p>
 
         <p className="text-xs font-bold my-2">
           Password (6 or more characters)
@@ -27,13 +69,25 @@ const SignIn = () => {
         <input
           type="password"
           className="w-full p-2 rounded-md border cursor-pointer hover:bg-gray-200 hover:outline-2"
+          required
+          onChange={(e) => {
+            setPassword(e.target.value);
+          }}
         />
+        <p>
+          {err && (
+            <p className="text-xs font-bold my-1 text-red-900">Error: {err}</p>
+          )}
+        </p>
 
         <p className="text-sm text-blue-600 cursor-pointer my-4 font-semibold">
           Forgot Password?
         </p>
 
-        <button className="p-2.5 w-full border bg-blue-600 text-white font-semibold rounded-full text-sm hover:bg-blue-700">
+        <button
+          type="submit"
+          className="p-2.5 w-full border bg-blue-600 text-white font-semibold rounded-full text-sm hover:bg-blue-700"
+        >
           Sign in
         </button>
 
