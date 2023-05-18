@@ -68,6 +68,9 @@ const LoginNavigation = () => {
         <button
           className="mt-2 w-[5rem] hover:bg-gray-100 border border-blue-600 rounded-3xl py-3 px-4 flex gap-1 text-sm text-blue-600 font-semibold"
           type="button"
+          onClick={() => {
+            navigate("/signin");
+          }}
         >
           Sign In
         </button>
