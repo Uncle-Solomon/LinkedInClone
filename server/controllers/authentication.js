@@ -1,4 +1,4 @@
-import User from "../models/User.js";
+import User from "../db/models/Users.js";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
 import createJWT from "../utils/auth.js";
@@ -32,7 +32,7 @@ export const signup = (req, res, next) => {
           .json({ errors: [{ user: "email already exists" }] });
       } else {
         const user = new User({
-          email: email,
+          emailOrPhoneNumber: email,
           password: password,
         });
         bcrypt.genSalt(10, (err, salt) => {
@@ -64,6 +64,7 @@ export const signup = (req, res, next) => {
 
 export const login = (req, res, next) => {
   let { email, password } = req.body;
+  let errors = [];
   if (!email) {
     errors.push({ email: "required" });
   }
@@ -77,7 +78,7 @@ export const login = (req, res, next) => {
     return res.status(422).json({ errors: errors });
   }
 
-  User.findOne({ email: email })
+  User.findOne({ emailOrPhoneNumber: email })
     .then((user) => {
       if (!user) {
         return res.status(404).json({ errors: [{ user: "not found" }] });

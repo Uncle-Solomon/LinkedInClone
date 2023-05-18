@@ -1,5 +1,28 @@
 import mongoose from "mongoose";
 
+const educationSchema = new mongoose.Schema({
+  UniversityName: {
+    type: String,
+    required: false,
+  },
+  degree: {
+    type: String,
+    required: false,
+  },
+  startDate: {
+    type: Number,
+    required: false,
+  },
+  endDate: {
+    type: Number,
+    required: false,
+  },
+  skills: {
+    type: String,
+    required: false,
+  },
+});
+
 const userSchema = new mongoose.Schema(
   {
     firstName: {
@@ -57,29 +80,6 @@ const userSchema = new mongoose.Schema(
     collection: "LinkedInClone.users",
   }
 );
-
-const educationSchema = new mongoose.Schema({
-  UniversityName: {
-    type: String,
-    required: false,
-  },
-  degree: {
-    type: String,
-    required: false,
-  },
-  startDate: {
-    type: Number,
-    required: false,
-  },
-  endDate: {
-    type: Number,
-    required: false,
-  },
-  skills: {
-    type: String,
-    required: false,
-  },
-});
 
 const User = mongoose.model("User", userSchema);
 
