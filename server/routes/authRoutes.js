@@ -1,9 +1,9 @@
 import express from "express";
 
-const routes = express.Router();
+const authRoutes = express.Router();
 
-routes.get("/", (req, res) => {
+authRoutes.get("/", (req, res) => {
   res.send("Welcome to the backend");
 });
 
-export default routes;
+export default authRoutes;
