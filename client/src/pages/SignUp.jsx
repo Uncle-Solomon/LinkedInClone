@@ -44,13 +44,18 @@ const SignUp = () => {
             <span className="col-span-5 bg-gray-400 mt-3 h-[0.0125rem]"></span>
           </div>
 
-          <button className="p-2.5 w-full border border-black text-black font-light rounded-full my-2 hover:bg-gray-100">
+          <button className="p-2.5 w-full border border-black text-black font-light rounded-full my-2 hover:bg-gray-100 text-sm">
             Continue with Google
           </button>
 
           <p className="text-xs text-center text-gray-500 mt-4 font-semibold mb-8">
             Already on LinkedIn?{" "}
-            <span className=" text-blue-600 cursor-pointer">Sign in.</span>
+            <span
+              onClick={() => navigate("/signin")}
+              className=" text-blue-600 cursor-pointer"
+            >
+              Sign in.
+            </span>
           </p>
         </form>
         <p className="text-xs text-center text-gray-700 mt-4 font-semibold mb-4">

@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import Loader from "./pages/Loader";
 import LandingPage from "./pages/LandingPage";
 import SignUp from "./pages/SignUp";
+import SignIn from "./pages/SignIn";
 
 function App() {
   const [loader, setLoader] = useState(true);
@@ -31,6 +32,7 @@ function App() {
             <Route path="/notifications" element={<Notifications />} />
             <Route path="/profile" element={<ProfilePage />} />
             <Route path="/signup" element={<SignUp />} />
+            <Route path="/signin" element={<SignIn />} />
           </Routes>
         </Router>
       )}
