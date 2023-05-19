@@ -1,17 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import { BsLinkedin } from "react-icons/bs";
 import { FcGoogle } from "react-icons/fc";
 import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
   const navigate = useNavigate();
+  const [nameBox, setNameBox] = useState(false);
+
+  const openNameBox = (e) => {
+    e.preventDefault();
+    setNameBox(true);
+  };
+
   return (
     <div className=" ">
       <div className="bg-gray-100 pb-1">
         <h1 className="text-3xl font-bold text-blue-600 flex items-center gap-1 mx-auto pl-2 lg:pl-56 mb-6 pt-2">
           Linked <BsLinkedin className="h-7 w-7 " />
         </h1>
-        <p className="text-2xl md:text-3xl w-[27rem] md:w-[35rem] mx-auto font-normal mb-4">
+        <p className="text-lg md:text-3xl w-[21rem] md:w-[35rem] mx-auto font-normal mb-4">
           Make the most of your professional life
         </p>
 
@@ -24,7 +31,7 @@ const SignUp = () => {
           </p>
           <input type="password" className="w-full border cursor-pointer" />
 
-          <p className="text-xs text-center text-gray-500 mt-4 font-semibold mb-8">
+          <p className="text-xs text-center text-gray-500 mt-4 font-semibold mb-4">
             By clicking Agree & Join, you agree to the LinkedIn{" "}
             <span className=" text-blue-600 cursor-pointer">
               User Agreement, Privacy Policy,
@@ -35,7 +42,18 @@ const SignUp = () => {
             </span>
           </p>
 
-          <button className="p-2.5 w-full border bg-blue-600 text-white font-semibold rounded-full text-sm hover:bg-blue-700">
+          <div className={nameBox ? `block` : `hidden`}>
+            <p className="text-xs font-bold my-2">Last Name:</p>
+            <input type="text" className="w-full  border cursor-pointer" />
+
+            <p className="text-xs font-bold my-2">Other Names:</p>
+            <input type="text" className="w-full  border cursor-pointer" />
+          </div>
+
+          <button
+            className="p-2.5 w-full border bg-blue-600 text-white font-semibold rounded-full text-sm hover:bg-blue-700 mt-2"
+            onClick={openNameBox}
+          >
             Agree & Join
           </button>
 
