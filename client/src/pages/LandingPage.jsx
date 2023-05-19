@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import LoginNavigation from "../components/landingPageComponents/LoginNavigation";
 import Explore from "../components/landingPageComponents/Explore";
 import FindJob from "../components/landingPageComponents/FindJob";
@@ -8,6 +10,41 @@ import Footer from "../components/landingPageComponents/Footer";
 import RandomFooter from "../components/RandomFooter";
 
 const LandingPage = () => {
+  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const [err, setErr] = useState("");
+
+  const signinUser = async (e) => {
+    e.preventDefault();
+    const response = await fetch(
+      "https://linked-in-clone-backend.onrender.com/login",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email,
+          password,
+        }),
+      }
+    );
+
+    const data = await response.json();
+    console.log(data);
+
+    if (data.errors) {
+      console.log(data.errors);
+      const errorString = JSON.stringify(data.errors);
+      setErr(errorString);
+    }
+    if (data.success === true) {
+      navigate("/feed");
+    }
+  };
+
   return (
     <div>
       <div className="ml-0 mr-0 lg:pl-56 lg:pr-12 lg:mr-12">
@@ -17,27 +54,52 @@ const LandingPage = () => {
             <h1 className=" text-amber-800 text-5xl font-extralight my-10 leading-11">
               Welcome to your professional community
             </h1>
-            <form>
+            <form onSubmit={signinUser}>
               <div>
                 <p className="text-sm my-2 font-semibold">Email or phone</p>
                 <input
                   type="text"
                   className="p-3 w-[90%] border border-black hover:bg-gray-200 rounded-md"
+                  required
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                  }}
                 />
+                <p>
+                  {err && (
+                    <p className="text-xs font-bold my-1 text-red-900">
+                      Error: {err}
+                    </p>
+                  )}
+                </p>
               </div>
               <div>
                 <p className="text-sm my-2 font-semibold">Password</p>
                 <input
-                  type="text"
+                  type="password"
                   className="p-3 w-[90%] border border-black hover:bg-gray-200 rounded-md"
+                  required
+                  onChange={(e) => {
+                    setPassword(e.target.value);
+                  }}
                 />
+                <p>
+                  {err && (
+                    <p className="text-xs font-bold my-1 text-red-900">
+                      Error: {err}
+                    </p>
+                  )}
+                </p>
               </div>
 
               <p className="text-sm font-semibold text-blue-600 my-7 hover:underline cursor-pointer">
                 Forgot password?
               </p>
 
-              <button className="p-2 w-[90%] border bg-blue-600 text-white font-semibold rounded-full hover:bg-blue-700">
+              <button
+                className="p-2 w-[90%] border bg-blue-600 text-white font-semibold rounded-full hover:bg-blue-700"
+                type="submit"
+              >
                 Sign In
               </button>
 
