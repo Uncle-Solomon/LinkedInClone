@@ -25,13 +25,13 @@ const educationSchema = new mongoose.Schema({
 
 const userSchema = new mongoose.Schema(
   {
-    firstName: {
+    otherNames: {
       type: String,
-      required: false,
+      required: true,
     },
     lastName: {
       type: String,
-      required: false,
+      required: true,
     },
     emailOrPhoneNumber: {
       type: String || Number,

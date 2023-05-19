@@ -50,12 +50,21 @@ const SignUp = () => {
             <input type="text" className="w-full  border cursor-pointer" />
           </div>
 
-          <button
-            className="p-2.5 w-full border bg-blue-600 text-white font-semibold rounded-full text-sm hover:bg-blue-700 mt-2"
-            onClick={openNameBox}
-          >
-            Agree & Join
-          </button>
+          {nameBox ? (
+            <button
+              className="p-2.5 w-full border bg-blue-600 text-white font-semibold rounded-full text-sm hover:bg-blue-700 mt-2"
+              onClick={openNameBox}
+            >
+              Sign up
+            </button>
+          ) : (
+            <button
+              className="p-2.5 w-full border bg-blue-600 text-white font-semibold rounded-full text-sm hover:bg-blue-700 mt-2"
+              onClick={openNameBox}
+            >
+              Agree & Join
+            </button>
+          )}
 
           <div className="grid grid-cols-12 mt-4 mb-6 w-full">
             <span className="col-span-5 bg-gray-400 mt-3 h-[0.0125rem]"></span>

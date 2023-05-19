@@ -7,7 +7,7 @@ const emailRegexp =
   /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
 
 export const signup = (req, res, next) => {
-  let { email, password } = req.body;
+  let { email, password, lastName, otherNames } = req.body;
   let errors = [];
 
   if (!email) {
@@ -19,7 +19,12 @@ export const signup = (req, res, next) => {
   if (!password) {
     errors.push({ password: "required" });
   }
-
+  if (!lastName) {
+    errors.push({ lastName: "required" });
+  }
+  if (!otherNames) {
+    errors.push({ otherNames: "required" });
+  }
   if (errors.length > 0) {
     return res.status(422).json({ errors: errors });
   }
@@ -34,6 +39,8 @@ export const signup = (req, res, next) => {
         const user = new User({
           emailOrPhoneNumber: email,
           password: password,
+          lastName: lastName,
+          otherNames: otherNames,
         });
         bcrypt.genSalt(10, (err, salt) => {
           bcrypt.hash(password, salt, (err, hash) => {
