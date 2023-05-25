@@ -19,6 +19,9 @@ export const signup = (req, res, next) => {
   if (!password) {
     errors.push({ password: "required" });
   }
+  if (password.length < 6) {
+    errors.push({ password: "Not Enough Characters" });
+  }
   if (!lastName) {
     errors.push({ lastName: "required" });
   }

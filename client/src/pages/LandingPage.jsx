@@ -18,30 +18,36 @@ const LandingPage = () => {
 
   const signinUser = async (e) => {
     e.preventDefault();
-    const response = await fetch(
-      "https://linked-in-clone-backend.onrender.com/login",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email,
-          password,
-        }),
+    try {
+      const response = await fetch(
+        "https://linked-in-clone-backend.onrender.com/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email,
+            password,
+          }),
+        }
+      );
+
+      const data = await response.json();
+      console.log(data);
+
+      if (data.errors) {
+        console.log(data.errors);
+        const errorString = JSON.stringify(data.errors);
+        setErr(errorString);
       }
-    );
-
-    const data = await response.json();
-    console.log(data);
-
-    if (data.errors) {
-      console.log(data.errors);
-      const errorString = JSON.stringify(data.errors);
-      setErr(errorString);
-    }
-    if (data.success === true) {
-      navigate("/feed");
+      if (data.success === true) {
+        navigate("/feed");
+      }
+    } catch (error) {
+      alert(
+        "There is an issue with communicatng with the backend, please give it some time :)"
+      );
     }
   };
 

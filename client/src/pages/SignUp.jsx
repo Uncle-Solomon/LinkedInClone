@@ -6,10 +6,42 @@ import { useNavigate } from "react-router-dom";
 const SignUp = () => {
   const navigate = useNavigate();
   const [nameBox, setNameBox] = useState(false);
+  const [email, setEmail] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [password, setPassword] = useState("");
+  const [otherNames, setOtherNames] = useState("");
 
   const openNameBox = (e) => {
     e.preventDefault();
     setNameBox(true);
+  };
+
+  const signupUser = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch(
+        "https://linked-in-clone-backend.onrender.com/signup",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            lastName,
+            otherNames,
+            email,
+            password,
+          }),
+        }
+      );
+
+      const data = await response.json();
+      console.log(data);
+    } catch (error) {
+      alert(
+        "There is an issue with communicatng with the backend, please give it some time :)"
+      );
+    }
   };
 
   return (
@@ -22,21 +54,35 @@ const SignUp = () => {
           Make the most of your professional life
         </p>
 
-        <form className="w-[22rem] mx-auto p-4 bg-white">
+        <form className="w-[22rem] mx-auto p-4 bg-white" onSubmit={signupUser}>
           <p className="text-xs font-bold my-2">Email or phone number</p>
-          <input type="email" className="w-full  border cursor-pointer" />
+          <input
+            type="email"
+            className="w-full  border cursor-pointer"
+            required
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
+          />
 
           <p className="text-xs font-bold my-2">
             Password (6 or more characters)
           </p>
-          <input type="password" className="w-full border cursor-pointer" />
+          <input
+            type="password"
+            className="w-full border cursor-pointer"
+            required
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
+          />
 
           <p className="text-xs text-center text-gray-500 mt-4 font-semibold mb-4">
             By clicking Agree & Join, you agree to the LinkedIn{" "}
             <span className=" text-blue-600 cursor-pointer">
               User Agreement, Privacy Policy,
-            </span>{" "}
-            and{" "}
+            </span>
+            and
             <span className=" text-blue-600 cursor-pointer">
               Cookie Policy.
             </span>
@@ -44,16 +90,30 @@ const SignUp = () => {
 
           <div className={nameBox ? `block` : `hidden`}>
             <p className="text-xs font-bold my-2">Last Name:</p>
-            <input type="text" className="w-full  border cursor-pointer" />
+            <input
+              type="text"
+              className="w-full  border cursor-pointer"
+              required
+              onChange={(e) => {
+                setLastName(e.target.value);
+              }}
+            />
 
             <p className="text-xs font-bold my-2">Other Names:</p>
-            <input type="text" className="w-full  border cursor-pointer" />
+            <input
+              type="text"
+              className="w-full  border cursor-pointer"
+              required
+              onChange={(e) => {
+                setOtherNames(e.target.value);
+              }}
+            />
           </div>
 
           {nameBox ? (
             <button
               className="p-2.5 w-full border bg-blue-600 text-white font-semibold rounded-full text-sm hover:bg-blue-700 mt-2"
-              onClick={openNameBox}
+              type="submit"
             >
               Sign up
             </button>
