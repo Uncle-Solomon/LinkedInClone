@@ -7,7 +7,7 @@ import {
   BsSlashSquareFill,
 } from "react-icons/bs";
 
-const SideNavLeft = () => {
+const SideNavLeft = ({ userData }) => {
   return (
     <div className="rounded-md pb-2 w-[95%] mx-auto shadow-md bg-white">
       <div>
@@ -22,7 +22,7 @@ const SideNavLeft = () => {
         </div>
         <div className="pl-3 mt-[-0.5rem]">
           <h1 className="font-bold text-lg leading-5 w-[80%] mb-4">
-            Ameh Solomon Onyeke
+            {userData}
           </h1>
           <p className="text-xs font-thin">
             <span className="font-semibold mr-0.5 text-sm">30</span> profile
