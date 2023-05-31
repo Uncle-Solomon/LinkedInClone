@@ -18,7 +18,7 @@ const SignIn = ({ signinUser }) => {
       console.log(result);
       if (result.errors) {
         console.log(result.errors);
-        setErr(JSON.stringify(data.errors));
+        setErr(JSON.stringify(result.errors));
       }
       if (result.success === true) {
         navigate("/feed");

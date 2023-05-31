@@ -22,11 +22,12 @@ const LandingPage = ({ signinUser }) => {
       console.log(result);
       if (result.errors) {
         console.log(result.errors);
-        setErr(JSON.stringify(data.errors));
+        setErr(JSON.stringify(result.errors));
       }
       if (result.success === true) {
         navigate("/feed");
-        // setUserData(JSON.stringify(result.message));
+        setUserData(JSON.stringify(result.message));
+        localStorage.clear("user");
         localStorage.setItem("user", JSON.stringify(result.message));
       }
     });
@@ -56,13 +57,11 @@ const LandingPage = ({ signinUser }) => {
                     setEmail(e.target.value);
                   }}
                 />
-                <p>
-                  {err && (
-                    <p className="text-xs font-bold my-1 text-red-900">
-                      Error: {err}
-                    </p>
-                  )}
-                </p>
+                {err && (
+                  <p className="text-xs font-bold my-1 text-red-900">
+                    Error: {err}
+                  </p>
+                )}
               </div>
               <div>
                 <p className="text-sm my-2 font-semibold">Password</p>
@@ -74,13 +73,11 @@ const LandingPage = ({ signinUser }) => {
                     setPassword(e.target.value);
                   }}
                 />
-                <p>
-                  {err && (
-                    <p className="text-xs font-bold my-1 text-red-900">
-                      Error: {err}
-                    </p>
-                  )}
-                </p>
+                {err && (
+                  <p className="text-xs font-bold my-1 text-red-900">
+                    Error: {err}
+                  </p>
+                )}
               </div>
 
               <p className="text-sm font-semibold text-blue-600 my-7 hover:underline cursor-pointer">
