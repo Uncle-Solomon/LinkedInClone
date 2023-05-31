@@ -5,7 +5,8 @@ import Network from "./pages/Network";
 import Jobs from "./pages/Jobs";
 import Notifications from "./pages/Notifications";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import { AppContextProvider, AppContext } from "./ContextProvider";
 // // import { useNavigate } from "react-router-dom";
 //
 import Loader from "./pages/Loader";
@@ -15,10 +16,8 @@ import SignIn from "./pages/SignIn";
 
 function App() {
   // const navigate = useNavigate();
-
   const [loader, setLoader] = useState(true);
-
-  const [userData, setUserData] = useState(null);
+  const user = localStorage.getItem("user");
 
   useEffect(() => {
     setTimeout(() => setLoader(false), 3000);
@@ -46,13 +45,17 @@ function App() {
     } catch (error) {}
   };
   return (
-    <div>
+    <AppContextProvider>
       {loader ? (
         <Loader />
       ) : (
         <Router>
           <Routes>
-            <Route name="landing page" path="/" element={<LandingPage />} />
+            <Route
+              name="landing page"
+              path="/"
+              element={<LandingPage signinUser={signinUser} />}
+            />
             <Route name="feed" path="/feed" element={<Feed />} />
 
             <Route name="my network" path="/mynetwork" element={<Network />} />
@@ -67,7 +70,7 @@ function App() {
           </Routes>
         </Router>
       )}
-    </div>
+    </AppContextProvider>
   );
 }
 

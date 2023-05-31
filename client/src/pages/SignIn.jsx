@@ -1,21 +1,30 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { BsLinkedin } from "react-icons/bs";
 import { FcGoogle } from "react-icons/fc";
 
 import { useNavigate } from "react-router-dom";
+import { AppContext } from "../ContextProvider";
 
 const SignIn = ({ signinUser }) => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [err, setErr] = useState("");
+  const { userData, setUserData } = useContext(AppContext);
   const handleSubmit = (e) => {
     e.preventDefault();
     const x = signinUser(email, password);
     x.then((result) => {
       console.log(result);
+      if (result.errors) {
+        console.log(result.errors);
+        setErr(JSON.stringify(data.errors));
+      }
       if (result.success === true) {
         navigate("/feed");
+        setUserData(JSON.stringify(result.message));
+        localStorage.clear("user");
+        localStorage.setItem("user", JSON.stringify(result.message));
       }
     });
   };

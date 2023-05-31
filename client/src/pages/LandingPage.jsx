@@ -9,46 +9,27 @@ import OpenToWork from "../components/landingPageComponents/OpenToWork";
 import Footer from "../components/landingPageComponents/Footer";
 import RandomFooter from "../components/RandomFooter";
 
-const LandingPage = () => {
+const LandingPage = ({ signinUser }) => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const [err, setErr] = useState("");
-
-  const signinUser = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    try {
-      const response = await fetch(
-        "https://linked-in-clone-backend.onrender.com/login",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            email,
-            password,
-          }),
-        }
-      );
-
-      const data = await response.json();
-      console.log(data);
-
-      if (data.errors) {
-        console.log(data.errors);
-        const errorString = JSON.stringify(data.errors);
-        setErr(errorString);
+    const x = signinUser(email, password);
+    x.then((result) => {
+      console.log(result);
+      if (result.errors) {
+        console.log(result.errors);
+        setErr(JSON.stringify(data.errors));
       }
-      if (data.success === true) {
+      if (result.success === true) {
         navigate("/feed");
+        // setUserData(JSON.stringify(result.message));
+        localStorage.setItem("user", JSON.stringify(result.message));
       }
-    } catch (error) {
-      alert(
-        "There is an issue with communicatng with the backend, please give it some time :)"
-      );
-    }
+    });
   };
 
   return (
@@ -60,7 +41,11 @@ const LandingPage = () => {
             <h1 className=" text-amber-800 text-5xl font-extralight my-10 leading-11">
               Welcome to your professional community
             </h1>
-            <form onSubmit={signinUser}>
+            <form
+              onSubmit={(e) => {
+                handleSubmit(e);
+              }}
+            >
               <div>
                 <p className="text-sm my-2 font-semibold">Email or phone</p>
                 <input
