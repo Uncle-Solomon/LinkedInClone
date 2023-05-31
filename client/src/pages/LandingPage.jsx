@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { AppContext } from "../ContextProvider";
 
 import LoginNavigation from "../components/landingPageComponents/LoginNavigation";
 import Explore from "../components/landingPageComponents/Explore";
@@ -13,6 +14,7 @@ const LandingPage = ({ signinUser }) => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { userData, setUserData } = useContext(AppContext);
 
   const [err, setErr] = useState("");
   const handleSubmit = (e) => {
@@ -27,8 +29,8 @@ const LandingPage = ({ signinUser }) => {
       if (result.success === true) {
         navigate("/feed");
         setUserData(JSON.stringify(result.message));
-        localStorage.clear("user");
-        localStorage.setItem("user", JSON.stringify(result.message));
+        // localStorage.clear("user");
+        // localStorage.setItem("user", JSON.stringify(result.message));
       }
     });
   };

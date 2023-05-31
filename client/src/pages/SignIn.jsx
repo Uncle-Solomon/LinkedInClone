@@ -23,8 +23,8 @@ const SignIn = ({ signinUser }) => {
       if (result.success === true) {
         navigate("/feed");
         setUserData(JSON.stringify(result.message));
-        localStorage.clear("user");
-        localStorage.setItem("user", JSON.stringify(result.message));
+        // localStorage.clear("user");
+        // localStorage.setItem("user", JSON.stringify(result.message));
       }
     });
   };
