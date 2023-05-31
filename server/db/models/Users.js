@@ -23,7 +23,7 @@ const educationSchema = new mongoose.Schema({
   },
 });
 
-const userSchema = new mongoose.Schema(
+export const userSchema = new mongoose.Schema(
   {
     otherNames: {
       type: String,

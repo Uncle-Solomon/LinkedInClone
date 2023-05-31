@@ -4,7 +4,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 
 import connectDB from "./db/connect.js";
-import authRoutes from "./routes/authRoutes.js";
+import routes from "./routes/routes.js";
 
 dotenv.config();
 
@@ -19,7 +19,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 //Routes
-app.use("/", authRoutes);
+app.use("/", routes);
 
 const PORT = process.env.PORT || 4000;
 
