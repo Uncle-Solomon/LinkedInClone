@@ -1,6 +1,6 @@
 import React from "react";
 
-import profilepicture from "../assets/profilepic.jpeg";
+import profilepicture from "../assets/test.jpg";
 import background from "../assets/background.png";
 
 import { AiOutlineClose } from "react-icons/ai";

@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import profilepicture from "../assets/profilepic.jpeg";
+import profilepicture from "../assets/test.jpg";
 import background from "../assets/background.png";
 import {
   BsPersonHearts,

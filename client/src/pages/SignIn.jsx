@@ -31,8 +31,15 @@ const SignIn = ({ signinUser }) => {
 
   return (
     <div className="bg-gray-50 pb-1">
-      <h1 className="text-3xl font-bold text-blue-600 flex items-center gap-1 mx-auto pl-2 lg:pl-56 mb-6 pt-2">
-        Linked <BsLinkedin className="h-7 w-7 " />
+      <h1
+        className="text-3xl font-bold text-blue-600 flex items-center gap-1 mx-auto pl-2 lg:pl-56 mb-6 pt-2 cursor-pointer"
+        onClick={() => navigate("/")}
+      >
+        Linked{" "}
+        <BsLinkedin
+          className="h-7 w-7 cursor-pointer"
+          onClick={() => navigate("/")}
+        />
       </h1>
 
       <form

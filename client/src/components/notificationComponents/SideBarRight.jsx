@@ -1,5 +1,5 @@
 import React from "react";
-import profilepicture from "../../assets/profilepic.jpeg";
+import profilepicture from "../../assets/test.jpg";
 import job from "../../assets/job.jpeg";
 
 const SideBarRight = () => {

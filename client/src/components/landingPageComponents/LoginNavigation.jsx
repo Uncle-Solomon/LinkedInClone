@@ -20,7 +20,10 @@ const LoginNavigation = () => {
   const navigate = useNavigate();
   return (
     <nav className=" z-50 flex my-2 p-2 items-center bg-white shadow-sm gap-2 justify-start lg:justify-between w-full text-sm md:text-xs h-12 mx-auto min-h-[100%] ">
-      <div className="flex gap-0.5 items-center text-blue-600">
+      <div
+        className="flex gap-0.5 items-center text-blue-600 cursor-pointer"
+        onClick={() => navigate("/")}
+      >
         <p className="text-3xl font-bold ">Linked</p>
         <BsLinkedin className="h-8 w-8" />
       </div>

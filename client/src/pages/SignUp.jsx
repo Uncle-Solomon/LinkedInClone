@@ -47,7 +47,10 @@ const SignUp = () => {
   return (
     <div className=" ">
       <div className="bg-gray-100 pb-1">
-        <h1 className="text-3xl font-bold text-blue-600 flex items-center gap-1 mx-auto pl-2 lg:pl-56 mb-6 pt-2">
+        <h1
+          className="text-3xl font-bold text-blue-600 flex items-center gap-1 mx-auto pl-2 lg:pl-56 mb-6 pt-2 cursor-pointer"
+          onClick={() => navigate("/")}
+        >
           Linked <BsLinkedin className="h-7 w-7 " />
         </h1>
         <p className="text-lg md:text-3xl w-[21rem] md:w-[35rem] mx-auto font-normal mb-4">

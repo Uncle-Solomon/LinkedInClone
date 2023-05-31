@@ -1,5 +1,5 @@
 import React from "react";
-import profilepicture from "../assets/profilepic.jpeg";
+import profilepicture from "../assets/test.jpg";
 import { HiOutlinePhotograph } from "react-icons/hi";
 import { BsFillPlayBtnFill, BsFillCalendarDateFill } from "react-icons/bs";
 import { MdArticle } from "react-icons/md";
