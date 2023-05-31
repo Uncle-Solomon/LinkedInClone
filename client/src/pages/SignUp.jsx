@@ -37,6 +37,9 @@ const SignUp = () => {
 
       const data = await response.json();
       console.log(data);
+      if (data.success === true) {
+        navigate("/signin");
+      }
     } catch (error) {
       alert(
         "There is an issue with communicatng with the backend, please give it some time :)"
