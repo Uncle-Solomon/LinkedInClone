@@ -1,24 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BsLinkedin } from "react-icons/bs";
 import { FcGoogle } from "react-icons/fc";
 
 import { useNavigate } from "react-router-dom";
 
-const SignIn = ({
-  signinUser,
-  password,
-  setPassword,
-  email,
-  setEmail,
-  err,
-  setErr,
-  userData,
-}) => {
+const SignIn = ({ signinUser }) => {
   const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [err, setErr] = useState("");
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const x = signinUser(email, password);
+    x.then((result) => {
+      console.log(result);
+      if (result.success === true) {
+        navigate("/feed");
+      }
+    });
+  };
 
-  if (userData) {
-    navigate("/feed");
-  }
   return (
     <div className="bg-gray-50 pb-1">
       <h1 className="text-3xl font-bold text-blue-600 flex items-center gap-1 mx-auto pl-2 lg:pl-56 mb-6 pt-2">
@@ -26,7 +27,9 @@ const SignIn = ({
       </h1>
 
       <form
-        onSubmit={signinUser}
+        onSubmit={(e) => {
+          handleSubmit(e);
+        }}
         className="w-[24rem] border border-gray-300 rounded-md shadow-lg mx-auto mt-8 lg:mt-20 px-8 py-4"
       >
         <h1 className="text-3xl my-3 ">Sign in</h1>

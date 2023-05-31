@@ -22,7 +22,7 @@ const SideNavLeft = ({ userData }) => {
         </div>
         <div className="pl-3 mt-[-0.5rem]">
           <h1 className="font-bold text-lg leading-5 w-[80%] mb-4">
-            {userData}
+            {userData && JSON.stringify(userData)}
           </h1>
           <p className="text-xs font-thin">
             <span className="font-semibold mr-0.5 text-sm">30</span> profile

@@ -110,7 +110,7 @@ export const login = (req, res, next) => {
                   res.status(500).json({ error: err });
                 }
                 if (decoded) {
-                  return res.status(500).json({
+                  return res.status(200).json({
                     success: true,
                     token: access_token,
                     message: user,
