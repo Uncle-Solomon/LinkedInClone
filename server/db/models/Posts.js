@@ -39,8 +39,13 @@ const commentSchema = new mongoose.Schema(
       required: false,
     },
     replies: {
-      type: Schema.Types.ObjectId,
-      ref: "Reply",
+      type: Array,
+      of: [
+        {
+          type: Schema.Types.ObjectId,
+          ref: "Reply",
+        },
+      ],
     },
   },
   {
@@ -57,12 +62,18 @@ const postSchema = new mongoose.Schema(
       type: Schema.Types.ObjectId,
       ref: "User",
     },
+    textHead: {
+      type: String,
+      required: true,
+    },
     textBody: {
       type: String,
       required: true,
     },
     imgUrl: {
       type: String,
+      default:
+        "https://img.freepik.com/free-vector/site-stats-concept-illustration_114360-1434.jpg?w=740&t=st=1685967248~exp=1685967848~hmac=064a7f2c03b67dd6f9b6519855a54090051bc7bf1ceb7c3ec48ccd263ff67d9e",
     },
     numberofLikes: {
       type: Number,
@@ -70,8 +81,13 @@ const postSchema = new mongoose.Schema(
       default: 35,
     },
     comments: {
-      type: Schema.Types.ObjectId,
-      ref: "Comment",
+      type: Array,
+      of: [
+        {
+          type: Schema.Types.ObjectId,
+          ref: "Comment",
+        },
+      ],
     },
   },
   {
