@@ -76,7 +76,7 @@ export const userSchema = new mongoose.Schema(
       required: false,
     },
     education: {
-      type: mongoose.Schema.Types.ObjectId,
+      type: educationSchema,
       ref: "Education",
     },
   },

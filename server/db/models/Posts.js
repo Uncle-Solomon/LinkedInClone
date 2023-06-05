@@ -1,10 +1,10 @@
-import mongoose, { Schema } from "mongoose";
-import User from "./Users.js";
+import mongoose, { Schema, SchemaType } from "mongoose";
+import { userSchema } from "./Users.js";
 
 const replySchema = new mongoose.Schema(
   {
     user: {
-      type: Schema.Types.ObjectId,
+      type: userSchema,
       ref: "User",
     },
     textBody: {
@@ -27,7 +27,7 @@ const Reply = mongoose.model("Reply", replySchema);
 const commentSchema = new mongoose.Schema(
   {
     user: {
-      type: Schema.Types.ObjectId,
+      type: userSchema,
       ref: "User",
     },
     textBody: {
@@ -42,7 +42,7 @@ const commentSchema = new mongoose.Schema(
       type: Array,
       of: [
         {
-          type: Schema.Types.ObjectId,
+          type: replySchema,
           ref: "Reply",
         },
       ],
@@ -59,7 +59,7 @@ const Comment = mongoose.model("Comment", commentSchema);
 const postSchema = new mongoose.Schema(
   {
     user: {
-      type: Schema.Types.ObjectId,
+      type: userSchema,
       ref: "User",
     },
     textHead: {
@@ -84,7 +84,7 @@ const postSchema = new mongoose.Schema(
       type: Array,
       of: [
         {
-          type: Schema.Types.ObjectId,
+          type: commentSchema,
           ref: "Comment",
         },
       ],
