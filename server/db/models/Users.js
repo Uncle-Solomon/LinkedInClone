@@ -23,6 +23,8 @@ const educationSchema = new mongoose.Schema({
   },
 });
 
+const Education = mongoose.model("Education", educationSchema);
+
 export const userSchema = new mongoose.Schema(
   {
     otherNames: {
@@ -34,7 +36,7 @@ export const userSchema = new mongoose.Schema(
       required: true,
     },
     emailOrPhoneNumber: {
-      type: String || Number,
+      type: String,
       required: true,
     },
     password: {
@@ -73,7 +75,10 @@ export const userSchema = new mongoose.Schema(
       type: String,
       required: false,
     },
-    education: educationSchema,
+    education: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Education",
+    },
   },
   {
     timestamps: true,
