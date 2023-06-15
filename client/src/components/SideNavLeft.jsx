@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import profilepicture from "../assets/test.jpg";
 import background from "../assets/background.png";
 import {
@@ -8,10 +8,21 @@ import {
 } from "react-icons/bs";
 
 import { AppContext } from "../ContextProvider";
+import { useNavigate } from "react-router-dom";
 
 const SideNavLeft = () => {
+  const navigate = useNavigate();
   const { userData } = useContext(AppContext);
-  const obj = JSON.parse(userData);
+  let obj = {};
+  useEffect(() => {
+    if (!userData) {
+      navigate("/signin");
+    }
+  }, [navigate, userData]);
+  if (userData) {
+    console.log(userData);
+    obj = JSON.parse(userData);
+  }
 
   return (
     <div className="rounded-md pb-2 w-[95%] mx-auto shadow-md bg-white">

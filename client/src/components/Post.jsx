@@ -28,10 +28,10 @@ const Post = () => {
     fetchData();
   }, []);
   return (
-    <div className="bg-white p-2 mt-2">
+    <div className="space-y-4 ">
       {data ? (
         data.map((item) => (
-          <div>
+          <div className="bg-white p-3 rounded-lg">
             <div className="flex justify-between">
               <div className="flex gap-1">
                 <img src={ajanaku} className="w-5 h-5 rounded-full" />
@@ -47,7 +47,9 @@ const Post = () => {
             <div className="flex gap-2">
               <img src={ajanaku} className="w-12 h-12 rounded-full" />
               <div>
-                <h3 className="font-bold text-sm">{item.user}</h3>
+                <h3 className="font-bold text-sm">
+                  {item.user.lastName} {item.user.otherNames}
+                </h3>
                 <p className=" text-xs text-gray-800 font-light">
                   Electrical Engineering Graduate | Leader | Data Analyst (in
                   view)
@@ -62,9 +64,9 @@ const Post = () => {
                 <h1 className="text-sm font-semibold leading-8">
                   {item.textHead}
                 </h1>
-                <p className="text-xs text-gray-400">{item.textBody}</p>
+                <p className="text-xs text-gray-400 mb-4">{item.textBody}</p>
                 <div>
-                  <img src={dataPicture} className="max-h-[2000px]" />
+                  <img src={item.imgUrl} className="max-h-[500px] w-[100%]" />
                 </div>
                 <div>
                   <span className="flex">
@@ -74,7 +76,7 @@ const Post = () => {
                     <span className="ml-1 text-xs font-thin">
                       Anjolaoluwa Olutomilayo{" "}
                       <span>
-                        and <span>7 others.</span>
+                        and <span>{item.numberofLikes} others.</span>
                       </span>
                     </span>
                   </span>
@@ -112,24 +114,6 @@ const Post = () => {
       )}
     </div>
   );
-  {
-    /* <div>
-      {data ? (
-        // Display the fetched data
-        <ul>
-          {data.map((item) => (
-            <li key={item.id}>{item.textHead}</li>
-          ))}
-        </ul>
-      ) : (
-        // Show a loading state or error message
-        <p>Loading...</p>
-      )}
-    </div> */
-  }
-  {
-    /* ); */
-  }
 };
 
 export default Post;

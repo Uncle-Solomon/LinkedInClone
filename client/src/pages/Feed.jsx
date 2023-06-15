@@ -16,7 +16,6 @@ const Feed = () => {
         <div className=" col-span-12 my-1 md:my-0 md:col-span-8 lg:col-span-6 px-4">
           <StartPost />
           <Post />
-          <Post />
         </div>
         <div className=" hidden lg:block lg:col-span-3">
           <SideNavRight />
