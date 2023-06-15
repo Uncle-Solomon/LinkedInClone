@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import profilepicture from "../../assets/test.jpg";
 import background from "../../assets/background.png";
 import {
@@ -9,7 +9,22 @@ import {
   BsThreeDots,
 } from "react-icons/bs";
 
+import { AppContext } from "../../ContextProvider";
+import { useNavigate } from "react-router-dom";
+
 const ProfileHeader = () => {
+  const navigate = useNavigate();
+  const { userData } = useContext(AppContext);
+  let obj = {};
+  useEffect(() => {
+    if (!userData) {
+      navigate("/signin");
+    }
+  }, [navigate, userData]);
+  if (userData) {
+    console.log(userData);
+    obj = JSON.parse(userData);
+  }
   return (
     <div className="rounded-md pb-2 w-[95%] mx-auto shadow-md z-0 bg-white my-2 ">
       <div>
@@ -25,7 +40,7 @@ const ProfileHeader = () => {
         </div>
         <div className="pl-3 mt-[-4rem]">
           <h1 className="font-bold text-xl leading-none w-[80%] mb-4">
-            Ameh Solomon Onyeke
+            {obj.lastName} {obj.otherNames}
           </h1>
           <p className="text-sm font-normal pr-3">
             Software Backend Developer | Machine Learning and AI Enthusiast |

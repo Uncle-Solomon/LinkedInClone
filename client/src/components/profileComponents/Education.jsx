@@ -8,7 +8,7 @@ const Education = () => {
   return (
     <div className="rounded-md p-6 w-[95%] mx-auto shadow-md  z-0 bg-white my-2 ">
       <div className="flex justify-between">
-        <h1>Experience</h1>
+        <h1>Education</h1>
         <div className="flex gap-2 cursor-pointer">
           <AiOutlinePlus />
           <BsPencil />

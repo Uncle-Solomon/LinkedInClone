@@ -10,11 +10,11 @@ const educationSchema = new mongoose.Schema({
     required: false,
   },
   startDate: {
-    type: Number,
+    type: Date,
     required: false,
   },
   endDate: {
-    type: Number,
+    type: Date,
     required: false,
   },
   skills: {
@@ -24,6 +24,39 @@ const educationSchema = new mongoose.Schema({
 });
 
 const Education = mongoose.model("Education", educationSchema);
+
+const experienceSchema = new mongoose.Schema({
+  companyName: {
+    type: String,
+    required: false,
+  },
+  role: {
+    type: String,
+    required: false,
+  },
+  location: {
+    type: String,
+    required: false,
+  },
+  locationType: {
+    type: String,
+    required: false,
+  },
+  startDate: {
+    type: Date,
+    required: false,
+  },
+  endDate: {
+    type: Date,
+    required: false,
+  },
+  skills: {
+    type: String,
+    required: false,
+  },
+});
+
+const Experience = mongoose.model("Experience", experienceSchema);
 
 export const userSchema = new mongoose.Schema(
   {
@@ -78,6 +111,10 @@ export const userSchema = new mongoose.Schema(
     education: {
       type: educationSchema,
       ref: "Education",
+    },
+    experience: {
+      type: experienceSchema,
+      ref: "Experience",
     },
   },
   {
