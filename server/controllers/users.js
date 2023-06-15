@@ -7,8 +7,9 @@ export const getAllUsers = async (req, res) => {
 
 export const editUser = async (req, res) => {
   const userId = req.body._id;
+  // res.send(userId);
   const user = await User.findOneAndUpdate({ _id: userId }, req.body, {
-    new: true,
+    new: false,
     runValidators: true,
   });
   if (!user) {
