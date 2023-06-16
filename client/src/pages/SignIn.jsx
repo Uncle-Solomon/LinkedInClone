@@ -92,7 +92,7 @@ const SignIn = ({ signinUser }) => {
             type="submit"
             className="p-2.5 w-full border bg-blue-600 text-white font-semibold rounded-full text-sm hover:bg-blue-700"
           >
-            Signing in... wait
+            Sign in
           </button>
         ) : (
           <button
@@ -100,7 +100,7 @@ const SignIn = ({ signinUser }) => {
             onClick={setLoading(true)}
             className="p-2.5 w-full border bg-blue-600 text-white font-semibold rounded-full text-sm hover:bg-blue-700"
           >
-            Sign in
+            Signing in... wait
           </button>
         )}
         <button
