@@ -7,12 +7,14 @@ import { AppContext } from "../ContextProvider";
 
 const SignIn = ({ signinUser }) => {
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [err, setErr] = useState("");
   const { userData, setUserData } = useContext(AppContext);
   const handleSubmit = (e) => {
     e.preventDefault();
+    setLoading(true);
     const x = signinUser(email, password);
     x.then((result) => {
       console.log(result);
@@ -85,6 +87,22 @@ const SignIn = ({ signinUser }) => {
           Forgot Password?
         </p>
 
+        {loading ? (
+          <button
+            type="submit"
+            className="p-2.5 w-full border bg-blue-600 text-white font-semibold rounded-full text-sm hover:bg-blue-700"
+          >
+            Signing in... wait
+          </button>
+        ) : (
+          <button
+            type="submit"
+            onClick={setLoading(true)}
+            className="p-2.5 w-full border bg-blue-600 text-white font-semibold rounded-full text-sm hover:bg-blue-700"
+          >
+            Sign in
+          </button>
+        )}
         <button
           type="submit"
           className="p-2.5 w-full border bg-blue-600 text-white font-semibold rounded-full text-sm hover:bg-blue-700"
