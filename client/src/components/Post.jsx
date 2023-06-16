@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import ajanaku from "../assets/ajanaku.jpeg";
-import dataPicture from "../assets/data.jpg";
+// import dataPicture from "../assets/data.jpg";
+import { ColorRing } from "react-loader-spinner";
+
 import { BsThreeDots, BsFillChatHeartFill } from "react-icons/bs";
 import { BiWorld, BiRepost } from "react-icons/bi";
 import { AiFillLike } from "react-icons/ai";
@@ -110,7 +112,17 @@ const Post = () => {
           </div>
         ))
       ) : (
-        <p>Couldn't load all posts, I'm sorry</p>
+        <div className="flex justify-center mt-12">
+          <ColorRing
+            visible={true}
+            height="80"
+            width="80"
+            ariaLabel="blocks-loading"
+            wrapperStyle={{}}
+            wrapperClass="blocks-wrapper"
+            colors={["#e15b64", "#f47e60", "#f8b26a", "#abbd81", "#849b87"]}
+          />
+        </div>
       )}
     </div>
   );
