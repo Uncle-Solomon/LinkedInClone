@@ -14,6 +14,7 @@ export const editUser = async (req, res) => {
   });
   if (!user) {
     res.status(404).send("No user found");
+  } else {
+    res.status(200).json({ user });
   }
-  res.status(200).json({ user });
 };
