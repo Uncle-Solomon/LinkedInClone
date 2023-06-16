@@ -5,9 +5,13 @@ import { BsPencil } from "react-icons/bs";
 import background from "../../assets/background.png";
 import sec from "../../assets/sec.jpeg";
 
-const Experience = () => {
+const Experience = ({ isOpen }) => {
   return (
-    <div className="rounded-md p-6 w-[95%] mx-auto shadow-md  z-0 bg-white my-2 ">
+    <div
+      className={`rounded-md p-6 w-[95%] mx-auto shadow-md  z-0 my-2  ${
+        isOpen ? "" : "bg-white"
+      }`}
+    >
       <div className="flex justify-between">
         <h1>Experience</h1>
         <div className="flex gap-2 cursor-pointer">

@@ -1,9 +1,13 @@
 import React from "react";
 import { BsPencil } from "react-icons/bs";
 
-const About = () => {
+const About = ({ isOpen }) => {
   return (
-    <div className="rounded-md p-6 w-[95%] mx-auto shadow-md  z-0 bg-white my-2 ">
+    <div
+      className={`rounded-md p-6 w-[95%] mx-auto shadow-md  z-0 my-2 ${
+        isOpen ? "" : "bg-white"
+      }`}
+    >
       <div className="flex justify-between">
         <h1 className="text-base font-bold">About</h1>
         <BsPencil />

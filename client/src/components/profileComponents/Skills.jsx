@@ -4,9 +4,13 @@ import { BsPencil } from "react-icons/bs";
 import { BiRightArrowAlt } from "react-icons/bi";
 import SingularSkill from "./SingularSkill";
 
-const Skills = () => {
+const Skills = ({ isOpen }) => {
   return (
-    <div className="rounded-md w-[95%] mx-auto shadow-md  z-0 bg-white my-2 ">
+    <div
+      className={`rounded-md w-[95%] mx-auto shadow-md  z-0 my-2 ${
+        isOpen ? "" : "bg-white"
+      }`}
+    >
       <div className="p-6 ">
         <div className="flex justify-between">
           <h1>Skills</h1>

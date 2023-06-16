@@ -12,7 +12,7 @@ import {
 import { AppContext } from "../../ContextProvider";
 import { useNavigate } from "react-router-dom";
 
-const ProfileHeader = () => {
+const ProfileHeader = ({ handleToggle, isOpen }) => {
   const navigate = useNavigate();
   const { userData } = useContext(AppContext);
   let obj = {};
@@ -26,7 +26,11 @@ const ProfileHeader = () => {
     obj = JSON.parse(userData);
   }
   return (
-    <div className="rounded-md pb-2 w-[95%] mx-auto shadow-md z-0 bg-white my-2 ">
+    <div
+      className={`rounded-md pb-2 w-[95%] mx-auto shadow-md z-0 my-2 ${
+        isOpen ? "" : "bg-white"
+      }`}
+    >
       <div>
         <div className="h-64 z-0">
           <img src={background} className="w-full h-[50%] z-0 rounded-t-md" />
@@ -35,7 +39,10 @@ const ProfileHeader = () => {
               src={profilepicture}
               className="w-24 h-24 rounded-full border-4 border-white absolute -top-12 left-4"
             />
-            <BsPencil className="absolute -bottom-8 right-4" />
+            <BsPencil
+              className="absolute -bottom-8 right-4 cursor-pointer"
+              onClick={handleToggle}
+            />
           </div>
         </div>
         <div className="pl-3 mt-[-4rem]">

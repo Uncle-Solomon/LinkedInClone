@@ -5,9 +5,13 @@ import SingularPeopleViewed from "./SingularPeopleViewed";
 
 import { BiRightArrowAlt } from "react-icons/bi";
 
-const PeopleAlsoViewed = () => {
+const PeopleAlsoViewed = ({ isOpen }) => {
   return (
-    <div className="rounded-md  my-2 w-[95%] mx-auto shadow-md  z-0 bg-white">
+    <div
+      className={`rounded-md  my-2 w-[95%] mx-auto shadow-md  z-0 ${
+        isOpen ? "" : "bg-white"
+      }`}
+    >
       <div className="px-4 py-2">
         <h1 className="my-2">People also viewed</h1>
         <SingularPeopleViewed />
