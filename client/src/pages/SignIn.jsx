@@ -14,7 +14,7 @@ const SignIn = ({ signinUser }) => {
   const { userData, setUserData } = useContext(AppContext);
   const handleSubmit = (e) => {
     e.preventDefault();
-    setLoading(true);
+    setLoading(false);
     const x = signinUser(email, password);
     x.then((result) => {
       console.log(result);
@@ -97,18 +97,11 @@ const SignIn = ({ signinUser }) => {
         ) : (
           <button
             type="submit"
-            onClick={setLoading(true)}
             className="p-2.5 w-full border bg-blue-600 text-white font-semibold rounded-full text-sm hover:bg-blue-700"
           >
-            Signing in... wait
+            Signing in.. wait
           </button>
         )}
-        <button
-          type="submit"
-          className="p-2.5 w-full border bg-blue-600 text-white font-semibold rounded-full text-sm hover:bg-blue-700"
-        >
-          Sign in
-        </button>
 
         <div className="grid grid-cols-12 mt-4 mb-8 w-full">
           <span className="col-span-5 bg-gray-400 mt-3 h-[0.0125rem]"></span>
