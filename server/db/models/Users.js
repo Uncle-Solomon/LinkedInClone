@@ -109,13 +109,24 @@ export const userSchema = new mongoose.Schema(
       required: false,
     },
     education: {
-      type: educationSchema,
-      ref: "Education",
+      type: Array,
+      of: [
+        {
+          type: educationSchema,
+          ref: "Comment",
+        },
+      ],
     },
     experience: {
-      type: experienceSchema,
-      ref: "Experience",
+      type: Array,
+      of: [
+        {
+          type: experienceSchema,
+          ref: "Comment",
+        },
+      ],
     },
+    
   },
   {
     timestamps: true,
