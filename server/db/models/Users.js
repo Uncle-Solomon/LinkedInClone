@@ -96,6 +96,10 @@ export const userSchema = new mongoose.Schema(
       type: String,
       required: false,
     },
+    about: {
+      type: String,
+      required: false,
+    },
     industry: {
       type: String,
       required: false,
