@@ -1,4 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { AppContext } from "../ContextProvider";
+import { useNavigate } from "react-router-dom";
+
 import logo from "../assets/Logo.png";
 import profilepicture from "../assets/test.jpg";
 import { MdHome, MdRssFeed } from "react-icons/md";
@@ -12,7 +15,6 @@ import {
 import { IoIosNotifications, IoIosNotificationsOutline } from "react-icons/io";
 import { CgMenuGridR } from "react-icons/cg";
 import { RiArrowDownSFill } from "react-icons/ri";
-import { useNavigate } from "react-router-dom";
 
 const Navigation = ({ isOpen }) => {
   const [clicked, setClicked] = useState(0);
@@ -20,6 +22,17 @@ const Navigation = ({ isOpen }) => {
   const [dropdown, setDropdown] = useState(true);
 
   const navigate = useNavigate();
+  const { userData } = useContext(AppContext);
+  let obj = {};
+  useEffect(() => {
+    if (!userData) {
+      navigate("/signin");
+    }
+  }, [navigate, userData]);
+  if (userData) {
+    console.log(userData);
+    obj = JSON.parse(userData);
+  }
 
   const handleClick = (state, addr, e) => {
     navigate(addr);
@@ -141,7 +154,7 @@ const Navigation = ({ isOpen }) => {
                     />
                     <div>
                       <h2 className="font-bold text-base leading-none">
-                        Ameh Solomon Onyeke
+                        {obj.lastName} {obj.otherNames}
                       </h2>
                       <p
                         className="mb-2 mt-1 text-sm font-thin

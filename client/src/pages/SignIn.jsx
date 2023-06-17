@@ -7,7 +7,7 @@ import { AppContext } from "../ContextProvider";
 
 const SignIn = ({ signinUser }) => {
   const navigate = useNavigate();
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [err, setErr] = useState("");
@@ -21,6 +21,7 @@ const SignIn = ({ signinUser }) => {
       if (result.errors) {
         console.log(result.errors);
         setErr(JSON.stringify(result.errors));
+        setLoading(true);
       }
       if (result.success === true) {
         navigate("/feed");
@@ -99,7 +100,7 @@ const SignIn = ({ signinUser }) => {
             type="submit"
             className="p-2.5 w-full border bg-blue-600 text-white font-semibold rounded-full text-sm hover:bg-blue-700"
           >
-            Signing in.. wait
+            Signing in... Please wait
           </button>
         )}
 

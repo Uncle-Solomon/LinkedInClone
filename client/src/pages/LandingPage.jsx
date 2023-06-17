@@ -14,6 +14,7 @@ const LandingPage = ({ signinUser }) => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(true);
   const { userData, setUserData } = useContext(AppContext);
 
   const [err, setErr] = useState("");
@@ -86,12 +87,21 @@ const LandingPage = ({ signinUser }) => {
                 Forgot password?
               </p>
 
-              <button
-                className="p-2 w-[90%] border bg-blue-600 text-white font-semibold rounded-full hover:bg-blue-700"
-                type="submit"
-              >
-                Sign In
-              </button>
+              {loading ? (
+                <button
+                  type="submit"
+                  className="p-2.5 w-full border bg-blue-600 text-white font-semibold rounded-full text-sm hover:bg-blue-700"
+                >
+                  Sign in
+                </button>
+              ) : (
+                <button
+                  type="submit"
+                  className="p-2.5 w-full border bg-blue-600 text-white font-semibold rounded-full text-sm hover:bg-blue-700"
+                >
+                  Signing in... Please wait
+                </button>
+              )}
 
               <div className="grid grid-cols-12 mt-4 mb-8 w-[90%]">
                 <span className="col-span-5 bg-gray-600 mt-3 h-[0.0125rem]"></span>

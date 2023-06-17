@@ -49,10 +49,7 @@ const ProfileHeader = ({ handleToggle, isOpen }) => {
           <h1 className="font-bold text-xl leading-none w-[80%] mb-4">
             {obj.lastName} {obj.otherNames}
           </h1>
-          <p className="text-sm font-normal pr-3">
-            Software Backend Developer | Machine Learning and AI Enthusiast |
-            Technical Writer
-          </p>
+          <p className="text-sm font-normal pr-3">{obj.headline}</p>
           <p className="text-xs font-thin my-3">
             <span>Inspired Technologies Ltd.</span>{" "}
             <span>Covenant University</span>
