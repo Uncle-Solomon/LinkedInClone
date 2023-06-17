@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Navigation from "../components/Navigation";
 import ProfileHeader from "../components/profileComponents/ProfileHeader";
 import Analytics from "../components/profileComponents/Analytics";
