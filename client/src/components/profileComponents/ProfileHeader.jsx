@@ -55,7 +55,9 @@ const ProfileHeader = ({ handleToggle, isOpen }) => {
             <span>Covenant University</span>
           </p>
           <p className="text-xs font-thin my-2">
-            <span>Abuja, Federal Capital Territory, Nigeria</span>{" "}
+            <span>
+              {obj.city}, {obj.country}
+            </span>{" "}
             <span className=" text-blue-600 hover:underline font-semibold cursor-pointer">
               Contact Info
             </span>

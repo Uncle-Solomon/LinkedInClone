@@ -20,11 +20,13 @@ const LandingPage = ({ signinUser }) => {
   const [err, setErr] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
+    setLoading(false);
     const x = signinUser(email, password);
     x.then((result) => {
       console.log(result);
       if (result.errors) {
         console.log(result.errors);
+        setLoading(true);
         setErr(JSON.stringify(result.errors));
       }
       if (result.success === true) {
@@ -90,14 +92,14 @@ const LandingPage = ({ signinUser }) => {
               {loading ? (
                 <button
                   type="submit"
-                  className="p-2.5 w-full border bg-blue-600 text-white font-semibold rounded-full text-sm hover:bg-blue-700"
+                  className="p-2 w-[90%] border bg-blue-600 text-white font-semibold rounded-full text-sm hover:bg-blue-700"
                 >
                   Sign in
                 </button>
               ) : (
                 <button
                   type="submit"
-                  className="p-2.5 w-full border bg-blue-600 text-white font-semibold rounded-full text-sm hover:bg-blue-700"
+                  className="p-2 w-[90%] border bg-blue-600 text-white font-semibold rounded-full text-sm hover:bg-blue-700"
                 >
                   Signing in... Please wait
                 </button>

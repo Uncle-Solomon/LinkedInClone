@@ -160,8 +160,7 @@ const Navigation = ({ isOpen }) => {
                         className="mb-2 mt-1 text-sm font-thin
                     "
                       >
-                        Software Backend Developer | Machine Learning and AI
-                        Enthusiast | Technical Writer
+                        {obj.headline}
                       </p>
                     </div>
                   </div>

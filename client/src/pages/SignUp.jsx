@@ -64,7 +64,7 @@ const SignUp = () => {
           <p className="text-xs font-bold my-2">Email or phone number</p>
           <input
             type="email"
-            className="w-full  border cursor-pointer"
+            className="text-xs p-1 w-full  border cursor-pointer"
             required
             onChange={(e) => {
               setEmail(e.target.value);
@@ -76,7 +76,7 @@ const SignUp = () => {
           </p>
           <input
             type="password"
-            className="w-full border cursor-pointer"
+            className="text-xs p-1 w-full border cursor-pointer"
             required
             onChange={(e) => {
               setPassword(e.target.value);
