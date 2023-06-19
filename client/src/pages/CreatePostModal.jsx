@@ -3,6 +3,7 @@ import React, { useContext, useEffect } from "react";
 import { AppContext } from "../ContextProvider";
 import { useNavigate } from "react-router-dom";
 import { MdCancel, MdOutlineCancel } from "react-icons/md";
+import { HiOutlinePhotograph } from "react-icons/hi";
 import { FaPaperPlane } from "react-icons/fa";
 import ebuka from "../assets/test.jpg";
 
@@ -50,6 +51,12 @@ const CreatePostModal = ({ isOpen, handleToggle }) => {
             className="my-1 border-none text-sm h-40 lg:text-sm p-2.5 rounded-md w-full border border-gray-800 hover:border-2"
             placeholder="What do you want to talk about?"
           ></textarea>
+
+          <span className="text-sm">
+            <HiOutlinePhotograph className="inline-block h-6 w-8 mr-1 text-gray-400" />
+            Add Photo
+            <input type="file" id="file-input" />
+          </span>
 
           <button
             className="flex mt-2 p-1 px-2 bg-gray-400 text-white rounded-xl text-sm "
