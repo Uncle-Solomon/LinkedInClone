@@ -4,9 +4,9 @@ import { HiOutlinePhotograph } from "react-icons/hi";
 import { BsFillPlayBtnFill, BsFillCalendarDateFill } from "react-icons/bs";
 import { MdArticle } from "react-icons/md";
 
-const StartPost = () => {
+const StartPost = ({ handleToggle }) => {
   return (
-    <div className="border rounded-md p-2 mb-4 bg-white">
+    <div className="border rounded-md p-2 mb-4 bg-white" onClick={handleToggle}>
       <div className="flex gap-2">
         <img src={profilepicture} className="w-10 h-10 rounded-full" />
         <input

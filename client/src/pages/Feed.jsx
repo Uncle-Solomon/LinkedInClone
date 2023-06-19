@@ -1,11 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import Navigation from "../components/Navigation";
 import SideNavLeft from "../components/SideNavLeft";
 import StartPost from "../components/StartPost";
 import Post from "../components/Post";
 import SideNavRight from "../components/SideNavRight";
+import CreatePostModal from "./CreatePostModal";
 
 const Feed = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleModalToggle = () => {
+    setIsModalOpen(!isModalOpen);
+  };
   return (
     <div className=" bg-gray-100 min-h-[100vh]">
       <Navigation />
@@ -14,8 +20,12 @@ const Feed = () => {
           <SideNavLeft />
         </div>
         <div className=" col-span-12 my-1 md:my-0 md:col-span-8 lg:col-span-6 px-4">
-          <StartPost />
+          <StartPost handleToggle={handleModalToggle} />
           <Post />
+          <CreatePostModal
+            isOpen={isModalOpen}
+            handleToggle={handleModalToggle}
+          />
         </div>
         <div className=" hidden lg:block lg:col-span-3">
           <SideNavRight />
