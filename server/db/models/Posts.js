@@ -72,8 +72,7 @@ const postSchema = new mongoose.Schema(
     },
     imgUrl: {
       type: String,
-      default:
-        "https://img.freepik.com/free-vector/site-stats-concept-illustration_114360-1434.jpg?w=740&t=st=1685967248~exp=1685967848~hmac=064a7f2c03b67dd6f9b6519855a54090051bc7bf1ceb7c3ec48ccd263ff67d9e",
+      default: "https://indoanalytica.com/static/images/data-science-2.gif",
     },
     numberofLikes: {
       type: Number,

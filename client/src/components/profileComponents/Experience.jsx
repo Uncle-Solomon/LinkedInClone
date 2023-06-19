@@ -4,10 +4,10 @@ import { AppContext } from "../../ContextProvider";
 import { AiOutlinePlus } from "react-icons/ai";
 import { BsPencil } from "react-icons/bs";
 
-import background from "../../assets/background.png";
+import background from "../../assets/favicon.ico";
 import sec from "../../assets/sec.jpeg";
 
-const Experience = ({ isOpen }) => {
+const Experience = ({ isOpen, handleToggle }) => {
   const navigate = useNavigate();
   const { userData, setUserData } = useContext(AppContext);
   let obj = {};
@@ -29,8 +29,8 @@ const Experience = ({ isOpen }) => {
       <div className="flex justify-between">
         <h1>Experience</h1>
         <div className="flex gap-2 cursor-pointer">
-          <AiOutlinePlus />
-          <BsPencil />
+          <AiOutlinePlus onClick={handleToggle} />
+          <BsPencil onClick={handleToggle} />
         </div>
       </div>
       <div>

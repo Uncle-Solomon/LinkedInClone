@@ -4,7 +4,7 @@ import { BsPencil } from "react-icons/bs";
 import { AppContext } from "../../ContextProvider";
 import { useNavigate } from "react-router-dom";
 
-const About = ({ isOpen }) => {
+const About = ({ isOpen, handleToggle }) => {
   const navigate = useNavigate();
   const { userData, setUserData } = useContext(AppContext);
   let obj = {};
@@ -25,7 +25,7 @@ const About = ({ isOpen }) => {
     >
       <div className="flex justify-between">
         <h1 className="text-base font-bold">About</h1>
-        <BsPencil />
+        <BsPencil onClick={handleToggle} />
       </div>
       {obj.about ? (
         <p className="text-xs mt-6">{obj.about}</p>

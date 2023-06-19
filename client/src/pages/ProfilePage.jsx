@@ -42,10 +42,10 @@ const ProfilePage = () => {
           />
           <Analytics isOpen={isModalOpen} />
           <Resources isOpen={isModalOpen} />
-          <About isOpen={isModalOpen} />
+          <About isOpen={isModalOpen} handleToggle={handleModalToggle} />
           <Activity isOpen={isModalOpen} />
-          <Experience isOpen={isModalOpen} />
-          <Education isOpen={isModalOpen} />
+          <Experience isOpen={isModalOpen} handleToggle={handleModalToggle} />
+          <Education isOpen={isModalOpen} handleToggle={handleModalToggle} />
           <Skills isOpen={isModalOpen} />
         </div>
         <div className=" col-span-12 md:col-span-5 lg:col-span-3">
