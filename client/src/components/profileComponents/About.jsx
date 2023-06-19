@@ -27,7 +27,11 @@ const About = ({ isOpen }) => {
         <h1 className="text-base font-bold">About</h1>
         <BsPencil />
       </div>
-      <p className="text-xs mt-6">{obj.about}</p>
+      {obj.about ? (
+        <p className="text-xs mt-6">{obj.about}</p>
+      ) : (
+        <p className="text-xs mt-6">Please edit your about</p>
+      )}
     </div>
   );
 };

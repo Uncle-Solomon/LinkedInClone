@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { AppContext } from "../../ContextProvider";
 import { AiOutlinePlus } from "react-icons/ai";
 import { BsPencil } from "react-icons/bs";
 
@@ -6,6 +8,18 @@ import background from "../../assets/background.png";
 import sec from "../../assets/sec.jpeg";
 
 const Experience = ({ isOpen }) => {
+  const navigate = useNavigate();
+  const { userData, setUserData } = useContext(AppContext);
+  let obj = {};
+  useEffect(() => {
+    if (!userData) {
+      navigate("/signin");
+    }
+  }, [navigate, userData]);
+  if (userData) {
+    console.log(userData);
+    obj = JSON.parse(userData);
+  }
   return (
     <div
       className={`rounded-md p-6 w-[95%] mx-auto shadow-md  z-0 my-2  ${
@@ -19,7 +33,52 @@ const Experience = ({ isOpen }) => {
           <BsPencil />
         </div>
       </div>
-      <div className="flex  gap-3 border-b text-xs mt-2">
+      <div>
+        {obj.experience ? (
+          obj.experience.map((item) => (
+            <div className="flex  gap-3 border-b text-xs mt-2">
+              {item.map((param) => (
+                <div className="flex  gap-3 border-b text-xs mt-2">
+                  <img src={background} className="rounded-full w-12 h-12" />
+                  <div>
+                    <p className="text-sm font-semibold mb-2">{param.role}</p>
+                    <p className="my-1 font-extralight">{param.companyName}</p>
+                    <p className="my-1 font-extralight">
+                      {new Date(param.startDate).toLocaleDateString("en-US", {
+                        day: "numeric",
+                        month: "long",
+                        year: "numeric",
+                      })}{" "}
+                      -{" "}
+                      {new Date(param.endDate).toLocaleDateString("en-US", {
+                        day: "numeric",
+                        month: "long",
+                        year: "numeric",
+                      })}
+                    </p>
+                    <p className="my-1 font-extralight">
+                      {param.location}. {param.locationType}
+                    </p>
+                    <p className="my-2 font-semibold">
+                      Skills:
+                      <span className="font-extralight ml-1">
+                        {param.skills}
+                      </span>
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          ))
+        ) : (
+          <div className="flex  gap-3 border-b text-xs mt-2">
+            <p className="text-sm font-semibold mb-2">
+              Please edit your experience
+            </p>
+          </div>
+        )}
+      </div>
+      {/* <div className="flex  gap-3 border-b text-xs mt-2">
         <img src={background} className="rounded-full w-12 h-12" />
         <div>
           <p className="text-sm font-semibold mb-2">
@@ -40,8 +99,8 @@ const Experience = ({ isOpen }) => {
             </span>
           </p>
         </div>
-      </div>
-      <div className="flex gap-3 border-b text-xs mt-2">
+      </div> */}
+      {/* <div className="flex gap-3 border-b text-xs mt-2">
         <img src={sec} className="rounded-full w-12 h-12" />
         <div>
           <p className="text-sm font-semibold mb-2">
@@ -63,7 +122,7 @@ const Experience = ({ isOpen }) => {
             </span>
           </p>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
