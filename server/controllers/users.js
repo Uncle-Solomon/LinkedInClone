@@ -7,19 +7,12 @@ export const getAllUsers = async (req, res) => {
 
 export const editUser = async (req, res) => {
   const userId = req.body._id;
-  // res.send(userId);
-  const user = await User.findOne({ _id: userId });
+
+  const user = await User.findOneAndReplace({ _id: userId }, req.body);
   if (!user) {
     res.status(404).send("No user found");
-  } else {
-    user.set(req.body);
-    // res.status(200).json({ user });
   }
 
-  try {
-    const savedUser = await user.save();
-    res.status(200).json({ user: savedUser });
-  } catch (error) {
-    res.status(500).send("Failed to update user");
-  }
+  const editedUser = await User.findById({ _id: userId });
+  res.status(200).json({ editedUser });
 };

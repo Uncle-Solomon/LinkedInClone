@@ -1,8 +1,46 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { AppContext } from "../ContextProvider";
 import { BiPlus } from "react-icons/bi";
 import { MdCancel, MdOutlineCancel } from "react-icons/md";
 
 const EditIntroModal = ({ isOpen, onClose }) => {
+  const navigate = useNavigate();
+  const { userData, setUserData } = useContext(AppContext);
+  let obj = {};
+  useEffect(() => {
+    if (!userData) {
+      navigate("/signin");
+    }
+  }, [navigate, userData]);
+  if (!userData) {
+    console.log("There is an error");
+  }
+  console.log(userData);
+  obj = JSON.parse(userData);
+  let _id = obj._id;
+  const [lastName, setlastName] = useState("");
+  const [otherNames, setotherNames] = useState("");
+  const [headline, setheadline] = useState("");
+  const [currentPosition, setcurrentPosition] = useState("");
+  const [title, settitle] = useState("");
+  const [employmentType, setemploymentType] = useState("");
+  const [companyName, setcompanyName] = useState("");
+  const [companyLocation, setcompanyLocation] = useState("");
+  const [locationType, setlocationType] = useState("");
+
+  const [workStartDate, setworkStartDate] = useState("");
+  const [workEndDate, setworkEndDate] = useState("");
+  const [school, setschool] = useState("");
+  const [degree, setdegree] = useState("");
+  const [fieldOfStudy, setfieldOfStudy] = useState("");
+
+  const [schoolStartDate, setschoolStartDate] = useState("");
+  const [schoolEndDate, setschoolEndDate] = useState("");
+
+  const [country, setcountry] = useState("");
+  const [city, setcity] = useState("");
+
   const [position, setposition] = useState(false);
   const [education, seteducation] = useState(false);
   const handlePosition = () => setposition(!position);
@@ -11,6 +49,45 @@ const EditIntroModal = ({ isOpen, onClose }) => {
   const handleExperience = (e) => {
     e.preventDefault();
     setposition(false);
+  };
+
+  const handleEdit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch("http://localhost:8000/users", {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          _id,
+          lastName,
+          otherNames,
+          headline,
+          currentPosition,
+          title,
+          employmentType,
+          companyName,
+          companyLocation,
+          locationType,
+          school,
+          degree,
+          fieldOfStudy,
+          country,
+          city,
+        }),
+      });
+
+      const data = await response.json();
+      console.log(data);
+      if (data.success === true) {
+        setUserData(JSON.stringify(data.message));
+      }
+    } catch (error) {
+      alert(
+        "There is an issue with communicatng with the backend, please give it some time :)"
+      );
+    }
   };
 
   return (
@@ -29,19 +106,25 @@ const EditIntroModal = ({ isOpen, onClose }) => {
             onClick={onClose}
           />
         </div>
-        <form>
+        <form onSubmit={handleEdit}>
           <p className="my-2 text-xs lg:text-sm">*indicates required</p>
           <p className="my-2 text-xs lg:text-sm">Last name *</p>
           <input
             className="my-1 text-xs lg:text-sm p-1.5 rounded-md w-full border border-gray-800 hover:border-2"
             required
             type="text"
+            onChange={(e) => {
+              setlastName(e.target.value);
+            }}
           />
           <p className="my-2 text-xs lg:text-sm">Other names*</p>
           <input
             className="my-1 text-xs lg:text-sm p-1.5 rounded-md w-full border border-gray-800 hover:border-2"
             required
             type="text"
+            onChange={(e) => {
+              setotherNames(e.target.value);
+            }}
           />
 
           <p className="my-2 text-xs lg:text-sm">Headline</p>
@@ -49,6 +132,9 @@ const EditIntroModal = ({ isOpen, onClose }) => {
             className="my-1 text-xs lg:text-sm p-1.5 rounded-md w-full border border-gray-800 hover:border-2"
             required
             type="text"
+            onChange={(e) => {
+              setheadline(e.target.value);
+            }}
           />
 
           <p className="lg:text-lg  my-4 font-semibold">Current Position</p>
@@ -58,6 +144,9 @@ const EditIntroModal = ({ isOpen, onClose }) => {
             className="my-1 text-xs lg:text-sm p-1.5 rounded-md w-full border border-gray-800 hover:border-2"
             required
             type="text"
+            onChange={(e) => {
+              setcurrentPosition(e.target.value);
+            }}
           />
           <span
             className="flex items-center my-2 text-blue-600 font-semibold cursor-pointer"
@@ -75,38 +164,59 @@ const EditIntroModal = ({ isOpen, onClose }) => {
               className="my-1 text-xs lg:text-sm p-1.5 rounded-md w-full border border-gray-800 hover:border-2"
               required
               type="text"
+              onChange={(e) => {
+                settitle(e.target.value);
+              }}
             />
             <p className="my-2 text-xs lg:text-sm">Employment type</p>
-            <select className="my-1 text-xs lg:text-sm p-1.5 rounded-md w-full border border-gray-800 hover:border-2">
-              <option>Please Select</option>
-              <option>Full-Time</option>
-              <option>Part-Time</option>
-              <option>Freelance</option>
-              <option>Internship</option>
+            <select
+              className="my-1 text-xs lg:text-sm p-1.5 rounded-md w-full border border-gray-800 hover:border-2"
+              onChange={(e) => {
+                setemploymentType(e.target.value);
+              }}
+            >
+              <option value="">Please Select</option>
+              <option value="Full-Time">Full-Time</option>
+              <option value="Part-Time">Part-Time</option>
+              <option value="Freelance">Freelance</option>
+              <option value="Internship">Internship</option>
             </select>
             <p className="my-2 text-xs lg:text-sm">Company Name</p>
             <input
               className="my-1 text-xs lg:text-sm p-1.5 rounded-md w-full border border-gray-800 hover:border-2"
               type="text"
+              onChange={(e) => {
+                setcompanyName(e.target.value);
+              }}
             />
             <p className="my-2 text-xs lg:text-sm">Location</p>
             <input
               className="my-1 text-xs lg:text-sm p-1.5 rounded-md w-full border border-gray-800 hover:border-2"
               type="text"
+              onChange={(e) => {
+                setcompanyLocation(e.target.value);
+              }}
             />
             <p className="my-2 text-xs lg:text-sm">Location type</p>
-            <select className="my-1 text-xs lg:text-sm p-1.5 rounded-md w-full border border-gray-800 hover:border-2">
-              <option>Please Select</option>
-              <option>On-Site</option>
-              <option>Hybrid</option>
-              <option>Remote</option>
+            <select
+              className="my-1 text-xs lg:text-sm p-1.5 rounded-md w-full border border-gray-800 hover:border-2"
+              onChange={(e) => {
+                setlocationType(e.target.value);
+              }}
+            >
+              <option value="">Please Select</option>
+              <option value="On-Site">On-Site</option>
+              <option value="Hybrid">Hybrid</option>
+              <option value="Remote">Remote</option>
             </select>
 
             <p className="my-2 text-xs lg:text-sm">Start date*</p>
             <div className="flex justify-between">
               <select
                 className="my-1 text-xs lg:text-sm p-1.5 rounded-md w-[45%] border border-gray-800 hover:border-2"
-                required
+                onChange={(e) => {
+                  setworkStartDate(e.target.value);
+                }}
               >
                 <option>Month</option>
                 <option>January</option>
@@ -124,7 +234,9 @@ const EditIntroModal = ({ isOpen, onClose }) => {
               </select>
               <select
                 className="my-1 text-xs lg:text-sm p-1.5 rounded-md w-[45%] border border-gray-800 hover:border-2"
-                required
+                onChange={(e) => {
+                  setworkStartDate(e.target.value);
+                }}
               >
                 <option>Year</option>
                 <option>2023</option>
@@ -146,7 +258,9 @@ const EditIntroModal = ({ isOpen, onClose }) => {
             <div className="flex justify-between">
               <select
                 className="my-1 text-xs lg:text-sm p-1.5 rounded-md w-[45%] border border-gray-800 hover:border-2"
-                required
+                onChange={(e) => {
+                  setworkEndDate(e.target.value);
+                }}
               >
                 <option>Month</option>
                 <option>January</option>
@@ -164,7 +278,9 @@ const EditIntroModal = ({ isOpen, onClose }) => {
               </select>
               <select
                 className="my-1 text-xs lg:text-sm p-1.5 rounded-md w-[45%] border border-gray-800 hover:border-2"
-                required
+                onChange={(e) => {
+                  setworkEndDate(e.target.value);
+                }}
               >
                 <option>Year</option>
                 <option>2023</option>
@@ -201,25 +317,36 @@ const EditIntroModal = ({ isOpen, onClose }) => {
               className="my-1 text-xs lg:text-sm p-1.5 rounded-md w-full border border-gray-800 hover:border-2"
               required
               type="text"
+              onChange={(e) => {
+                setschool(e.target.value);
+              }}
             />
             <p className="my-2 text-xs lg:text-sm">Degree</p>
             <input
               className="my-1 text-xs lg:text-sm p-1.5 rounded-md w-full border border-gray-800 hover:border-2"
               type="text"
               placeholder="Ex: Bachelor's"
+              onChange={(e) => {
+                setdegree(e.target.value);
+              }}
             />
             <p className="my-2 text-xs lg:text-sm">Field of Study</p>
             <input
               className="my-1 text-xs lg:text-sm p-1.5 rounded-md w-full border border-gray-800 hover:border-2"
               type="text"
               placeholder="Ex: Business"
+              onChange={(e) => {
+                setfieldOfStudy(e.target.value);
+              }}
             />
 
             <p className="my-2 text-xs lg:text-sm">Start date*</p>
             <div className="flex justify-between">
               <select
                 className="my-1 text-xs lg:text-sm p-1.5 rounded-md w-[45%] border border-gray-800 hover:border-2"
-                required
+                onChange={(e) => {
+                  setschoolStartDate(e.target.value);
+                }}
               >
                 <option>Month</option>
                 <option>January</option>
@@ -237,7 +364,9 @@ const EditIntroModal = ({ isOpen, onClose }) => {
               </select>
               <select
                 className="my-1 text-xs lg:text-sm p-1.5 rounded-md w-[45%] border border-gray-800 hover:border-2"
-                required
+                onChange={(e) => {
+                  setschoolStartDate(e.target.value);
+                }}
               >
                 <option>Year</option>
                 <option>2023</option>
@@ -259,7 +388,9 @@ const EditIntroModal = ({ isOpen, onClose }) => {
             <div className="flex justify-between">
               <select
                 className="my-1 text-xs lg:text-sm p-1.5 rounded-md w-[45%] border border-gray-800 hover:border-2"
-                required
+                onChange={(e) => {
+                  setschoolEndDate(e.target.value);
+                }}
               >
                 <option>Month</option>
                 <option>January</option>
@@ -277,7 +408,9 @@ const EditIntroModal = ({ isOpen, onClose }) => {
               </select>
               <select
                 className="my-1 text-xs lg:text-sm p-1.5 rounded-md w-[45%] border border-gray-800 hover:border-2"
-                required
+                onChange={(e) => {
+                  setschoolEndDate(e.target.value);
+                }}
               >
                 <option>Year</option>
                 <option>2023</option>
