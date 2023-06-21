@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 import { AppContext } from "../ContextProvider";
 import { useNavigate } from "react-router-dom";
@@ -10,6 +10,9 @@ import profilepictureMale from "../assets/pp.png";
 import profilepictureFemale from "../assets/ppfemale.png";
 
 const CreatePostModal = ({ isOpen, handleToggle }) => {
+  const [textHead, setTextHead] = useState("");
+  const [textBody, setTextBody] = useState("");
+
   const navigate = useNavigate();
   const { userData } = useContext(AppContext);
   let obj = {};
@@ -18,10 +21,41 @@ const CreatePostModal = ({ isOpen, handleToggle }) => {
       navigate("/signin");
     }
   }, [navigate, userData]);
-  if (userData) {
-    console.log(userData);
-    obj = JSON.parse(userData);
+  if (!userData) {
+    console.log("There is an error");
   }
+  console.log(userData);
+  obj = JSON.parse(userData);
+
+  const handlepostCreate = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch(
+        "https://linked-in-clone-backend.onrender.com/posts",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            obj,
+            textHead,
+            textBody,
+          }),
+        }
+      );
+
+      const data = await response.json();
+      if ((data.success = true)) {
+        navigate("/feed");
+        isOpen = false;
+      }
+    } catch (error) {
+      alert(
+        "There is an issue with communicatng with the backend, please give it some time :)"
+      );
+    }
+  };
   return (
     <div
       className={`${
@@ -38,7 +72,7 @@ const CreatePostModal = ({ isOpen, handleToggle }) => {
             onClick={handleToggle}
           />
         </div>
-        <form>
+        <form onSubmit={handlepostCreate}>
           <div className="flex gap-4 items-start my-6 text-xs w-[40%] hover:bg-gray-200 p-1 rounded-lg ">
             {obj.gender == "Male" ? (
               <img
@@ -60,13 +94,25 @@ const CreatePostModal = ({ isOpen, handleToggle }) => {
           </div>
 
           <textarea
+            className="my-1 border-none text-sm h-10 lg:text-sm p-2.5 rounded-md w-full border border-gray-800 hover:border-2"
+            placeholder="Set a title for your post"
+            onChange={(e) => {
+              setTextHead(e.target.value);
+            }}
+          ></textarea>
+
+          <textarea
             className="my-1 border-none text-sm h-48 lg:text-sm p-2.5 rounded-md w-full border border-gray-800 hover:border-2"
             placeholder="What do you want to talk about?"
+            onChange={(e) => {
+              setTextBody(e.target.value);
+            }}
           ></textarea>
 
           <button
             className="flex mt-2 p-1 px-2 bg-gray-400 text-white rounded-xl text-sm "
             type="submit"
+            onClick={handleToggle}
           >
             Post
           </button>

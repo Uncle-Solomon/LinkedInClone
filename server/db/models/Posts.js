@@ -56,6 +56,15 @@ const commentSchema = new mongoose.Schema(
 
 const Comment = mongoose.model("Comment", commentSchema);
 
+const imageUrls = [
+  "https://indoanalytica.com/static/images/data-science-2.gif",
+  "https://miro.medium.com/v2/resize:fit:1400/1*GpqsEXDtCFv9ARY8wLFxUw.gif",
+  "https://media.tenor.com/rtvoz_mxToQAAAAM/busy-working.gif",
+  "https://media.tenor.com/Trqn0AC_d98AAAAM/document-email.gif",
+  "https://assets.website-files.com/5d2b950d9ea87fc61f0c1f3e/5d55d3f19a649a41ddb5b1fd_os_0021_19.png",
+  // Add more image URLs to the array as needed
+];
+
 const postSchema = new mongoose.Schema(
   {
     user: {
@@ -64,7 +73,7 @@ const postSchema = new mongoose.Schema(
     },
     textHead: {
       type: String,
-      required: true,
+      required: false,
     },
     textBody: {
       type: String,
@@ -72,7 +81,10 @@ const postSchema = new mongoose.Schema(
     },
     imgUrl: {
       type: String,
-      default: "https://indoanalytica.com/static/images/data-science-2.gif",
+      default: function () {
+        const randomIndex = Math.floor(Math.random() * imageUrls.length);
+        return imageUrls[randomIndex];
+      },
     },
     numberofLikes: {
       type: Number,

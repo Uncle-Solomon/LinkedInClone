@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import ajanaku from "../assets/ajanaku.jpeg";
+import profilepictureMale from "../assets/pp.png";
+import profilepictureFemale from "../assets/ppfemale.png";
 // import dataPicture from "../assets/data.jpg";
 import { ColorRing } from "react-loader-spinner";
 
@@ -28,11 +30,18 @@ const Post = () => {
     };
 
     fetchData();
+
+    const interval = setInterval(() => {
+      fetchData();
+    }, 10000);
+    return () => {
+      clearInterval(interval);
+    };
   }, []);
   return (
     <div className="space-y-4 ">
       {data ? (
-        data.map((item) => (
+        [...data].reverse().map((item) => (
           <div className="bg-white p-3 rounded-lg">
             <div className="flex justify-between">
               <div className="flex gap-1">
@@ -47,14 +56,23 @@ const Post = () => {
             <hr className="w-full my-2 " />
 
             <div className="flex gap-2">
-              <img src={ajanaku} className="w-12 h-12 rounded-full" />
+              {item.user.gender == "Female" ? (
+                <img
+                  src={profilepictureFemale}
+                  className="w-12 h-12 rounded-full"
+                />
+              ) : (
+                <img
+                  src={profilepictureMale}
+                  className="w-12 h-12 rounded-full"
+                />
+              )}
               <div>
                 <h3 className="font-bold text-sm">
                   {item.user.lastName} {item.user.otherNames}
                 </h3>
                 <p className=" text-xs text-gray-800 font-light">
-                  Electrical Engineering Graduate | Leader | Data Analyst (in
-                  view)
+                  {item.user.headline}
                 </p>
                 <p className="gap-2 inline text-xs text-gray-800">1w .</p>
                 <BiWorld className="inline w-4 h-4" />

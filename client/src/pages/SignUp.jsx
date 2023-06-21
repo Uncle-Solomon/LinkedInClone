@@ -20,19 +20,22 @@ const SignUp = () => {
   const signupUser = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:8000/signup", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          lastName,
-          otherNames,
-          email,
-          password,
-          gender,
-        }),
-      });
+      const response = await fetch(
+        "https://linked-in-clone-backend.onrender.com/signup",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            lastName,
+            otherNames,
+            email,
+            password,
+            gender,
+          }),
+        }
+      );
 
       const data = await response.json();
       console.log(data);
