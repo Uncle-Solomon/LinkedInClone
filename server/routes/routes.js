@@ -6,7 +6,9 @@ import { createPost, getAllPosts } from "../controllers/posts.js";
 const routes = express.Router();
 
 routes.get("/", (req, res) => {
-  res.send("Welcome to the backend");
+  res
+    .status(200)
+    .json({ success: "true", message: "Welcome to the Backend!!!" });
 });
 
 routes.post("/signup", signup);
