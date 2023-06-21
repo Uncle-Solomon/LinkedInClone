@@ -155,9 +155,9 @@ const EditIntroModal = ({ isOpen, onClose }) => {
             <BiPlus />
             Add new position
           </span>
-          <form
+          <div
             className={position ? `block` : `hidden`}
-            onSubmit={handleExperience}
+            // onSubmit={handleExperience}
           >
             <p className="my-2 text-xs lg:text-sm">Title*</p>
             <input
@@ -304,14 +304,14 @@ const EditIntroModal = ({ isOpen, onClose }) => {
             >
               Save
             </button>
-          </form>
+          </div>
           <span
             className="flex items-center my-2 text-blue-600 font-semibold cursor-pointer"
             onClick={handleEducation}
           >
             <BiPlus /> Add new education
           </span>
-          <form className={education ? `block` : `hidden`}>
+          <div className={education ? `block` : `hidden`}>
             <p className="my-2 text-xs lg:text-sm">School*</p>
             <input
               className="my-1 text-xs lg:text-sm p-1.5 rounded-md w-full border border-gray-800 hover:border-2"
@@ -434,7 +434,7 @@ const EditIntroModal = ({ isOpen, onClose }) => {
             >
               Save
             </button>
-          </form>
+          </div>
 
           <p className="lg:text-lg my-4 font-semibold">Location</p>
           <p className="my-2 text-xs lg:text-sm">Country/Region *</p>
@@ -442,12 +442,18 @@ const EditIntroModal = ({ isOpen, onClose }) => {
             className="my-1 text-xs lg:text-sm p-1.5 rounded-md w-full border border-gray-800 hover:border-2"
             required
             type="text"
+            onChange={(e) => {
+              setcountry(e.target.value);
+            }}
           />
           <p className="my-2 text-xs lg:text-sm">City</p>
           <input
             className="my-1 text-xs lg:text-sm p-1.5 rounded-md w-full border border-gray-800 hover:border-2"
             required
             type="text"
+            onChange={(e) => {
+              setcity(e.target.value);
+            }}
           />
 
           <button
