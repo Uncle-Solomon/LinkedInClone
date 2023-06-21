@@ -1,5 +1,7 @@
 import React, { useContext, useEffect } from "react";
-import profilepicture from "../../assets/test.jpg";
+import profilepictureMale from "../../assets/pp.png";
+import profilepictureFemale from "../../assets/ppfemale.png";
+
 import background from "../../assets/background.png";
 import {
   BsPersonHearts,
@@ -35,10 +37,18 @@ const ProfileHeader = ({ handleToggle, isOpen }) => {
         <div className="h-64 z-0">
           <img src={background} className="w-full h-[50%] z-0 rounded-t-md" />
           <div className="relative">
-            <img
-              src={profilepicture}
-              className="w-24 h-24 rounded-full border-4 border-white absolute -top-12 left-4"
-            />
+            {obj.gender == "Male" ? (
+              <img
+                src={profilepictureMale}
+                className="w-24 h-24 rounded-full border-4 border-white absolute -top-12 left-4"
+              />
+            ) : (
+              <img
+                src={profilepictureFemale}
+                className="w-24 h-24 rounded-full border-4 border-white absolute -top-12 left-4"
+              />
+            )}
+
             <BsPencil
               className="absolute -bottom-8 right-4 cursor-pointer"
               onClick={handleToggle}

@@ -76,6 +76,10 @@ export const userSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    gender: {
+      type: String,
+      required: true,
+    },
     profileViews: {
       type: Number,
       required: false,
@@ -130,7 +134,6 @@ export const userSchema = new mongoose.Schema(
         },
       ],
     },
-    
   },
   {
     timestamps: true,

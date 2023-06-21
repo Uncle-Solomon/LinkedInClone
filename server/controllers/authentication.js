@@ -7,7 +7,7 @@ const emailRegexp =
   /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
 
 export const signup = (req, res, next) => {
-  let { email, password, lastName, otherNames } = req.body;
+  let { email, password, lastName, otherNames, gender } = req.body;
   let errors = [];
 
   if (!email) {
@@ -44,6 +44,7 @@ export const signup = (req, res, next) => {
           password: password,
           lastName: lastName,
           otherNames: otherNames,
+          gender: gender,
         });
         bcrypt.genSalt(10, (err, salt) => {
           bcrypt.hash(password, salt, (err, hash) => {
@@ -65,10 +66,9 @@ export const signup = (req, res, next) => {
       }
     })
     .catch((err) => {
-      res.status(500),
-        json({
-          errors: [{ error: "Something went wrong, says Solomon" }],
-        });
+      res.status(500).json({
+        errors: [{ error: "Something went wrong, says Solomon" }],
+      });
     });
 };
 

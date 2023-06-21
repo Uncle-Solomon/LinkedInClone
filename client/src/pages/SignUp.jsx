@@ -10,6 +10,7 @@ const SignUp = () => {
   const [lastName, setLastName] = useState("");
   const [password, setPassword] = useState("");
   const [otherNames, setOtherNames] = useState("");
+  const [gender, setGender] = useState("");
 
   const openNameBox = (e) => {
     e.preventDefault();
@@ -19,21 +20,19 @@ const SignUp = () => {
   const signupUser = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(
-        "https://linked-in-clone-backend.onrender.com/signup",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            lastName,
-            otherNames,
-            email,
-            password,
-          }),
-        }
-      );
+      const response = await fetch("http://localhost:8000/signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          lastName,
+          otherNames,
+          email,
+          password,
+          gender,
+        }),
+      });
 
       const data = await response.json();
       console.log(data);
@@ -98,7 +97,7 @@ const SignUp = () => {
             <p className="text-xs font-bold my-2">Last Name:</p>
             <input
               type="text"
-              className="w-full  border cursor-pointer"
+              className="w-full text-xs border cursor-pointer"
               required
               onChange={(e) => {
                 setLastName(e.target.value);
@@ -108,12 +107,25 @@ const SignUp = () => {
             <p className="text-xs font-bold my-2">Other Names:</p>
             <input
               type="text"
-              className="w-full  border cursor-pointer"
+              className="w-full text-xs border cursor-pointer"
               required
               onChange={(e) => {
                 setOtherNames(e.target.value);
               }}
             />
+            <p className="text-xs font-bold my-2">Gender:</p>
+            <select
+              type="text"
+              className="w-full text-xs p-1  border cursor-pointer"
+              required
+              onChange={(e) => {
+                setGender(e.target.value);
+              }}
+            >
+              <option>Select an option please.</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </select>
           </div>
 
           {nameBox ? (

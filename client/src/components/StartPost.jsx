@@ -1,14 +1,35 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import profilepicture from "../assets/test.jpg";
 import { HiOutlinePhotograph } from "react-icons/hi";
 import { BsFillPlayBtnFill, BsFillCalendarDateFill } from "react-icons/bs";
+import profilepictureMale from "../assets/pp.png";
+import profilepictureFemale from "../assets/ppfemale.png";
 import { MdArticle } from "react-icons/md";
 
+import { AppContext } from "../ContextProvider";
+import { useNavigate } from "react-router-dom";
+
 const StartPost = ({ handleToggle }) => {
+  const navigate = useNavigate();
+  const { userData } = useContext(AppContext);
+  let obj = {};
+  useEffect(() => {
+    if (!userData) {
+      navigate("/signin");
+    }
+  }, [navigate, userData]);
+  if (userData) {
+    console.log(userData);
+    obj = JSON.parse(userData);
+  }
   return (
     <div className="border rounded-md p-2 mb-4 bg-white" onClick={handleToggle}>
       <div className="flex gap-2">
-        <img src={profilepicture} className="w-10 h-10 rounded-full" />
+        {obj.gender == "Male" ? (
+          <img src={profilepictureMale} className="w-10 h-10 rounded-full" />
+        ) : (
+          <img src={profilepictureFemale} className="w-10 h-10 rounded-full" />
+        )}
         <input
           type="text"
           placeholder="Start a post"

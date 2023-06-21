@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 
 import logo from "../assets/Logo.png";
 import profilepicture from "../assets/test.jpg";
+import profilepictureMale from "../assets/pp.png";
+import profilepictureFemale from "../assets/ppfemale.png";
 import { MdHome, MdRssFeed } from "react-icons/md";
 import {
   BsPersonPlusFill,
@@ -132,11 +134,14 @@ const Navigation = ({ isOpen }) => {
             <span className="hidden md:block">Notifications</span>
           </li>
           <li className={`w-auto cursor-pointer`} onClick={toggleDropDown}>
-            <img
-              src={profilepicture}
-              className="w-5 h-5 rounded-full"
-              alt="A profile picture"
-            />
+            {obj.gender == "Male" ? (
+              <img src={profilepictureMale} className="w-5 h-5 rounded-full" />
+            ) : (
+              <img
+                src={profilepictureFemale}
+                className="w-5 h-5 rounded-full"
+              />
+            )}
             <span className="flex items-center relative">
               Me <RiArrowDownSFill />
               <div
@@ -148,10 +153,17 @@ const Navigation = ({ isOpen }) => {
               >
                 <div className="border-b border-1 pb-0 z-10">
                   <div className="flex gap-2 items-center">
-                    <img
-                      src={profilepicture}
-                      className="rounded-full h-12 w-12"
-                    />
+                    {obj.gender == "Male" ? (
+                      <img
+                        src={profilepictureMale}
+                        className="w-12 h-12 rounded-full"
+                      />
+                    ) : (
+                      <img
+                        src={profilepictureFemale}
+                        className="w-12 h-12 rounded-full"
+                      />
+                    )}
                     <div>
                       <h2 className="font-bold text-base leading-none">
                         {obj.lastName} {obj.otherNames}

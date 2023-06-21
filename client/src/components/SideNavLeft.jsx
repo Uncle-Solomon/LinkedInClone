@@ -1,5 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import profilepicture from "../assets/test.jpg";
+import profilepictureMale from "../assets/pp.png";
+import profilepictureFemale from "../assets/ppfemale.png";
 import background from "../assets/background.png";
 import {
   BsPersonHearts,
@@ -30,10 +32,17 @@ const SideNavLeft = () => {
         <div className="h-28 ">
           <img src={background} className="w-full h-[50%] z-0 rounded-t-md" />
           <div className="relative">
-            <img
-              src={profilepicture}
-              className="w-16 h-16 rounded-full absolute -top-8 left-4"
-            />
+            {obj.gender == "Male" ? (
+              <img
+                src={profilepictureMale}
+                className="w-16 h-16 rounded-full absolute -top-8 left-4"
+              />
+            ) : (
+              <img
+                src={profilepictureFemale}
+                className="w-16 h-16 rounded-full absolute -top-8 left-4"
+              />
+            )}
           </div>
         </div>
         <div className="pl-3 mt-[-0.5rem]">

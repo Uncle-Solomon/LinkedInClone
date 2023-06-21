@@ -22,8 +22,11 @@ const Loader = () => {
             backgroundColor="#2563eb"
           />
         </div>
-        <p className="text-sm font-semibold flex text-blue-600 my-4">
+        <p className="text-sm font-semibold flex justify-center text-blue-600 my-4">
           Developed by Ameh Solomon Onyeke <FaHeartbeat />
+        </p>
+        <p className="text-sm font-semibold flex justify-center text-gray-700 my-4">
+          ... Please wait as we connect to the backend of this application.
         </p>
       </div>
     </div>

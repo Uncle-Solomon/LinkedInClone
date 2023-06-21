@@ -21,7 +21,21 @@ function App() {
   const user = localStorage.getItem("user");
 
   useEffect(() => {
-    setTimeout(() => setLoader(false), 3000);
+    const fetchBackend = async () => {
+      try {
+        const response = await fetch(
+          "https://linked-in-clone-backend.onrender.com/"
+        );
+        const data = await response.json();
+        if ((data.success = true)) {
+          setTimeout(() => setLoader(false), 2000);
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    fetchBackend();
   }, []);
 
   const signinUser = async (param1, param2) => {

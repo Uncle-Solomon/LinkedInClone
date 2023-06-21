@@ -6,6 +6,8 @@ import { MdCancel, MdOutlineCancel } from "react-icons/md";
 import { HiOutlinePhotograph } from "react-icons/hi";
 import { FaPaperPlane } from "react-icons/fa";
 import ebuka from "../assets/test.jpg";
+import profilepictureMale from "../assets/pp.png";
+import profilepictureFemale from "../assets/ppfemale.png";
 
 const CreatePostModal = ({ isOpen, handleToggle }) => {
   const navigate = useNavigate();
@@ -38,7 +40,17 @@ const CreatePostModal = ({ isOpen, handleToggle }) => {
         </div>
         <form>
           <div className="flex gap-4 items-start my-6 text-xs w-[40%] hover:bg-gray-200 p-1 rounded-lg ">
-            <img src={ebuka} className="h-12 w-12 rounded-full" />
+            {obj.gender == "Male" ? (
+              <img
+                src={profilepictureMale}
+                className="w-12 h-12 rounded-full"
+              />
+            ) : (
+              <img
+                src={profilepictureFemale}
+                className="w-12 h-12 rounded-full"
+              />
+            )}{" "}
             <div>
               <p className="my-2 font-bold">
                 {obj.lastName} {obj.otherNames}
@@ -48,15 +60,9 @@ const CreatePostModal = ({ isOpen, handleToggle }) => {
           </div>
 
           <textarea
-            className="my-1 border-none text-sm h-40 lg:text-sm p-2.5 rounded-md w-full border border-gray-800 hover:border-2"
+            className="my-1 border-none text-sm h-48 lg:text-sm p-2.5 rounded-md w-full border border-gray-800 hover:border-2"
             placeholder="What do you want to talk about?"
           ></textarea>
-
-          <span className="text-sm">
-            <HiOutlinePhotograph className="inline-block h-6 w-8 mr-1 text-gray-400" />
-            Add Photo
-            <input type="file" id="file-input" />
-          </span>
 
           <button
             className="flex mt-2 p-1 px-2 bg-gray-400 text-white rounded-xl text-sm "
