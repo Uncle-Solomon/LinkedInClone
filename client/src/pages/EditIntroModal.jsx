@@ -45,8 +45,16 @@ const EditIntroModal = ({ isOpen, onClose }) => {
 
   const [position, setposition] = useState(false);
   const [education, seteducation] = useState(false);
-  const handlePosition = () => setposition(!position);
-  const handleEducation = () => seteducation(!education);
+  const handlePosition = () => {
+    onClose();
+    setposition(!position);
+  };
+  const handleEducation = () => {
+    onClose();
+    seteducation(!education);
+  };
+
+  const [editModal, setEditModal] = useState(null);
 
   const handleExperience = (e) => {
     e.preventDefault();
@@ -168,129 +176,6 @@ const EditIntroModal = ({ isOpen, onClose }) => {
             >
               <BiPlus /> Add new education
             </span>
-            {/* <div className={education ? `block` : `hidden`}>
-            <p className="my-2 text-xs lg:text-sm">School*</p>
-            <input
-              className="my-1 text-xs lg:text-sm p-1.5 rounded-md w-full border border-gray-800 hover:border-2"
-              type="text"
-              onChange={(e) => {
-                setschool(e.target.value);
-              }}
-            />
-            <p className="my-2 text-xs lg:text-sm">Degree</p>
-            <input
-              className="my-1 text-xs lg:text-sm p-1.5 rounded-md w-full border border-gray-800 hover:border-2"
-              type="text"
-              placeholder="Ex: Bachelor's"
-              onChange={(e) => {
-                setdegree(e.target.value);
-              }}
-            />
-            <p className="my-2 text-xs lg:text-sm">Field of Study</p>
-            <input
-              className="my-1 text-xs lg:text-sm p-1.5 rounded-md w-full border border-gray-800 hover:border-2"
-              type="text"
-              placeholder="Ex: Business"
-              onChange={(e) => {
-                setfieldOfStudy(e.target.value);
-              }}
-            />
-
-            <p className="my-2 text-xs lg:text-sm">Start date*</p>
-            <div className="flex justify-between">
-              <select
-                className="my-1 text-xs lg:text-sm p-1.5 rounded-md w-[45%] border border-gray-800 hover:border-2"
-                onChange={(e) => {
-                  setschoolStartDate(e.target.value);
-                }}
-              >
-                <option>Month</option>
-                <option>January</option>
-                <option>February</option>
-                <option>March</option>
-                <option>April</option>
-                <option>May</option>
-                <option>June</option>
-                <option>July</option>
-                <option>August</option>
-                <option>September</option>
-                <option>October</option>
-                <option>November</option>
-                <option>December</option>
-              </select>
-              <select
-                className="my-1 text-xs lg:text-sm p-1.5 rounded-md w-[45%] border border-gray-800 hover:border-2"
-                onChange={(e) => {
-                  setschoolStartDate(e.target.value);
-                }}
-              >
-                <option>Year</option>
-                <option>2023</option>
-                <option>2022</option>
-                <option>2021</option>
-                <option>2020</option>
-                <option>2019</option>
-                <option>2018</option>
-                <option>2017</option>
-                <option>2016</option>
-                <option>2015</option>
-                <option>2014</option>
-                <option>2013</option>
-                <option>2012</option>
-              </select>
-            </div>
-
-            <p className="my-2 text-xs lg:text-sm">End date*</p>
-            <div className="flex justify-between">
-              <select
-                className="my-1 text-xs lg:text-sm p-1.5 rounded-md w-[45%] border border-gray-800 hover:border-2"
-                onChange={(e) => {
-                  setschoolEndDate(e.target.value);
-                }}
-              >
-                <option>Month</option>
-                <option>January</option>
-                <option>February</option>
-                <option>March</option>
-                <option>April</option>
-                <option>May</option>
-                <option>June</option>
-                <option>July</option>
-                <option>August</option>
-                <option>September</option>
-                <option>October</option>
-                <option>November</option>
-                <option>December</option>
-              </select>
-              <select
-                className="my-1 text-xs lg:text-sm p-1.5 rounded-md w-[45%] border border-gray-800 hover:border-2"
-                onChange={(e) => {
-                  setschoolEndDate(e.target.value);
-                }}
-              >
-                <option>Year</option>
-                <option>2023</option>
-                <option>2022</option>
-                <option>2021</option>
-                <option>2020</option>
-                <option>2019</option>
-                <option>2018</option>
-                <option>2017</option>
-                <option>2016</option>
-                <option>2015</option>
-                <option>2014</option>
-                <option>2013</option>
-                <option>2012</option>
-              </select>
-            </div>
-
-            <button
-              className="flex mt-2 p-1 px-2 bg-blue-600 text-white rounded-xl text-sm "
-              type="submit"
-            >
-              Save
-            </button>
-          </div> */}
 
             <p className="lg:text-lg my-4 font-semibold">Location</p>
             <p className="my-2 text-xs lg:text-sm">Country/Region *</p>
@@ -456,6 +341,144 @@ const EditIntroModal = ({ isOpen, onClose }) => {
             className="my-1 text-xs lg:text-sm p-1.5 rounded-md w-[45%] border border-gray-800 hover:border-2"
             onChange={(e) => {
               setworkEndDate(e.target.value);
+            }}
+          >
+            <option>Year</option>
+            <option>2023</option>
+            <option>2022</option>
+            <option>2021</option>
+            <option>2020</option>
+            <option>2019</option>
+            <option>2018</option>
+            <option>2017</option>
+            <option>2016</option>
+            <option>2015</option>
+            <option>2014</option>
+            <option>2013</option>
+            <option>2012</option>
+          </select>
+        </div>
+
+        <button
+          className="flex mt-2 p-1 px-2 bg-blue-600 text-white rounded-xl text-sm "
+          type="submit"
+        >
+          Save
+        </button>
+      </form>
+
+      <form
+        className={
+          education
+            ? `absolute left-[10%] top-6 bg-white max-h-[80vh] overflow-scroll z-50 p-6 w-[80%] rounded-lg`
+            : `hidden`
+        }
+        // onSubmit={handleExperience}
+      >
+        <div className="flex justify-between pb-4 border-b border-gray-200">
+          <p>Add New Education</p>
+          <MdOutlineCancel
+            className="cursor-pointer h-6 w-6"
+            onClick={handleEducation}
+          />
+        </div>
+        <p className="my-2 text-xs lg:text-sm">School*</p>
+        <input
+          className="my-1 text-xs lg:text-sm p-1.5 rounded-md w-full border border-gray-800 hover:border-2"
+          type="text"
+          onChange={(e) => {
+            setschool(e.target.value);
+          }}
+        />
+        <p className="my-2 text-xs lg:text-sm">Degree</p>
+        <input
+          className="my-1 text-xs lg:text-sm p-1.5 rounded-md w-full border border-gray-800 hover:border-2"
+          type="text"
+          placeholder="Ex: Bachelor's"
+          onChange={(e) => {
+            setdegree(e.target.value);
+          }}
+        />
+        <p className="my-2 text-xs lg:text-sm">Field of Study</p>
+        <input
+          className="my-1 text-xs lg:text-sm p-1.5 rounded-md w-full border border-gray-800 hover:border-2"
+          type="text"
+          placeholder="Ex: Business"
+          onChange={(e) => {
+            setfieldOfStudy(e.target.value);
+          }}
+        />
+
+        <p className="my-2 text-xs lg:text-sm">Start date*</p>
+        <div className="flex justify-between">
+          <select
+            className="my-1 text-xs lg:text-sm p-1.5 rounded-md w-[45%] border border-gray-800 hover:border-2"
+            onChange={(e) => {
+              setschoolStartDate(e.target.value);
+            }}
+          >
+            <option>Month</option>
+            <option>January</option>
+            <option>February</option>
+            <option>March</option>
+            <option>April</option>
+            <option>May</option>
+            <option>June</option>
+            <option>July</option>
+            <option>August</option>
+            <option>September</option>
+            <option>October</option>
+            <option>November</option>
+            <option>December</option>
+          </select>
+          <select
+            className="my-1 text-xs lg:text-sm p-1.5 rounded-md w-[45%] border border-gray-800 hover:border-2"
+            onChange={(e) => {
+              setschoolStartDate(e.target.value);
+            }}
+          >
+            <option>Year</option>
+            <option>2023</option>
+            <option>2022</option>
+            <option>2021</option>
+            <option>2020</option>
+            <option>2019</option>
+            <option>2018</option>
+            <option>2017</option>
+            <option>2016</option>
+            <option>2015</option>
+            <option>2014</option>
+            <option>2013</option>
+            <option>2012</option>
+          </select>
+        </div>
+
+        <p className="my-2 text-xs lg:text-sm">End date*</p>
+        <div className="flex justify-between">
+          <select
+            className="my-1 text-xs lg:text-sm p-1.5 rounded-md w-[45%] border border-gray-800 hover:border-2"
+            onChange={(e) => {
+              setschoolEndDate(e.target.value);
+            }}
+          >
+            <option>Month</option>
+            <option>January</option>
+            <option>February</option>
+            <option>March</option>
+            <option>April</option>
+            <option>May</option>
+            <option>June</option>
+            <option>July</option>
+            <option>August</option>
+            <option>September</option>
+            <option>October</option>
+            <option>November</option>
+            <option>December</option>
+          </select>
+          <select
+            className="my-1 text-xs lg:text-sm p-1.5 rounded-md w-[45%] border border-gray-800 hover:border-2"
+            onChange={(e) => {
+              setschoolEndDate(e.target.value);
             }}
           >
             <option>Year</option>
