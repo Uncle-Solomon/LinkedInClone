@@ -15,6 +15,7 @@ const EditIntroModal = ({ isOpen, onClose }) => {
   }, [navigate, userData]);
   if (!userData) {
     console.log("There is an error");
+    navigate("/signin");
   }
   console.log(userData);
   obj = JSON.parse(userData);
@@ -37,6 +38,7 @@ const EditIntroModal = ({ isOpen, onClose }) => {
 
   const [schoolStartDate, setschoolStartDate] = useState("");
   const [schoolEndDate, setschoolEndDate] = useState("");
+  const [about, setabout] = useState("");
 
   const [country, setcountry] = useState("");
   const [city, setcity] = useState("");
@@ -65,14 +67,7 @@ const EditIntroModal = ({ isOpen, onClose }) => {
           otherNames,
           headline,
           currentPosition,
-          title,
-          employmentType,
-          companyName,
-          companyLocation,
-          locationType,
-          school,
-          degree,
-          fieldOfStudy,
+          about,
           country,
           city,
         }),
@@ -80,8 +75,9 @@ const EditIntroModal = ({ isOpen, onClose }) => {
 
       const data = await response.json();
       console.log(data);
-      if (data.success === true) {
-        setUserData(JSON.stringify(data.message));
+      if (data) {
+        setUserData(JSON.stringify(data.user));
+        onClose();
       }
     } catch (error) {
       alert(
@@ -111,8 +107,8 @@ const EditIntroModal = ({ isOpen, onClose }) => {
           <p className="my-2 text-xs lg:text-sm">Last name *</p>
           <input
             className="my-1 text-xs lg:text-sm p-1.5 rounded-md w-full border border-gray-800 hover:border-2"
-            required
             type="text"
+            required
             onChange={(e) => {
               setlastName(e.target.value);
             }}
@@ -120,8 +116,8 @@ const EditIntroModal = ({ isOpen, onClose }) => {
           <p className="my-2 text-xs lg:text-sm">Other names*</p>
           <input
             className="my-1 text-xs lg:text-sm p-1.5 rounded-md w-full border border-gray-800 hover:border-2"
-            required
             type="text"
+            required
             onChange={(e) => {
               setotherNames(e.target.value);
             }}
@@ -130,20 +126,29 @@ const EditIntroModal = ({ isOpen, onClose }) => {
           <p className="my-2 text-xs lg:text-sm">Headline</p>
           <input
             className="my-1 text-xs lg:text-sm p-1.5 rounded-md w-full border border-gray-800 hover:border-2"
-            required
             type="text"
+            required
             onChange={(e) => {
               setheadline(e.target.value);
             }}
           />
+          <p className="my-2 text-xs lg:text-sm">About</p>
+          <textarea
+            className="my-1 text-sm h-32 max-h-48 overflow-auto lg:text-sm p-2.5 rounded-md w-full border border-gray-800 hover:border-2"
+            placeholder="Tell us aboout yourself"
+            required
+            onChange={(e) => {
+              setabout(e.target.value);
+            }}
+          ></textarea>
 
           <p className="lg:text-lg  my-4 font-semibold">Current Position</p>
 
           <p className="my-2 text-xs lg:text-sm">Position*</p>
           <input
             className="my-1 text-xs lg:text-sm p-1.5 rounded-md w-full border border-gray-800 hover:border-2"
-            required
             type="text"
+            required
             onChange={(e) => {
               setcurrentPosition(e.target.value);
             }}
@@ -155,14 +160,13 @@ const EditIntroModal = ({ isOpen, onClose }) => {
             <BiPlus />
             Add new position
           </span>
-          <div
+          {/* <div
             className={position ? `block` : `hidden`}
             // onSubmit={handleExperience}
           >
             <p className="my-2 text-xs lg:text-sm">Title*</p>
             <input
               className="my-1 text-xs lg:text-sm p-1.5 rounded-md w-full border border-gray-800 hover:border-2"
-              required
               type="text"
               onChange={(e) => {
                 settitle(e.target.value);
@@ -304,18 +308,17 @@ const EditIntroModal = ({ isOpen, onClose }) => {
             >
               Save
             </button>
-          </div>
+          </div> */}
           <span
             className="flex items-center my-2 text-blue-600 font-semibold cursor-pointer"
             onClick={handleEducation}
           >
             <BiPlus /> Add new education
           </span>
-          <div className={education ? `block` : `hidden`}>
+          {/* <div className={education ? `block` : `hidden`}>
             <p className="my-2 text-xs lg:text-sm">School*</p>
             <input
               className="my-1 text-xs lg:text-sm p-1.5 rounded-md w-full border border-gray-800 hover:border-2"
-              required
               type="text"
               onChange={(e) => {
                 setschool(e.target.value);
@@ -434,14 +437,14 @@ const EditIntroModal = ({ isOpen, onClose }) => {
             >
               Save
             </button>
-          </div>
+          </div> */}
 
           <p className="lg:text-lg my-4 font-semibold">Location</p>
           <p className="my-2 text-xs lg:text-sm">Country/Region *</p>
           <input
             className="my-1 text-xs lg:text-sm p-1.5 rounded-md w-full border border-gray-800 hover:border-2"
-            required
             type="text"
+            required
             onChange={(e) => {
               setcountry(e.target.value);
             }}
@@ -449,8 +452,8 @@ const EditIntroModal = ({ isOpen, onClose }) => {
           <p className="my-2 text-xs lg:text-sm">City</p>
           <input
             className="my-1 text-xs lg:text-sm p-1.5 rounded-md w-full border border-gray-800 hover:border-2"
-            required
             type="text"
+            required
             onChange={(e) => {
               setcity(e.target.value);
             }}

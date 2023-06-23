@@ -32,38 +32,45 @@ const Education = ({ isOpen, handleToggle }) => {
           <BsPencil onClick={handleToggle} />
         </div>
       </div>
-      {obj.education.map((item) => (
-        <div>
-          {item.map((param) => (
-            <div className="flex  gap-3 border-b text-xs mt-2">
-              <img src={educationPicture} className="rounded-full w-12 h-12" />
-              <div>
-                <p className="text-sm font-semibold mb-2">
-                  {param.UniversityName}
-                </p>
-                <p className="my-1 font-extralight">{param.degree}</p>
-                <p className="my-1 font-extralight">
-                  {new Date(param.startDate).toLocaleDateString("en-US", {
-                    day: "numeric",
-                    month: "long",
-                    year: "numeric",
-                  })}{" "}
-                  -{" "}
-                  {new Date(param.endDate).toLocaleDateString("en-US", {
-                    day: "numeric",
-                    month: "long",
-                    year: "numeric",
-                  })}
-                </p>
-                <p className="my-2 font-semibold">
-                  Skills:
-                  <span className="font-extralight ml-1">{param.skills}</span>
-                </p>
+      {obj.education ? (
+        obj.education.map((item) => (
+          <div>
+            {item.map((param) => (
+              <div className="flex  gap-3 border-b text-xs mt-2">
+                <img
+                  src={educationPicture}
+                  className="rounded-full w-12 h-12"
+                />
+                <div>
+                  <p className="text-sm font-semibold mb-2">
+                    {param.UniversityName}
+                  </p>
+                  <p className="my-1 font-extralight">{param.degree}</p>
+                  <p className="my-1 font-extralight">
+                    {new Date(param.startDate).toLocaleDateString("en-US", {
+                      day: "numeric",
+                      month: "long",
+                      year: "numeric",
+                    })}{" "}
+                    -{" "}
+                    {new Date(param.endDate).toLocaleDateString("en-US", {
+                      day: "numeric",
+                      month: "long",
+                      year: "numeric",
+                    })}
+                  </p>
+                  <p className="my-2 font-semibold">
+                    Skills:
+                    <span className="font-extralight ml-1">{param.skills}</span>
+                  </p>
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
-      ))}
+            ))}
+          </div>
+        ))
+      ) : (
+        <p className="text-xs mt-6">Please edit your education history</p>
+      )}
 
       {/* <div className="flex  gap-3 border-b text-xs mt-2">
         <img src={educationPicture} className="rounded-full w-12 h-12" />
