@@ -64,22 +64,25 @@ const EditIntroModal = ({ isOpen, onClose }) => {
   const handleEdit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:8000/users", {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          _id,
-          lastName,
-          otherNames,
-          headline,
-          currentPosition,
-          about,
-          country,
-          city,
-        }),
-      });
+      const response = await fetch(
+        "https://linked-in-clone-backend.onrender.com/users",
+        {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            _id,
+            lastName,
+            otherNames,
+            headline,
+            currentPosition,
+            about,
+            country,
+            city,
+          }),
+        }
+      );
 
       const data = await response.json();
       console.log(data);
