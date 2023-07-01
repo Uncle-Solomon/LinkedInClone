@@ -84,7 +84,7 @@ const Post = () => {
                 <h1 className="text-sm font-semibold leading-8">
                   {item.textHead}
                 </h1>
-                <p className="text-xs text-gray-400 mb-4">{item.textBody}</p>
+                <p className="text-xs text-gray-800 mb-4">{item.textBody}</p>
                 <div>
                   <img src={item.imgUrl} className="max-h-[500px] w-[100%]" />
                 </div>

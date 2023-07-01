@@ -49,6 +49,7 @@ const SideNavLeft = () => {
           <h1 className="font-bold text-lg leading-5 w-[80%] mb-4">
             {obj.lastName} {obj.otherNames}
           </h1>
+          <p className="font-semibold text-sm text-center">{obj.headline}</p>
           <p className="text-xs font-thin">
             <span className="font-semibold mr-0.5 text-sm">30</span> profile
             Views
