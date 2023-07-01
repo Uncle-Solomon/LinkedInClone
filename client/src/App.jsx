@@ -14,6 +14,7 @@ import LandingPage from "./pages/LandingPage";
 import SignUp from "./pages/SignUp";
 import SignIn from "./pages/SignIn";
 import EditUser from "./pages/EditUser";
+import ForgotPassword from "./pages/ForgotPassword";
 
 function App() {
   // const navigate = useNavigate();
@@ -84,6 +85,7 @@ function App() {
             <Route path="/profile" element={<ProfilePage />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/edit-user" element={<EditUser />} />
+            <Route path="/forgot-password" element={<ForgotPassword />} />
             <Route
               path="/signin"
               element={<SignIn signinUser={signinUser} />}

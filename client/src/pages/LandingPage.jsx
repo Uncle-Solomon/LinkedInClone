@@ -85,7 +85,12 @@ const LandingPage = ({ signinUser }) => {
                 )}
               </div>
 
-              <p className="text-sm font-semibold text-blue-600 my-7 hover:underline cursor-pointer">
+              <p
+                className="text-sm font-semibold text-blue-600 my-7 hover:underline cursor-pointer"
+                onClick={() => {
+                  navigate("/forgot-password");
+                }}
+              >
                 Forgot password?
               </p>
 
