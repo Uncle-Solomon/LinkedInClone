@@ -115,13 +115,18 @@ const LandingPage = ({ signinUser }) => {
                 Sign In with Google
               </button>
 
-              <button className="p-2 w-[90%] border border-black text-black font-semibold rounded-full my-2 hover:bg-gray-100">
+              <button
+                className="p-2 w-[90%] border border-black text-black font-semibold rounded-full my-2 hover:bg-gray-100"
+                onClick={() => {
+                  navigate("/signup");
+                }}
+              >
                 New to LinkedIn? Join now
               </button>
             </form>
           </div>
           <img
-            className="col-span-10 md:col-span-5 lg:col-span-6 my-24 w-[80%]"
+            className="hidden md:col-span-5 lg:col-span-6 my-24 w-[80%]"
             src="https://static.licdn.com/aero-v1/sc/h/dxf91zhqd2z6b0bwg85ktm5s4"
           />
         </div>
