@@ -126,7 +126,7 @@ const LandingPage = ({ signinUser }) => {
             </form>
           </div>
           <img
-            className="sm:hidden md:block md:col-span-5 lg:col-span-6 my-24 w-[80%]"
+            className="hidden md:block md:col-span-5 lg:col-span-6 my-24 w-[80%]"
             src="https://static.licdn.com/aero-v1/sc/h/dxf91zhqd2z6b0bwg85ktm5s4"
           />
         </div>
