@@ -100,7 +100,7 @@ const SignUp = () => {
             <p className="text-xs font-bold my-2">Last Name:</p>
             <input
               type="text"
-              className="w-full text-xs border cursor-pointer"
+              className="text-xs p-1 w-full border cursor-pointer"
               required
               onChange={(e) => {
                 setLastName(e.target.value);
@@ -110,7 +110,7 @@ const SignUp = () => {
             <p className="text-xs font-bold my-2">Other Names:</p>
             <input
               type="text"
-              className="w-full text-xs border cursor-pointer"
+              className="text-xs p-1 w-full border cursor-pointer"
               required
               onChange={(e) => {
                 setOtherNames(e.target.value);
@@ -119,7 +119,7 @@ const SignUp = () => {
             <p className="text-xs font-bold my-2">Gender:</p>
             <select
               type="text"
-              className="w-full text-xs p-1  border cursor-pointer"
+              className="w-full text-xs p-2  border cursor-pointer"
               required
               onChange={(e) => {
                 setGender(e.target.value);
