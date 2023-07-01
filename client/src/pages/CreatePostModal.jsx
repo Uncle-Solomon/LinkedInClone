@@ -22,9 +22,9 @@ const CreatePostModal = ({ isOpen, handleToggle }) => {
     }
   }, [navigate, userData]);
   if (!userData) {
-    console.log("There is an error");
+    //("There is an error");
   }
-  console.log(userData);
+  //(userData);
   obj = JSON.parse(userData);
 
   const handlepostCreate = async (e) => {

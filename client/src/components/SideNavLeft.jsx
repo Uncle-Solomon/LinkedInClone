@@ -22,7 +22,7 @@ const SideNavLeft = () => {
     }
   }, [navigate, userData]);
   if (userData) {
-    console.log(userData);
+    //(userData);
     obj = JSON.parse(userData);
   }
 

@@ -17,7 +17,7 @@ const EditIntroModal = ({ isOpen, onClose }) => {
     console.log("There is an error");
     navigate("/signin");
   }
-  console.log(userData);
+  //(userData);
   obj = JSON.parse(userData);
   let _id = obj._id;
   const [lastName, setlastName] = useState("");
@@ -85,7 +85,7 @@ const EditIntroModal = ({ isOpen, onClose }) => {
       );
 
       const data = await response.json();
-      console.log(data);
+      //(data);
       if (data) {
         setUserData(JSON.stringify(data.user));
         onClose();

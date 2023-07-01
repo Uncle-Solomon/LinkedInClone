@@ -22,7 +22,7 @@ const Post = () => {
           "https://linked-in-clone-backend.onrender.com/posts"
         );
         const responseData = await response.json();
-        console.log(responseData);
+        //(responseData);
         setdata(responseData.post);
       } catch (error) {
         console.error("Error fetching data:", error);

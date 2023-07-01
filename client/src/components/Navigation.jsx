@@ -32,7 +32,7 @@ const Navigation = ({ isOpen }) => {
     }
   }, [navigate, userData]);
   if (userData) {
-    console.log(userData);
+    //(userData);
     obj = JSON.parse(userData);
   }
 

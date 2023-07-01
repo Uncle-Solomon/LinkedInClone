@@ -17,9 +17,9 @@ const SignIn = ({ signinUser }) => {
     setLoading(false);
     const x = signinUser(email, password);
     x.then((result) => {
-      console.log(result);
+      //(result);
       if (result.errors) {
-        console.log(result.errors);
+        //(result.errors);
         setErr(JSON.stringify(result.errors));
         setLoading(true);
       }
