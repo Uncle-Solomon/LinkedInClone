@@ -32,6 +32,7 @@ const StartPost = ({ handleToggle }) => {
         )}
         <input
           type="text"
+          disabled
           placeholder="Start a post"
           className="h-10 w-[80%] rounded-3xl outline-none border border-gray-800 px-3 text-sm"
         />
