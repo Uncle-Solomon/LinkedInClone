@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from "react";
 import profilepicture from "../assets/test.jpg";
 import profilepictureMale from "../assets/pp.png";
 import profilepictureFemale from "../assets/ppfemale.png";
-import background from "../assets/background.png";
+import background from "../assets/background.jpg";
 import {
   BsPersonHearts,
   BsFillCalendarDateFill,
@@ -46,10 +46,10 @@ const SideNavLeft = () => {
           </div>
         </div>
         <div className="pl-3 mt-[-0.5rem]">
-          <h1 className="font-bold text-lg leading-5 w-[80%] mb-4">
+          <h1 className="font-bold text-lg leading-5 text-left w-[80%]">
             {obj.lastName} {obj.otherNames}
           </h1>
-          <p className="font-semibold text-sm md:text-center mb-2 ">
+          <p className="font-semibold text-xs md:text-sm text-gray-800 text-left mb-4 mt-1 ">
             {obj.headline}
           </p>
           <p className="text-xs font-thin">

@@ -1,6 +1,6 @@
 import React from "react";
 import profilepicture from "../../assets/test.jpg";
-import background from "../../assets/background.png";
+import background from "../../assets/background.jpg";
 
 import { FaUserPlus } from "react-icons/fa";
 import { FiArrowRight } from "react-icons/fi";

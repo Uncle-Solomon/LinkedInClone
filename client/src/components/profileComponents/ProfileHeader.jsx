@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from "react";
 import profilepictureMale from "../../assets/pp.png";
 import profilepictureFemale from "../../assets/ppfemale.png";
 
-import background from "../../assets/background.png";
+import background from "../../assets/background.jpg";
 import {
   BsPersonHearts,
   BsFillCalendarDateFill,
@@ -61,8 +61,17 @@ const ProfileHeader = ({ handleToggle, isOpen }) => {
           </h1>
           <p className="text-sm font-normal pr-3">{obj.headline}</p>
           <p className="text-xs font-thin my-3">
-            <span>Inspired Technologies Ltd.</span>{" "}
-            <span>Covenant University</span>
+            <span>
+              {obj.experience.map((item) =>
+                item.map((param) => param.companyName)
+              )}
+            </span>
+            .{" "}
+            <span>
+              {obj.education.map((item) =>
+                item.map((param) => param.UniversityName)
+              )}
+            </span>
           </p>
           <p className="text-xs font-thin my-2">
             <span>

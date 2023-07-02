@@ -60,7 +60,7 @@ const CreatePostModal = ({ isOpen, handleToggle }) => {
     <div
       className={`${
         isOpen
-          ? "absolute left-[10%] top-6 bg-white max-h-[80vh] z-50 p-6 w-[60%] rounded-lg"
+          ? "absolute left-0 top-6 bg-white h-[100vh] z-50 p-6 w-full rounded-lg"
           : "hidden"
       }`}
     >
@@ -102,7 +102,7 @@ const CreatePostModal = ({ isOpen, handleToggle }) => {
           ></textarea>
 
           <textarea
-            className="my-1 border-none text-sm h-48 lg:text-sm p-2.5 rounded-md w-full border border-gray-800 hover:border-2"
+            className="my-1 border-none text-sm h-[50vh] lg:text-sm p-2.5 rounded-md w-full border border-gray-800 hover:border-2"
             placeholder="What do you want to talk about?"
             onChange={(e) => {
               setTextBody(e.target.value);

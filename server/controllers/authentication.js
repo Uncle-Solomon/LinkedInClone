@@ -32,7 +32,7 @@ export const signup = (req, res, next) => {
     return res.status(422).json({ errors: errors });
   }
 
-  User.findOne({ email: email })
+  User.findOne({ emailOrPhoneNumber: email })
     .then((user) => {
       if (user) {
         return res
@@ -128,3 +128,47 @@ export const login = (req, res, next) => {
       res.status(500).json({ errors: err });
     });
 };
+
+export const forgotPassword = (req, res) => {
+   let { email, password, confirmPassword } = req.body;
+  let errors = [];
+  let newPassword = "";
+
+  if (password.length < 6) {
+    errors.push({ password: "Not Enough Characters" });
+  }
+  if (confirmPassword.length < 6) {
+    errors.push({ confirmPassword: "Not Enough Characters" });
+  }
+  if (password != confirmPassword) {
+    errors.push({ password: "Passwords do not match" });
+  }
+  if (errors.length > 0) {
+    return res.status(422).json({ errors: errors });
+  }
+
+  User.findOne({ emailOrPhoneNumber: email })
+  .then((user)=>{
+    if (!user) {
+      return res.status(404).json({ errors: [{ user: "not found" }] });
+    } else {
+      bcrypt.genSalt(10, (err, salt) => {
+          bcrypt.hash(password, salt, (err, hash) => {
+            if (err) throw err;
+            newPassword = hash;
+            User.findByIdAndUpdate({ _id: user._id }, {password: newPassword})
+            .then((response) => {
+              res.status(200).json({success: true, message:response})
+            }).catch((err) => {
+              res.status(500).json({ errors: [{ error: err }] });
+            })
+        });
+      });
+    }
+  })
+  .catch((err) => {
+    res.status(500).json({ errors: [{ error: err }] });
+  })
+
+
+}

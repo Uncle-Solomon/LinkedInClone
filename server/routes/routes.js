@@ -1,5 +1,5 @@
 import express from "express";
-import { signup, login } from "../controllers/authentication.js";
+import { signup, login, forgotPassword } from "../controllers/authentication.js";
 import { editUser, getAllUsers } from "../controllers/users.js";
 import { createPost, getAllPosts } from "../controllers/posts.js";
 
@@ -13,6 +13,7 @@ routes.get("/", (req, res) => {
 
 routes.post("/signup", signup);
 routes.post("/login", login);
+routes.patch("/forgot-password", forgotPassword)
 
 routes.get("/users", getAllUsers);
 routes.patch("/users", editUser);

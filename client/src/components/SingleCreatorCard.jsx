@@ -1,7 +1,7 @@
 import React from "react";
 
 import profilepicture from "../assets/test.jpg";
-import background from "../assets/background.png";
+import background from "../assets/background.jpg";
 
 import { AiOutlineClose } from "react-icons/ai";
 

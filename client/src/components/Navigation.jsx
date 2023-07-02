@@ -200,7 +200,14 @@ const Navigation = ({ isOpen }) => {
                 <h3 className="my-3 text-sm font-bold">Manage</h3>
                 <p className="my-3 text-sm font-thin">Posts & Activity</p>
                 <p className="my-3 text-sm font-thin">Job Posting Account</p>
-                <p className="my-3 text-sm font-thin">Sign Out</p>
+                <p
+                  className="my-3 text-sm font-thin"
+                  onClick={() => {
+                    navigate("/");
+                  }}
+                >
+                  Sign Out
+                </p>
               </div>
             </span>
           </li>

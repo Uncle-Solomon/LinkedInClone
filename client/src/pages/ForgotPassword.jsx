@@ -17,9 +17,37 @@ const ForgotPassword = () => {
 
   const [err, setErr] = useState("");
   const { userData, setUserData } = useContext(AppContext);
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(false);
+
+    try {
+      const response = await fetch("http://localhost:8000/forgot-password", {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email,
+          password,
+          confirmPassword,
+        }),
+      });
+
+      const data = await response.json();
+      if (data.success == true) {
+        alert("password successfully resetted");
+        navigate("/signin");
+      } else {
+        setErr(JSON.stringify(data.errors));
+        setLoading(true);
+      }
+      // console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
+
+    // navigate("/signin");
   };
 
   return (
@@ -71,7 +99,10 @@ const ForgotPassword = () => {
           />
           <button
             className="absolute right-2 top-3.5"
-            onClick={() => ToggleShowPassword(!showPassword)}
+            onClick={(e) => {
+              e.preventDefault();
+              ToggleShowPassword(!showPassword);
+            }}
           >
             <BsEye />
           </button>
@@ -96,17 +127,14 @@ const ForgotPassword = () => {
           />
           <button
             className="absolute right-2 top-3.5"
-            onClick={() => ToggleShowConfirmPassword(!showConfirmPassword)}
+            onClick={(e) => {
+              e.preventDefault();
+              ToggleShowConfirmPassword(!showPassword);
+            }}
           >
             <BsEye />
           </button>
         </div>
-
-        <p>
-          {err && (
-            <p className="text-xs font-bold my-1 text-red-900">Error: {err}</p>
-          )}
-        </p>
         {loading ? (
           <button
             type="submit"

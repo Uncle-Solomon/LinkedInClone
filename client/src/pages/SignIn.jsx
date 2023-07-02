@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { BsLinkedin } from "react-icons/bs";
+import { BsLinkedin, BsEye } from "react-icons/bs";
 import { FcGoogle } from "react-icons/fc";
 
 import { useNavigate } from "react-router-dom";
@@ -8,6 +8,7 @@ import { AppContext } from "../ContextProvider";
 const SignIn = ({ signinUser }) => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
+  const [showPassword, ToggleShowPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [err, setErr] = useState("");
@@ -70,21 +71,37 @@ const SignIn = ({ signinUser }) => {
         <p className="text-xs font-bold my-2">
           Password (6 or more characters)
         </p>
-        <input
-          type="password"
-          className="w-full p-2 rounded-md border cursor-pointer hover:bg-gray-200 hover:outline-2"
-          required
-          onChange={(e) => {
-            setPassword(e.target.value);
-          }}
-        />
+        <div className="flex relative">
+          <input
+            type={showPassword ? `text` : `password`}
+            className="w-full p-2 rounded-md border cursor-pointer hover:bg-gray-200 hover:outline-2"
+            required
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
+          />
+          <button
+            className="absolute right-2 top-3.5"
+            onClick={(e) => {
+              e.preventDefault();
+              ToggleShowPassword(!showPassword);
+            }}
+          >
+            <BsEye />
+          </button>
+        </div>
         <p>
           {err && (
             <p className="text-xs font-bold my-1 text-red-900">Error: {err}</p>
           )}
         </p>
 
-        <p className="text-sm text-blue-600 cursor-pointer my-4 font-semibold">
+        <p
+          className="text-sm text-blue-600 cursor-pointer my-4 font-semibold"
+          onClick={() => {
+            navigate("/forgot-password");
+          }}
+        >
           Forgot Password?
         </p>
 

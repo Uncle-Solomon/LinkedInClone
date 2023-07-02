@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { BsLinkedin } from "react-icons/bs";
+import { BsLinkedin, BsEye } from "react-icons/bs";
 import { FcGoogle } from "react-icons/fc";
 import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
   const navigate = useNavigate();
   const [nameBox, setNameBox] = useState(false);
+  const [showPassword, ToggleShowPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [lastName, setLastName] = useState("");
   const [password, setPassword] = useState("");
@@ -66,7 +67,7 @@ const SignUp = () => {
           <p className="text-xs font-bold my-2">Email or phone number</p>
           <input
             type="email"
-            className="text-xs p-1 w-full  border cursor-pointer"
+            className="w-full p-2 rounded-md border cursor-pointer hover:bg-gray-200 hover:outline-2"
             required
             onChange={(e) => {
               setEmail(e.target.value);
@@ -76,14 +77,25 @@ const SignUp = () => {
           <p className="text-xs font-bold my-2">
             Password (6 or more characters)
           </p>
-          <input
-            type="password"
-            className="text-xs p-1 w-full border cursor-pointer"
-            required
-            onChange={(e) => {
-              setPassword(e.target.value);
-            }}
-          />
+          <div className="flex relative">
+            <input
+              type={showPassword ? `text` : `password`}
+              className="w-full p-2 rounded-md border cursor-pointer hover:bg-gray-200 hover:outline-2"
+              required
+              onChange={(e) => {
+                setPassword(e.target.value);
+              }}
+            />
+            <button
+              className="absolute right-2 top-3.5"
+              onClick={(e) => {
+                e.preventDefault();
+                ToggleShowPassword(!showPassword);
+              }}
+            >
+              <BsEye />
+            </button>
+          </div>
 
           <p className="text-xs text-center text-gray-500 mt-4 font-semibold mb-4">
             By clicking Agree & Join, you agree to the LinkedIn{" "}
@@ -100,7 +112,7 @@ const SignUp = () => {
             <p className="text-xs font-bold my-2">Last Name:</p>
             <input
               type="text"
-              className="text-xs p-1 w-full border cursor-pointer"
+              className="w-full p-2 rounded-md border cursor-pointer hover:bg-gray-200 hover:outline-2"
               required
               onChange={(e) => {
                 setLastName(e.target.value);
@@ -110,7 +122,7 @@ const SignUp = () => {
             <p className="text-xs font-bold my-2">Other Names:</p>
             <input
               type="text"
-              className="text-xs p-1 w-full border cursor-pointer"
+              className="w-full p-2 rounded-md border cursor-pointer hover:bg-gray-200 hover:outline-2"
               required
               onChange={(e) => {
                 setOtherNames(e.target.value);

@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { AppContext } from "../ContextProvider";
+import { BsEye } from "react-icons/bs";
 
 import LoginNavigation from "../components/landingPageComponents/LoginNavigation";
 import Explore from "../components/landingPageComponents/Explore";
@@ -15,6 +16,7 @@ const LandingPage = ({ signinUser }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(true);
+  const [showPassword, ToggleShowPassword] = useState(false);
   const { userData, setUserData } = useContext(AppContext);
 
   const [err, setErr] = useState("");
@@ -70,14 +72,25 @@ const LandingPage = ({ signinUser }) => {
               </div>
               <div>
                 <p className="text-sm my-2 font-semibold">Password</p>
-                <input
-                  type="password"
-                  className="p-3 w-[90%] border border-black hover:bg-gray-200 rounded-md"
-                  required
-                  onChange={(e) => {
-                    setPassword(e.target.value);
-                  }}
-                />
+                <div className="flex relative">
+                  <input
+                    type={showPassword ? `text` : `password`}
+                    className="p-3 w-[90%] border border-black hover:bg-gray-200 rounded-md"
+                    required
+                    onChange={(e) => {
+                      setPassword(e.target.value);
+                    }}
+                  />
+                  <button
+                    className="absolute right-12 top-4"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      ToggleShowPassword(!showPassword);
+                    }}
+                  >
+                    <BsEye />
+                  </button>
+                </div>
                 {err && (
                   <p className="text-xs font-bold my-1 text-red-900">
                     Error: {err}
