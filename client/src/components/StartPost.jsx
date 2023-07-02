@@ -2,8 +2,8 @@ import React, { useContext, useEffect } from "react";
 import profilepicture from "../assets/test.jpg";
 import { HiOutlinePhotograph } from "react-icons/hi";
 import { BsFillPlayBtnFill, BsFillCalendarDateFill } from "react-icons/bs";
-import profilepictureMale from "../assets/pp.png";
-import profilepictureFemale from "../assets/ppfemale.png";
+import profilepictureMale from "../assets/pp.jpg";
+import profilepictureFemale from "../assets/ppfemale.jpg";
 import { MdArticle } from "react-icons/md";
 
 import { AppContext } from "../ContextProvider";

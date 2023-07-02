@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ajanaku from "../assets/ajanaku.jpeg";
-import profilepictureMale from "../assets/pp.png";
-import profilepictureFemale from "../assets/ppfemale.png";
+import profilepictureMale from "../assets/pp.jpg";
+import profilepictureFemale from "../assets/ppfemale.jpg";
 // import dataPicture from "../assets/data.jpg";
 import { ColorRing } from "react-loader-spinner";
 

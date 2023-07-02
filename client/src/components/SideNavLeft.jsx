@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import profilepicture from "../assets/test.jpg";
-import profilepictureMale from "../assets/pp.png";
-import profilepictureFemale from "../assets/ppfemale.png";
+import profilepictureMale from "../assets/pp.jpg";
+import profilepictureFemale from "../assets/ppfemale.jpg";
 import background from "../assets/background.jpg";
 import {
   BsPersonHearts,

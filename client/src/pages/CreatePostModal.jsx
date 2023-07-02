@@ -6,8 +6,8 @@ import { MdCancel, MdOutlineCancel } from "react-icons/md";
 import { HiOutlinePhotograph } from "react-icons/hi";
 import { FaPaperPlane } from "react-icons/fa";
 import ebuka from "../assets/test.jpg";
-import profilepictureMale from "../assets/pp.png";
-import profilepictureFemale from "../assets/ppfemale.png";
+import profilepictureMale from "../assets/pp.jpg";
+import profilepictureFemale from "../assets/ppfemale.jpg";
 
 const CreatePostModal = ({ isOpen, handleToggle }) => {
   const [textHead, setTextHead] = useState("");

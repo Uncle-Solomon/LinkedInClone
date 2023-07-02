@@ -4,8 +4,8 @@ import { useNavigate } from "react-router-dom";
 
 import logo from "../assets/Logo.png";
 import profilepicture from "../assets/test.jpg";
-import profilepictureMale from "../assets/pp.png";
-import profilepictureFemale from "../assets/ppfemale.png";
+import profilepictureMale from "../assets/pp.jpg";
+import profilepictureFemale from "../assets/ppfemale.jpg";
 import { MdHome, MdRssFeed } from "react-icons/md";
 import {
   BsPersonPlusFill,
