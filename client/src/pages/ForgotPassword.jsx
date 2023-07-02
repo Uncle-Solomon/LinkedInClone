@@ -22,17 +22,20 @@ const ForgotPassword = () => {
     setLoading(false);
 
     try {
-      const response = await fetch("http://localhost:8000/forgot-password", {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email,
-          password,
-          confirmPassword,
-        }),
-      });
+      const response = await fetch(
+        "https://linked-in-clone-backend.onrender.com/forgot-password",
+        {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email,
+            password,
+            confirmPassword,
+          }),
+        }
+      );
 
       const data = await response.json();
       if (data.success == true) {
@@ -129,7 +132,7 @@ const ForgotPassword = () => {
             className="absolute right-2 top-3.5"
             onClick={(e) => {
               e.preventDefault();
-              ToggleShowConfirmPassword(!showPassword);
+              ToggleShowConfirmPassword(!showConfirmPassword);
             }}
           >
             <BsEye />
