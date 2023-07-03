@@ -5,6 +5,7 @@ import { AiOutlinePlus } from "react-icons/ai";
 import { BsPencil } from "react-icons/bs";
 
 import educationPicture from "../../assets/education.jpg";
+import { MdDelete } from "react-icons/md";
 
 const Education = ({ isOpen, handleToggle }) => {
   const navigate = useNavigate();
@@ -30,6 +31,7 @@ const Education = ({ isOpen, handleToggle }) => {
         <div className="flex gap-2 cursor-pointer">
           <AiOutlinePlus onClick={handleToggle} />
           <BsPencil onClick={handleToggle} />
+          <MdDelete />
         </div>
       </div>
       {obj.education ? (

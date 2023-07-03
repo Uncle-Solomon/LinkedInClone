@@ -6,6 +6,7 @@ import { BsPencil } from "react-icons/bs";
 
 import background from "../../assets/favicon.ico";
 import sec from "../../assets/sec.jpeg";
+import { BiTrash } from "react-icons/bi";
 
 const Experience = ({ isOpen, handleToggle }) => {
   const navigate = useNavigate();
@@ -16,10 +17,39 @@ const Experience = ({ isOpen, handleToggle }) => {
       navigate("/signin");
     }
   }, [navigate, userData]);
-  if (userData) {
+  if (!userData) {
     //(userData);
-    obj = JSON.parse(userData);
+    console.log("There is an error");
+    navigate("/signin");
   }
+
+  obj = JSON.parse(userData);
+  let _id = obj._id;
+
+  const deletePosition = async () => {
+    try {
+      const response = await fetch("http://localhost:8000/users/add-position", {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          _id,
+        }),
+      });
+
+      const data = await response.json();
+      //(data);
+      if (data) {
+        setUserData(JSON.stringify(data));
+        onClose();
+      }
+    } catch (error) {
+      alert(
+        "There is an issue with communicatng with the backend, please give it some time :)"
+      );
+    }
+  };
   return (
     <div
       className={`rounded-md p-6 w-[95%] mx-auto shadow-md  z-0 my-2  ${
@@ -28,14 +58,15 @@ const Experience = ({ isOpen, handleToggle }) => {
     >
       <div className="flex justify-between">
         <h1>Experience</h1>
-        <div className="flex gap-2 cursor-pointer">
+        <div className="flex gap-4 cursor-pointer">
           <AiOutlinePlus onClick={handleToggle} />
           <BsPencil onClick={handleToggle} />
+          <BiTrash onClick={deletePosition} />
         </div>
       </div>
       <div>
         {obj.experience ? (
-          [...obj.education].reverse().map((item) => (
+          [...obj.experience].reverse().map((item) => (
             <div className="flex  gap-3 border-b text-xs mt-2">
               {item.map((param) => (
                 <div className="flex  gap-3 border-b text-xs mt-2">
