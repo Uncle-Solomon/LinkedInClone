@@ -51,5 +51,33 @@ export const addPosition = async (req, res) => {
     skills: workSkills,
   };
 
-  res.status(200).json({ experienceObj });
+  User.findByIdAndUpdate(
+    userId,
+    { $push: { experience: experienceObj } },
+    { new: true }
+  )
+    .then((user) => {
+      res.status(200).json(user);
+    })
+    .catch((err) => {
+      res.status(500).json({ error: err.message });
+    });
+
+  // res.status(200).json({ experienceObj });
+};
+
+export const deletePosition = (req, res) => {
+  const userId = req.body._id;
+  // Find the user by ID and update the experience field
+  User.findByIdAndUpdate(
+    userId,
+    { $pop: { experience: 1 } }, // Use $pop with a value of 1 to remove the last element from the array
+    { new: true }
+  )
+    .then((user) => {
+      res.status(200).json(user);
+    })
+    .catch((err) => {
+      res.status(500).json({ error: err.message });
+    });
 };

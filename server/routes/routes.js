@@ -4,7 +4,12 @@ import {
   login,
   forgotPassword,
 } from "../controllers/authentication.js";
-import { addPosition, editUser, getAllUsers } from "../controllers/users.js";
+import {
+  addPosition,
+  editUser,
+  getAllUsers,
+  deletePosition,
+} from "../controllers/users.js";
 import { createPost, getAllPosts } from "../controllers/posts.js";
 
 const routes = express.Router();
@@ -22,6 +27,7 @@ routes.patch("/forgot-password", forgotPassword);
 routes.get("/users", getAllUsers);
 routes.patch("/users", editUser);
 routes.patch("/users/add-position", addPosition);
+routes.delete("/users/add-position", deletePosition);
 
 routes.post("/posts", createPost);
 routes.get("/posts", getAllPosts);

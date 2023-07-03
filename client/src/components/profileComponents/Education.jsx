@@ -33,7 +33,7 @@ const Education = ({ isOpen, handleToggle }) => {
         </div>
       </div>
       {obj.education ? (
-        obj.education.map((item) => (
+        [...obj.education].reverse().map((item) => (
           <div>
             {item.map((param) => (
               <div className="flex  gap-3 border-b text-xs mt-2">

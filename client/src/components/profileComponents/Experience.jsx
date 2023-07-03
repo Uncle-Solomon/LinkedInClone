@@ -35,7 +35,7 @@ const Experience = ({ isOpen, handleToggle }) => {
       </div>
       <div>
         {obj.experience ? (
-          obj.experience.map((item) => (
+          [...obj.education].reverse().map((item) => (
             <div className="flex  gap-3 border-b text-xs mt-2">
               {item.map((param) => (
                 <div className="flex  gap-3 border-b text-xs mt-2">

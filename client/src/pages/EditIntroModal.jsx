@@ -88,7 +88,7 @@ const EditIntroModal = ({ isOpen, onClose }) => {
       const data = await response.json();
       //(data);
       if (data) {
-        setUserData(JSON.stringify(data.user));
+        setUserData(JSON.stringify(data));
         onClose();
       }
     } catch (error) {
@@ -412,6 +412,7 @@ const EditIntroModal = ({ isOpen, onClose }) => {
         <button
           className="flex mt-2 p-1 px-2 bg-blue-600 text-white rounded-xl text-sm "
           type="submit"
+          onClick={handleExperience}
         >
           Save
         </button>
