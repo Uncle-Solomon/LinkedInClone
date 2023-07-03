@@ -1,5 +1,12 @@
 import User from "../db/models/Users.js";
 
+const convertIso = (x, y) => {
+  let dateStr = `${x} 22, ${y} 14:38:26.484`;
+  let dateObj = new Date(dateStr);
+
+  return dateObj.toISOString();
+};
+
 export const getAllUsers = async (req, res) => {
   const users = await User.find({});
   res.status(200).json({ users });
@@ -32,12 +39,6 @@ export const addPosition = async (req, res) => {
     workSkills,
   } = req.body;
 
-  const convertIso = (x, y) => {
-    let dateStr = `${x} 22, ${y}`;
-    let dateObj = new Date(dateStr);
-
-    return dateObj.toISOString();
-  };
   const workStartDate = convertIso(workStartDateMonth, workStartDateYear);
   const workEndDate = convertIso(workEndDateMonth, workEndDateYear);
   experienceObj = {
@@ -66,12 +67,68 @@ export const addPosition = async (req, res) => {
   // res.status(200).json({ experienceObj });
 };
 
+export const addEducation = async (req, res) => {
+  const userId = req.body._id;
+  let educationObj = {};
+  const {
+    school,
+    degree,
+    fieldOfStudy,
+    schoolSkills,
+    schoolStartDateMonth,
+    schoolEndDateMonth,
+    schoolStartDateYear,
+    schoolEndDateYear,
+  } = req.body;
+
+  const schoolStartDate = convertIso(schoolStartDateMonth, schoolStartDateYear);
+  const schoolEndDate = convertIso(schoolEndDateMonth, schoolEndDateYear);
+  educationObj = {
+    UniversityName: school,
+    degree: degree,
+    fieldOfStudy: fieldOfStudy,
+    startDate: schoolStartDate,
+    endDate: schoolEndDate,
+    skills: schoolSkills,
+  };
+
+  User.findByIdAndUpdate(
+    userId,
+    { $push: { education: educationObj } },
+    { new: true }
+  )
+    .then((user) => {
+      res.status(200).json(user);
+    })
+    .catch((err) => {
+      res.status(500).json({ error: err.message });
+    });
+
+  // res.status(200).json({ experienceObj });
+};
+
 export const deletePosition = (req, res) => {
   const userId = req.body._id;
   // Find the user by ID and update the experience field
   User.findByIdAndUpdate(
     userId,
     { $pop: { experience: 1 } }, // Use $pop with a value of 1 to remove the last element from the array
+    { new: true }
+  )
+    .then((user) => {
+      res.status(200).json(user);
+    })
+    .catch((err) => {
+      res.status(500).json({ error: err.message });
+    });
+};
+
+export const deleteEducation = (req, res) => {
+  const userId = req.body._id;
+  // Find the user by ID and update the experience field
+  User.findByIdAndUpdate(
+    userId,
+    { $pop: { education: 1 } }, // Use $pop with a value of 1 to remove the last element from the array
     { new: true }
   )
     .then((user) => {

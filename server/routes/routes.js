@@ -9,6 +9,8 @@ import {
   editUser,
   getAllUsers,
   deletePosition,
+  addEducation,
+  deleteEducation,
 } from "../controllers/users.js";
 import { createPost, getAllPosts } from "../controllers/posts.js";
 
@@ -28,6 +30,9 @@ routes.get("/users", getAllUsers);
 routes.patch("/users", editUser);
 routes.patch("/users/add-position", addPosition);
 routes.delete("/users/add-position", deletePosition);
+
+routes.patch("/users/add-education", addEducation);
+routes.delete("/users/add-education", deleteEducation);
 
 routes.post("/posts", createPost);
 routes.get("/posts", getAllPosts);

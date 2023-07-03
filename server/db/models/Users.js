@@ -9,6 +9,10 @@ const educationSchema = new mongoose.Schema({
     type: String,
     required: false,
   },
+  fieldOfStudy: {
+    type: String,
+    required: false,
+  },
   startDate: {
     type: Date,
     required: false,
