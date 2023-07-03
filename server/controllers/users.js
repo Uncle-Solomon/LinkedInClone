@@ -7,17 +7,6 @@ export const getAllUsers = async (req, res) => {
 
 export const editUser = async (req, res) => {
   const userId = req.body._id;
-  // const {
-  //   _id,
-  //   lastName,
-  //   otherNames,
-  //   headline,
-  //   currentPosition,
-  //   about,
-  //   country,
-  //   city
-  // } = req.body;
-
   const useredit = await User.findByIdAndUpdate({ _id: userId }, req.body);
   if (!useredit) {
     res.status(404).send("No user found");
@@ -25,9 +14,6 @@ export const editUser = async (req, res) => {
 
   const user = await User.findById({ _id: userId });
   res.status(200).json({ user });
-  // } catch (error) {
-  //   console.log("There is an error, says Solomon!");
-  // }
 };
 
 export const addPosition = async (req, res) => {
@@ -46,16 +32,22 @@ export const addPosition = async (req, res) => {
     workSkills,
   } = req.body;
 
+  const convertIso = (x, y) => {
+    let dateStr = `${x} 22, ${y}`;
+    let dateObj = new Date(dateStr);
+
+    return dateObj.toISOString();
+  };
+  const workStartDate = convertIso(workStartDateMonth, workStartDateYear);
+  const workEndDate = convertIso(workEndDateMonth, workEndDateYear);
   experienceObj = {
     role: title,
     employmentType: employmentType,
     companyName: companyName,
     location: companyLocation,
     locationType: locationType,
-    workStartDateMonth: workStartDateMonth,
-    workEndDateMonth: workEndDateMonth,
-    workStartDateYear: workStartDateYear,
-    workEndDateYear: workEndDateYear,
+    startDate: workStartDate,
+    endDate: workEndDate,
     skills: workSkills,
   };
 
