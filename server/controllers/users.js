@@ -15,10 +15,9 @@ export const editUser = async (req, res) => {
   //   currentPosition,
   //   about,
   //   country,
-  //   city,
+  //   city
   // } = req.body;
 
-  // try {
   const useredit = await User.findByIdAndUpdate({ _id: userId }, req.body);
   if (!useredit) {
     res.status(404).send("No user found");
@@ -29,4 +28,36 @@ export const editUser = async (req, res) => {
   // } catch (error) {
   //   console.log("There is an error, says Solomon!");
   // }
+};
+
+export const addPosition = async (req, res) => {
+  const userId = req.body._id;
+  let experienceObj = {};
+  const {
+    title,
+    employmentType,
+    companyName,
+    companyLocation,
+    locationType,
+    workStartDateMonth,
+    workEndDateMonth,
+    workStartDateYear,
+    workEndDateYear,
+    workSkills,
+  } = req.body;
+
+  experienceObj = {
+    role: title,
+    employmentType: employmentType,
+    companyName: companyName,
+    location: companyLocation,
+    locationType: locationType,
+    workStartDateMonth: workStartDateMonth,
+    workEndDateMonth: workEndDateMonth,
+    workStartDateYear: workStartDateYear,
+    workEndDateYear: workEndDateYear,
+    skills: workSkills,
+  };
+
+  res.status(200).json({ experienceObj });
 };

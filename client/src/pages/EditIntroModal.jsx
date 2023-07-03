@@ -30,14 +30,20 @@ const EditIntroModal = ({ isOpen, onClose }) => {
   const [companyLocation, setcompanyLocation] = useState("");
   const [locationType, setlocationType] = useState("");
 
-  const [workStartDate, setworkStartDate] = useState("");
-  const [workEndDate, setworkEndDate] = useState("");
+  const [workStartDateMonth, setworkStartDateMonth] = useState("");
+  const [workEndDateMonth, setworkEndDateMonth] = useState("");
+  const [workStartDateYear, setworkStartDateYear] = useState("");
+  const [workEndDateYear, setworkEndDateYear] = useState("");
+  const [workSkills, setWorkSkills] = useState("");
+
   const [school, setschool] = useState("");
   const [degree, setdegree] = useState("");
   const [fieldOfStudy, setfieldOfStudy] = useState("");
 
-  const [schoolStartDate, setschoolStartDate] = useState("");
-  const [schoolEndDate, setschoolEndDate] = useState("");
+  const [schoolStartDateMonth, setschoolStartDateMonth] = useState("");
+  const [schoolEndDateMonth, setschoolEndDateMonth] = useState("");
+  const [schoolStartDateYear, setschoolStartDateYear] = useState("");
+  const [schoolEndDateYear, setschoolEndDateYear] = useState("");
   const [about, setabout] = useState("");
 
   const [country, setcountry] = useState("");
@@ -56,8 +62,40 @@ const EditIntroModal = ({ isOpen, onClose }) => {
 
   const [editModal, setEditModal] = useState(null);
 
-  const handleExperience = (e) => {
+  const handleExperience = async (e) => {
     e.preventDefault();
+    try {
+      const response = await fetch("http://localhost:8000/users/add-position", {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          _id,
+          title,
+          employmentType,
+          companyName,
+          companyLocation,
+          locationType,
+          workStartDateMonth,
+          workEndDateMonth,
+          workStartDateYear,
+          workEndDateYear,
+          workSkills,
+        }),
+      });
+
+      const data = await response.json();
+      //(data);
+      if (data) {
+        setUserData(JSON.stringify(data.user));
+        onClose();
+      }
+    } catch (error) {
+      alert(
+        "There is an issue with communicatng with the backend, please give it some time :)"
+      );
+    }
     setposition(false);
   };
 
@@ -274,32 +312,41 @@ const EditIntroModal = ({ isOpen, onClose }) => {
           <option value="Remote">Remote</option>
         </select>
 
+        <p className="my-2 text-xs lg:text-sm">Skills</p>
+        <input
+          className="my-1 text-xs lg:text-sm p-1.5 rounded-md w-full border border-gray-800 hover:border-2"
+          type="text"
+          onChange={(e) => {
+            setWorkSkills(e.target.value);
+          }}
+        />
+
         <p className="my-2 text-xs lg:text-sm">Start date*</p>
         <div className="flex justify-between">
           <select
             className="my-1 text-xs lg:text-sm p-1.5 rounded-md w-[45%] border border-gray-800 hover:border-2"
             onChange={(e) => {
-              setworkStartDate(e.target.value);
+              setworkStartDateMonth(e.target.value);
             }}
           >
             <option>Month</option>
-            <option>January</option>
-            <option>February</option>
-            <option>March</option>
-            <option>April</option>
-            <option>May</option>
-            <option>June</option>
-            <option>July</option>
-            <option>August</option>
-            <option>September</option>
-            <option>October</option>
-            <option>November</option>
-            <option>December</option>
+            <option value="January">January</option>
+            <option value="February">February</option>
+            <option value="March">March</option>
+            <option value="April">April</option>
+            <option value="May">May</option>
+            <option value="June">June</option>
+            <option value="July">July</option>
+            <option value="August">August</option>
+            <option value="September">September</option>
+            <option value="October">October</option>
+            <option value="November">November</option>
+            <option value="December">December</option>
           </select>
           <select
             className="my-1 text-xs lg:text-sm p-1.5 rounded-md w-[45%] border border-gray-800 hover:border-2"
             onChange={(e) => {
-              setworkStartDate(e.target.value);
+              setworkStartDateYear(e.target.value);
             }}
           >
             <option>Year</option>
@@ -323,7 +370,7 @@ const EditIntroModal = ({ isOpen, onClose }) => {
           <select
             className="my-1 text-xs lg:text-sm p-1.5 rounded-md w-[45%] border border-gray-800 hover:border-2"
             onChange={(e) => {
-              setworkEndDate(e.target.value);
+              setworkEndDateMonth(e.target.value);
             }}
           >
             <option>Month</option>
@@ -343,7 +390,7 @@ const EditIntroModal = ({ isOpen, onClose }) => {
           <select
             className="my-1 text-xs lg:text-sm p-1.5 rounded-md w-[45%] border border-gray-800 hover:border-2"
             onChange={(e) => {
-              setworkEndDate(e.target.value);
+              setworkEndDateYear(e.target.value);
             }}
           >
             <option>Year</option>

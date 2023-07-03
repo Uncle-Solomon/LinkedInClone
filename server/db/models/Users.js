@@ -42,6 +42,10 @@ const experienceSchema = new mongoose.Schema({
     type: String,
     required: false,
   },
+  employmentType: {
+    type: String,
+    required: false,
+  },
   startDate: {
     type: Date,
     required: false,
