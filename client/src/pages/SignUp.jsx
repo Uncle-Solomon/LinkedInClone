@@ -22,7 +22,7 @@ const SignUp = () => {
     e.preventDefault();
     try {
       const response = await fetch(
-        "https://linked-in-clone-backend.onrender.com/signup",
+        "https://linked-in-clone-backend.vercel.app/signup",
         {
           method: "POST",
           headers: {

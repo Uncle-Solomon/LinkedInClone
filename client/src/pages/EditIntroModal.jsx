@@ -66,25 +66,28 @@ const EditIntroModal = ({ isOpen, onClose }) => {
   const handleExperience = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:8000/users/add-position", {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          _id,
-          title,
-          employmentType,
-          companyName,
-          companyLocation,
-          locationType,
-          workStartDateMonth,
-          workEndDateMonth,
-          workStartDateYear,
-          workEndDateYear,
-          workSkills,
-        }),
-      });
+      const response = await fetch(
+        "https://linked-in-clone-backend.vercel.app/users/add-position",
+        {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            _id,
+            title,
+            employmentType,
+            companyName,
+            companyLocation,
+            locationType,
+            workStartDateMonth,
+            workEndDateMonth,
+            workStartDateYear,
+            workEndDateYear,
+            workSkills,
+          }),
+        }
+      );
 
       const data = await response.json();
       //(data);
@@ -103,23 +106,26 @@ const EditIntroModal = ({ isOpen, onClose }) => {
   const handleEducationalBackground = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:8000/users/add-position", {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          _id,
-          school,
-          degree,
-          fieldOfStudy,
-          schoolSkills,
-          schoolStartDateMonth,
-          schoolEndDateMonth,
-          schoolStartDateYear,
-          schoolEndDateYear,
-        }),
-      });
+      const response = await fetch(
+        "https://linked-in-clone-backend.vercel.app/users/add-position",
+        {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            _id,
+            school,
+            degree,
+            fieldOfStudy,
+            schoolSkills,
+            schoolStartDateMonth,
+            schoolEndDateMonth,
+            schoolStartDateYear,
+            schoolEndDateYear,
+          }),
+        }
+      );
 
       const data = await response.json();
       //(data);
@@ -139,7 +145,7 @@ const EditIntroModal = ({ isOpen, onClose }) => {
     e.preventDefault();
     try {
       const response = await fetch(
-        "https://linked-in-clone-backend.onrender.com/users",
+        "https://linked-in-clone-backend.vercel.app/users",
         {
           method: "PATCH",
           headers: {

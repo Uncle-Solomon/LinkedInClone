@@ -19,7 +19,7 @@ const Post = () => {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          "https://linked-in-clone-backend.onrender.com/posts"
+          "https://linked-in-clone-backend.vercel.app/posts"
         );
         const responseData = await response.json();
         //(responseData);

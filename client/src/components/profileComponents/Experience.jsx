@@ -28,7 +28,7 @@ const Experience = ({ isOpen, handleToggle }) => {
 
   const deletePosition = async () => {
     try {
-      const response = await fetch("http://localhost:8000/users/add-position", {
+      const response = await fetch("https://linked-in-clone-backend.vercel.app/users/add-position", {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",

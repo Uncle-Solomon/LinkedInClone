@@ -29,7 +29,7 @@ const Education = ({ isOpen, handleToggle }) => {
   const deleteEducation = async () => {
     try {
       const response = await fetch(
-        "http://localhost:8000/users/add-education",
+        "https://linked-in-clone-backend.vercel.app/users/add-education",
         {
           method: "DELETE",
           headers: {

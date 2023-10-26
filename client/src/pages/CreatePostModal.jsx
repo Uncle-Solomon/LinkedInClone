@@ -31,7 +31,7 @@ const CreatePostModal = ({ isOpen, handleToggle }) => {
     e.preventDefault();
     try {
       const response = await fetch(
-        "https://linked-in-clone-backend.onrender.com/posts",
+        "https://linked-in-clone-backend.vercel.app/posts",
         {
           method: "POST",
           headers: {

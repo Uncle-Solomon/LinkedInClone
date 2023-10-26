@@ -23,7 +23,7 @@ const ForgotPassword = () => {
 
     try {
       const response = await fetch(
-        "https://linked-in-clone-backend.onrender.com/forgot-password",
+        "https://linked-in-clone-backend.vercel.app/forgot-password",
         {
           method: "PATCH",
           headers: {

@@ -25,7 +25,7 @@ function App() {
     const fetchBackend = async () => {
       try {
         const response = await fetch(
-          "https://linked-in-clone-backend.onrender.com/"
+          "https://linked-in-clone-backend.vercel.app/"
         );
         const data = await response.json();
         if ((data.success = true)) {
@@ -45,7 +45,7 @@ function App() {
     let password = param2;
     try {
       const response = await fetch(
-        "https://linked-in-clone-backend.onrender.com/login",
+        "https://linked-in-clone-backend.vercel.app/login",
         {
           method: "POST",
           headers: {
