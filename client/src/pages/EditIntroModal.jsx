@@ -39,6 +39,7 @@ const EditIntroModal = ({ isOpen, onClose }) => {
   const [school, setschool] = useState("");
   const [degree, setdegree] = useState("");
   const [fieldOfStudy, setfieldOfStudy] = useState("");
+  const [schoolSkills, setSchoolSkills] = useState("");
 
   const [schoolStartDateMonth, setschoolStartDateMonth] = useState("");
   const [schoolEndDateMonth, setschoolEndDateMonth] = useState("");
@@ -97,6 +98,41 @@ const EditIntroModal = ({ isOpen, onClose }) => {
       );
     }
     setposition(false);
+  };
+
+  const handleEducationalBackground = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch("http://localhost:8000/users/add-position", {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          _id,
+          school,
+          degree,
+          fieldOfStudy,
+          schoolSkills,
+          schoolStartDateMonth,
+          schoolEndDateMonth,
+          schoolStartDateYear,
+          schoolEndDateYear,
+        }),
+      });
+
+      const data = await response.json();
+      //(data);
+      if (data) {
+        setUserData(JSON.stringify(data));
+        onClose();
+      }
+    } catch (error) {
+      alert(
+        "There is an issue with communicatng with the backend, please give it some time :)"
+      );
+    }
+    seteducation(false);
   };
 
   const handleEdit = async (e) => {
@@ -460,12 +496,22 @@ const EditIntroModal = ({ isOpen, onClose }) => {
           }}
         />
 
+        <p className="my-2 text-xs lg:text-sm">Skiils</p>
+        <input
+          className="my-1 text-xs lg:text-sm p-1.5 rounded-md w-full border border-gray-800 hover:border-2"
+          type="text"
+          placeholder="Ex: Technical Writing, Public Speaking"
+          onChange={(e) => {
+            setSchoolSkills(e.target.value);
+          }}
+        />
+
         <p className="my-2 text-xs lg:text-sm">Start date*</p>
         <div className="flex justify-between">
           <select
             className="my-1 text-xs lg:text-sm p-1.5 rounded-md w-[45%] border border-gray-800 hover:border-2"
             onChange={(e) => {
-              setschoolStartDate(e.target.value);
+              setschoolStartDateMonth(e.target.value);
             }}
           >
             <option>Month</option>
@@ -485,7 +531,7 @@ const EditIntroModal = ({ isOpen, onClose }) => {
           <select
             className="my-1 text-xs lg:text-sm p-1.5 rounded-md w-[45%] border border-gray-800 hover:border-2"
             onChange={(e) => {
-              setschoolStartDate(e.target.value);
+              setschoolStartDateYear(e.target.value);
             }}
           >
             <option>Year</option>
@@ -509,7 +555,7 @@ const EditIntroModal = ({ isOpen, onClose }) => {
           <select
             className="my-1 text-xs lg:text-sm p-1.5 rounded-md w-[45%] border border-gray-800 hover:border-2"
             onChange={(e) => {
-              setschoolEndDate(e.target.value);
+              setschoolEndDateMonth(e.target.value);
             }}
           >
             <option>Month</option>
@@ -529,7 +575,7 @@ const EditIntroModal = ({ isOpen, onClose }) => {
           <select
             className="my-1 text-xs lg:text-sm p-1.5 rounded-md w-[45%] border border-gray-800 hover:border-2"
             onChange={(e) => {
-              setschoolEndDate(e.target.value);
+              setschoolEndDateYear(e.target.value);
             }}
           >
             <option>Year</option>
@@ -551,6 +597,7 @@ const EditIntroModal = ({ isOpen, onClose }) => {
         <button
           className="flex mt-2 p-1 px-2 bg-blue-600 text-white rounded-xl text-sm "
           type="submit"
+          onClick={handleEducationalBackground}
         >
           Save
         </button>

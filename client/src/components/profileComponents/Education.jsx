@@ -6,6 +6,7 @@ import { BsPencil } from "react-icons/bs";
 
 import educationPicture from "../../assets/education.jpg";
 import { MdDelete } from "react-icons/md";
+import { BiTrash } from "react-icons/bi";
 
 const Education = ({ isOpen, handleToggle }) => {
   const navigate = useNavigate();
@@ -16,10 +17,42 @@ const Education = ({ isOpen, handleToggle }) => {
       navigate("/signin");
     }
   }, [navigate, userData]);
-  if (userData) {
+  if (!userData) {
     //(userData);
-    obj = JSON.parse(userData);
+    console.log("There is an error");
+    navigate("/signin");
   }
+
+  obj = JSON.parse(userData);
+  let _id = obj._id;
+
+  const deleteEducation = async () => {
+    try {
+      const response = await fetch(
+        "http://localhost:8000/users/add-education",
+        {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            _id,
+          }),
+        }
+      );
+
+      const data = await response.json();
+      //(data);
+      if (data) {
+        setUserData(JSON.stringify(data));
+        onClose();
+      }
+    } catch (error) {
+      alert(
+        "There is an issue with communicatng with the backend, please give it some time :)"
+      );
+    }
+  };
   return (
     <div
       className={`rounded-md p-6 w-[95%] mx-auto shadow-md  z-0 my-2 ${
@@ -31,7 +64,7 @@ const Education = ({ isOpen, handleToggle }) => {
         <div className="flex gap-2 cursor-pointer">
           <AiOutlinePlus onClick={handleToggle} />
           <BsPencil onClick={handleToggle} />
-          <MdDelete />
+          <BiTrash onClick={deleteEducation} />
         </div>
       </div>
       {obj.education ? (
